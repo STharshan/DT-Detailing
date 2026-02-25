@@ -1,8 +1,8 @@
 
 export default function About() {
   const images = [
-    '/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg',
-    '/5.jpeg', '/6.jpeg', '/7.jpeg', '/8.jpeg'
+    '/1.webp', '/2.webp', '/3.webp', '/4.webp',
+    '/5.webp', '/6.webp', '/7.webp', '/8.webp'
   ]
 
   const scrollToContact = () => {

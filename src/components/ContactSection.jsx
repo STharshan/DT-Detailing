@@ -1,0 +1,195 @@
+import React, { useState } from "react";
+import { FiSend, FiPhone, FiClock } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa"; // Added for the button icon
+
+export default function ContactSection() {
+
+  const businessHours = [
+    { day: "Mon - Sun", time: "8 AM – 6 PM" },
+  ];
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+    message: "",
+  });
+
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // WhatsApp Configuration
+    const phoneNumber = "447474461322";
+    const text = `*Website Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.number}\n*Message:* ${formData.message}`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+    try {
+      window.open(whatsappURL, "_blank");
+      setStatusMessage("Opening WhatsApp...");
+      setStatusType("success");
+      setFormData({ name: "", email: "", number: "", message: "" });
+    } catch (error) {
+      setStatusMessage("Failed to open WhatsApp. Please try again.");
+      setStatusType("error");
+    }
+
+    setTimeout(() => {
+      setStatusMessage("");
+      setStatusType("");
+    }, 5000);
+  };
+
+  return (
+    <section id="contact" className="bg-[#FFFFFF] text-[#000000] px-6 md:px-12 lg:px-24 py-20 border-t border-[#B9BDC1]/40">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+        {/* LEFT CONTENT - UNTOUCHED */}
+        <div className="space-y-8">
+          <div>
+            <p className="uppercase text-[#0078D6] text-sm tracking-widest mb-2">
+              // Contact
+            </p>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-[#000000]">
+              Get in Touch
+            </h2>
+            <p className="text-[#555555] max-w-md leading-relaxed">
+              No delays, no vague replies — we respond within 24 hours to
+              schedule your personalised discovery call.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
+              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                    <FiSend size={18} />
+                  </div>
+                  <h3 className="font-semibold text-[#000000]">Chat with us</h3>
+                </div>
+                <a href="mailto:dominicturton2@gmail.com" className="text-[#555555] hover:text-gray-700 text-sm truncate">dominicturton2@gmail.com</a>
+              </div>
+            </div>
+
+            <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
+              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                    <FiPhone size={18} />
+                  </div>
+                  <h3 className="font-semibold text-[#000000]">Call Us</h3>
+                </div>
+                <a href="tel:+447474461322" className="text-[#555555] hover:text-gray-700 text-sm">+44 7474 461322</a>
+              </div>
+            </div>
+
+            <div className="sm:col-span-2 border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
+              <div className="bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                    <FiClock size={18} />
+                  </div>
+                  <h3 className="font-semibold text-[#000000]">Opening Hours</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  {businessHours.map((item, idx) => (
+                    <div key={idx} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
+                      <span className="text-[#888888] text-[10px] uppercase tracking-wider font-bold">{item.day}</span>
+                      <span className={`font-medium ${item.time === "Closed" ? "text-[#B62025] dark:text-[#FF4B4B]" : "text-[#555555]"}`}>{item.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT CONTACT FORM - WHATSAPP UPDATED */}
+        <div className="border border-[#B9BDC1]/40 rounded-2xl p-2 shadow-[0_0_25px_rgba(0,0,0,0.05)] hover:shadow-[0_0_35px_rgba(37,211,102,0.15)] transition-all">
+          <div className="bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-8 transition-all">
+            <form className="space-y-5" onSubmit={handleSubmit}>
+
+              <div>
+                <label className="block text-xs text-[#555555] mb-2 font-bold tracking-tight">NAME</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  required
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] focus:outline-none focus:border-[#25D366] transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs text-[#555555] mb-2 font-bold tracking-tight">EMAIL</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  required
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] focus:outline-none focus:border-[#25D366] transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs text-[#555555] mb-2 font-bold tracking-tight">NUMBER</label>
+                <input
+                  type="text"
+                  name="number"
+                  value={formData.number}
+                  onChange={handleChange}
+                  placeholder="Enter your number"
+                  required
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] focus:outline-none focus:border-[#25D366] transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs text-[#555555] mb-2 font-bold tracking-tight">MESSAGE</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Enter your message"
+                  rows="4"
+                  required
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] focus:outline-none focus:border-[#25D366] transition"
+                ></textarea>
+              </div>
+
+              {statusMessage && (
+                <p className={`text-sm font-medium ${statusType === "success" ? "text-green-600" : "text-[#B62025] dark:text-[#FF4B4B]"} text-center`}>
+                  {statusMessage}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-lg transition text-sm font-medium shadow-[0_0_15px_rgba(37,211,102,0.25)] flex items-center justify-center gap-2"
+              >
+                <FaWhatsapp size={18} />
+                Send via WhatsApp
+              </button>
+
+              <p className="text-[10px] text-center text-[#888888] leading-tight px-4">
+               By submitting this form, you agree to us processing your details to respond to your enquiry in line with our Privacy Policy.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

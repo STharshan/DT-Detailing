@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
-      {/* <ScrollToTop />
-      <Navbar /> */}
+      {/* <ScrollToTop /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/services/mot" element={<Mot />} />
@@ -14,8 +16,8 @@ function App() {
         <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} /> */}
       </Routes>
-      {/* <Footer />
-      <GDPRConsent /> */}
+      <Footer />
+      {/* <GDPRConsent /> */}
     </Router>
   );
 }
