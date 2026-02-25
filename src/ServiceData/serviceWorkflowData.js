@@ -71,7 +71,7 @@ export const serviceWorkflowData = {
                 "Professional results with minimal downtime"
             ],
             outro: "We deliver reliable, high-quality maintenance cleaning to keep your vehicle looking its best all year round.",
-            image: "maintenance-clean.jpeg",
+            image: "5.webp",
             imageAlt: "Maintenance cleaning work"
         },
 
@@ -183,7 +183,7 @@ export const serviceWorkflowData = {
                 "Professional results that enhance comfort and resale value"
             ],
             outro: "We deliver meticulous deep cleaning with exceptional attention to detail and customer satisfaction.",
-            image: "deep-clean.jpeg",
+            image: "6.webp",
             imageAlt: "Deep cleaning work"
         },
 
@@ -294,7 +294,7 @@ export const serviceWorkflowData = {
                 "Increased vehicle value and showroom-style finish"
             ],
             outro: "We deliver professional paint enhancement with meticulous attention to detail and premium finishing standards.",
-            image: "paint-enhancement.jpeg",
+            image: "7.webp",
             imageAlt: "Paint enhancement work"
         },
 
@@ -442,7 +442,7 @@ export const serviceWorkflowData = {
                 "Reduced maintenance and easier washing"
             ],
             outro: "We deliver premium ceramic coating solutions with professional standards and attention to detail.",
-            image: "ceramic-coating.jpeg",
+            image: "8.webp",
             imageAlt: "Ceramic coating work"
         },
 

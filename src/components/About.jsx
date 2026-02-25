@@ -57,7 +57,7 @@ export default function About() {
             <button
               type="button"
               onClick={scrollToContact}
-              className="bg-linear-to-r from-[#00E5FF] via-white to-[#FF2B2B] text-black hover:opacity-90 transition px-6 py-3 rounded-md font-semibold"
+              className="bg-[#D10806] text-white hover:opacity-90 transition px-6 py-3 rounded-md font-semibold"
             >
               Contact Us
             </button>

@@ -8,7 +8,7 @@ const ServiceIcon = () => (
     height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="white"
+    stroke="#e80202" // updated to accent color
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -23,12 +23,12 @@ export default function ServicesSection({ data }) {
   if (!data) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-[linear-gradient(to_bottom,#F8FAFC,white,#EAF7F3)] ">
+    <section className="py-16 md:py-24 bg-[#000000]"> {/* Updated to black background */}
       <div className="container mx-auto px-4 max-w-6xl">
         
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0D1525]  mb-4 font-serif">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#ffffff] mb-4 font-serif"> {/* Updated to white text */}
             {data.mainTitle}
           </h2>
         </div>
@@ -42,20 +42,20 @@ export default function ServicesSection({ data }) {
             return (
               <div
                 key={index}
-                className={`bg-white  rounded-2xl p-8 border border-[#E5E7EB]  shadow-sm hover:shadow-[0_0_20px_#43AA8B33] transition-all duration-300 ${
+                className={`bg-[#c1c1c1] rounded-2xl p-8 border border-[#e80202]/20 shadow-sm hover:shadow-[0_0_20px_#e8020222] transition-all duration-300 ${ // updated border and hover shadow
                   isLastOdd ? "md:col-span-2 md:max-w-2xl md:mx-auto" : ""
                 }`}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#43AA8B] shrink-0">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#e80202]/10 shrink-0"> {/* updated icon background */}
                     <ServiceIcon />
                   </div>
-                  <h3 className="text-xl font-semibold text-[#0D1525] ">
+                  <h3 className="text-xl font-semibold text-[#ffffff]"> {/* Updated to white text */}
                     {service.title}
                   </h3>
                 </div>
 
-                <ul className="space-y-3 text-[#4B5563] ">
+                <ul className="space-y-3 text-[#ffffff]"> {/* Updated to white text */}
                   <li className="flex items-start gap-3">
                     <div className="mt-1 shrink-0">
                       <svg
@@ -64,7 +64,7 @@ export default function ServicesSection({ data }) {
                         height="20"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#43AA8B"
+                        stroke="#e80202" // updated to accent color
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -74,7 +74,7 @@ export default function ServicesSection({ data }) {
                         <path d="m9 12 2 2 4-4" />
                       </svg>
                     </div>
-                    <span className="text-lg leading-relaxed">{service.description}</span>
+                    <span className="text-lg leading-relaxed text-[#ffffff]">{service.description}</span> {/* Updated to white text */}
                   </li>
                 </ul>
               </div>

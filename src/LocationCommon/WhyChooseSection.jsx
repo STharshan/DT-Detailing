@@ -4,14 +4,15 @@ import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// Icon Renderer using your original SVG paths and colors
+// Icon Renderer
 const DynamicIcon = ({ type }) => {
   const iconStyle = {
     width: "26",
     height: "26",
     fill: "none",
-    stroke: "#43AA8B",
+    stroke: "#D10806",
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -27,7 +28,7 @@ const DynamicIcon = ({ type }) => {
     fast: (
       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
     ),
-    mobile: (
+    fullservice: ( // Fixed to match your data key
       <>
         <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
         <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -39,7 +40,7 @@ const DynamicIcon = ({ type }) => {
         <circle cx="12" cy="10" r="3" />
       </>
     ),
-    clock: (
+    expert: ( // Fixed to match your data key
       <>
         <circle cx="12" cy="12" r="10" />
         <polyline points="12 6 12 12 16 14" />
@@ -58,31 +59,37 @@ export default function WhyChooseSection({ location, data }) {
   if (!data) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-[linear-gradient(to_bottom,#F8FAFC,white,#EAF7F3)]">
+    <section className="py-16 md:py-24 bg-[#000000] swiper-custom-red">
+      {/* Inline style to override Swiper's blue theme */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .swiper-custom-red {
+          --swiper-theme-color: #e80202;
+          --swiper-navigation-size: 24px;
+        }
+        .swiper-pagination-bullet { background: #ffffff !important; opacity: 0.5; }
+        .swiper-pagination-bullet-active { background: #e80202 !important; opacity: 1; }
+      `}} />
+
       <div className="container mx-auto px-4 max-w-4xl text-center">
-        {/* Header */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0D1525] mb-4 font-serif">
-          Why Choose <span className="text-[#43AA8B]">{data.brandName}</span> for{" "}
-          {data.serviceName} in  St Helen's
+        <h2 className="text-3xl md:text-4xl font-bold text-[#ffffff] mb-4 font-serif">
+          Why Choose <span className="text-[#e80202]">{data.brandName}</span> for{" "}
+          {data.serviceName} in {location}
         </h2>
 
-        <p className="text-lg md:text-xl text-[#334155] max-w-3xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-[#ffffff] max-w-3xl mx-auto mb-10">
           {data.description}
         </p>
 
-        <h3 className="text-lg md:text-xl font-semibold text-[#0D1525] mb-8">
-          {data.sectionSubtitle}
-        </h3>
-
-        {/* Carousel */}
+        {/* Carousel Container */}
         <div className="relative max-w-xl mx-auto">
-          {/* Navigation */}
-          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 size-9 rounded-full border border-[#43AA8B]/40 text-[#43AA8B] hover:bg-[#43AA8B] hover:text-white transition z-10 hidden md:block">
-            ‹
+          
+          {/* Custom Navigation Buttons */}
+          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 size-15 rounded-full border border-[#e80202]/40 text-[#e80202] hover:bg-[#e80202]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
+            <FiChevronLeft size={24} />
           </button>
 
-          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 size-9 rounded-full border border-[#43AA8B]/40 text-[#43AA8B] hover:bg-[#43AA8B] hover:text-white transition z-10 hidden md:block">
-            ›
+          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 size-15 rounded-full border border-[#e80202]/40 text-[#e80202] hover:bg-[#e80202]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
+            <FiChevronRight size={24} />
           </button>
 
           <Swiper
@@ -95,18 +102,18 @@ export default function WhyChooseSection({ location, data }) {
             }}
             pagination={{ clickable: true }}
             autoplay={{ delay: 6000, disableOnInteraction: false }}
-            className="pb-10"
+            className="pb-12"
           >
             {data.benefits.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white border border-[#43AA8B]/20 rounded-xl shadow-sm p-10 flex flex-col items-center hover:shadow-[0_0_25px_#43AA8B22] transition">
-                  <div className="w-16 h-16 mb-6 rounded-full bg-[#43AA8B]/10 flex items-center justify-center">
+                <div className="bg-[#1a1a1a] border border-[#e80202]/20 rounded-xl p-10 flex flex-col items-center hover:shadow-[0_0_25px_#e8020222] transition min-h-75">
+                  <div className="w-16 h-16 mb-6 rounded-full bg-[#e80202]/10 flex items-center justify-center">
                     <DynamicIcon type={item.iconType} />
                   </div>
-                  <h4 className="text-xl font-semibold text-[#0D1525] mb-3">
+                  <h4 className="text-xl font-semibold text-[#ffffff] mb-3">
                     {item.title}
                   </h4>
-                  <p className="text-[#4B5563] max-w-xs">{item.description}</p>
+                  <p className="text-gray-400">{item.description}</p>
                 </div>
               </SwiperSlide>
             ))}

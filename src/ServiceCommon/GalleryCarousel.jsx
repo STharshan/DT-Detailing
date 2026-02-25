@@ -10,17 +10,17 @@ const SingleTransformation = ({ data }) => {
   const activeItem = content.items[activeIndex];
 
   return (
-    <div className="bg-white py-12 px-4 md:py-24 transition-colors duration-300">
+    <div className="bg-black py-12 px-4 md:py-24 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 space-y-3">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white">
             THE <span className="text-[#F21B23]">TRANSFORMATION</span>
           </h2>
         </div>
 
         {/* Comparison Card */}
-        <div className="bg-gray-50 max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-100">
+        <div className="bg-[#424040] max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-gray-700">
           <div className="flex flex-col lg:flex-row">
             {/* Image Section */}
             <div className="relative w-full lg:w-3/5 h-100 overflow-hidden">
@@ -66,24 +66,24 @@ const SingleTransformation = ({ data }) => {
                 {/* Section Tag */}
                 <div className="flex items-center gap-2 text-[#F21B23] mb-4">
                   <ShieldCheck size={20} />
-                  <span className="text-xs font-black tracking-widest uppercase">
+                  <span className="text-xs font-black tracking-widest uppercase text-white">
                     {content.tag}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
                   {activeItem.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-10">
+                <p className="text-gray-300 leading-relaxed mb-10">
                   {content.description || activeItem.description}
                 </p>
               </div>
 
               {/* Control Buttons */}
-              <div className="grid grid-cols-2 gap-3 p-1.5 bg-gray-200 rounded-2xl mb-4">
+              <div className="grid grid-cols-2 gap-3 p-1.5 bg-gray-700 rounded-2xl mb-4">
                 <button
                   onClick={() => setIsAfter(false)}
                   className={`py-4 rounded-xl text-xs font-black transition-all duration-300 ${

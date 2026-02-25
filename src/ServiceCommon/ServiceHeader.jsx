@@ -2,12 +2,12 @@ import React from "react";
 
 const ServiceHeader = ({ data }) => {
   return (
-    <div className=" bg-white text-black">
+    <div className="bg-black text-white"> {/* Set bg-black and text-white */}
       {/* Breadcrumbs */}
-      <header className="px-6 py-4 max-w-7xl  pt-30 mx-auto">
-        <nav className="text-xs md:text-sm text-[#404143]">
+      <header className="px-6 py-4 max-w-7xl pt-30 mx-auto">
+        <nav className="text-xs md:text-sm text-[#BBBBBB]">
           Home / <span>Service</span> /{" "}
-          <span className="text-black font-medium">
+          <span className="text-white font-medium">
             {data.breadcrumbTitle}
           </span>
         </nav>
@@ -21,12 +21,12 @@ const ServiceHeader = ({ data }) => {
               {data.title}
             </h1>
 
-            <p className="text-[#404143] text-lg leading-relaxed max-w-xl">
+            <p className="text-[#BBBBBB] text-lg leading-relaxed max-w-xl">
               {data.description}
             </p>
           </div>
 
-          {/* CTA BUTTON – OLD CODE FIX */}
+          {/* CTA BUTTON */}
           <div className="shrink-0">
             <a
               href={data.whatsappLink}
@@ -46,7 +46,7 @@ const ServiceHeader = ({ data }) => {
             alt={data.title}
             className="w-full h-75 md:h-150 object-top"
           />
-          <div className="absolute inset-0 bg-black/5" />
+          <div className="absolute inset-0 bg-black/50" /> {/* Slightly darker overlay */}
         </div>
       </main>
     </div>

@@ -11,17 +11,17 @@ export default function FinalCTASection({ data }) {
   };
 
   return (
-    <section className="py-20 bg-[linear-gradient(to_bottom_right,#F8FAFC,white,#EAF7F3)]">
+    <section className="py-20 bg-[#000000]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0D1525] mb-6 font-serif">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#ffffff] mb-6 font-serif"> {/* White text for title */}
             {data.title}
           </h2>
 
-          <p className="text-lg md:text-xl text-[#4B5563] mb-4 leading-relaxed">
+          <p className="text-lg md:text-xl text-[#ffffff] mb-4 leading-relaxed"> {/* White text for description */}
             {data.line1}
           </p>
-          <p className="text-lg md:text-xl text-[#4B5563] mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-[#ffffff] mb-10 leading-relaxed"> {/* White text for description */}
             {data.line2}
           </p>
 
@@ -30,7 +30,7 @@ export default function FinalCTASection({ data }) {
             {/* Hardcoded Phone Number */}
             <a
               href="tel:+448081371961"
-              className="inline-flex items-center justify-center gap-2 rounded-md font-medium bg-[#43AA8B] hover:bg-[#318F6F] text-white h-12 px-8 shadow-[0_0_20px_#43AA8B33] hover:shadow-[0_0_25px_#43AA8B55] transition-all w-full sm:w-auto text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-md font-medium bg-[#e80202] hover:bg-[#c1c1c1] text-white hover:text-black h-12 px-8 shadow-[0_0_20px_#e8020222] hover:shadow-[0_0_25px_#e8020255] transition-all w-full sm:w-auto text-base"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +50,14 @@ export default function FinalCTASection({ data }) {
             </a>
 
             <HashLink to="/#contact" scroll={scrollWithOffset}>
-              <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium border border-[#43AA8B]/30 bg-white text-[#0D1525] hover:bg-[#EAF7F3] hover:border-[#43AA8B]/60 h-12 px-8 transition-all duration-300 w-full sm:w-auto text-base">
+              <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium border border-[#e80202]/30 bg-white text-[#0D1525] hover:bg-[#EAF7F3] hover:border-[#e80202]/60 h-12 px-8 transition-all duration-300 w-full sm:w-auto text-base">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#43AA8B"
+                  stroke="#e80202"  // Accent color for the icon
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

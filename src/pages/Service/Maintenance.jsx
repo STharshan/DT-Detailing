@@ -10,7 +10,7 @@ const MaintenanceClean = () => {
   return (
     <div>
       <ServiceHeader data={serviceHeaderData.MaintenanceClean}/>
-      <ServiceSection data={serviceWorkflowData.maintenanceCleanService}/>
+      <ServiceSection data={serviceWorkflowData.maintenanceClean}/>
       <SingleTransformation data={Gallery.maintenanceClean} />
     </div>
   )

@@ -16,7 +16,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative h-screen flex items-center bg-[linear-gradient(to_br,#F8FAFC,white,#EAF7F3)]">
+    <section className="relative h-screen flex items-center bg-[#000000]">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -33,15 +33,15 @@ export default function HeroSection({
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-4xl mx-auto text-center">
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 mt-10 text-[#0D1525]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 mt-10 text-[#ffffff]">
               {title}
             </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl text-[#334155] mb-8">
+            <p className="text-xl md:text-2xl lg:text-3xl text-[#ffffff] mb-8">
               {subtitle}
             </p>
 
-            <p className="text-base md:text-lg lg:text-xl text-[#4B5563] leading-relaxed mb-12 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-[#ffffff] leading-relaxed mb-12 max-w-3xl mx-auto">
               {description}
             </p>
 
@@ -50,7 +50,7 @@ export default function HeroSection({
 
               {/* Main Button (Scroll) */}
               <HashLink to={buttonLink} scroll={scrollWithOffset}>
-                <button className="inline-flex items-center justify-center gap-2 bg-[#43AA8B] hover:bg-[#318F6F] text-white font-medium rounded-md h-12 px-8 transition-all shadow-md">
+                <button className="inline-flex items-center justify-center gap-2 hover:bg-[#c1c1c1] bg-[#e80202] text-white hover:text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md">
                   {buttonText}
                 </button>
               </HashLink>
@@ -58,7 +58,7 @@ export default function HeroSection({
               {/* Call Button */}
               <a
                 href={`tel:${callNumber}`}
-                className="inline-flex items-center justify-center gap-2 bg-[#9C79B3] hover:bg-[#86629E] text-white font-medium rounded-md h-12 px-8 transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-[#c1c1c1] hover:bg-[#e80202] text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md"
               >
                 Call Now
               </a>

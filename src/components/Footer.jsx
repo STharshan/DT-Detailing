@@ -23,11 +23,10 @@ const Footer = () => {
         window.location.href = '/' + path;
       }
     }
-    // If it's a route (like /diagnostics), let the default link behavior happen
   };
 
   return (
-    <footer className="bg-[#050505] pt-24 pb-12 relative overflow-hidden">
+    <footer className="bg-black pt-24 pb-12 relative overflow-hidden">
       {/* Background Big Text */}
       <div className="absolute bottom-[-10%] left-0 w-full pointer-events-none select-none overflow-hidden">
         <h2 className="text-[15vw] font-black text-white/2 uppercase leading-none tracking-tighter whitespace-nowrap">
@@ -78,9 +77,10 @@ const Footer = () => {
               {[
                 { name: 'Home', path: '/' },
                 { name: 'About Us', path: '#about' },
-                { name: 'ECU Remapping', path: '/ecu-remapping-tuning' }, // Route
-                { name: 'Diagnostics', path: '/diagnostics' },           // Route
+                { name: 'Testimonial', path: "#testimonial" },
+                { name: 'Gallery', path: "#gallery" },
                 { name: 'Contact Us', path: '#contact' }
+
               ].map((link) => (
                 <li key={link.name}>
                   <a
@@ -144,20 +144,17 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar - All Service Routes */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-gray-600 text-[10px] uppercase tracking-widest font-medium">
             © 2026 DT Details. All rights reserved.
           </p>
           <span className="hidden md:block text-white/10">|</span>
           <p className="text-gray-600 text-[10px] uppercase tracking-widest font-medium">
-            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 text-blue-900 transition-colors">Ansely</a>
+            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-[#D10806]/60 text-[#D10806] transition-colors">Ansely</a>
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest font-bold">
-            <a href="/ecu-remapping-tuning" className="text-gray-600 hover:text-brand transition-colors">Remapping</a>
-            <a href="/diagnostics" className="text-gray-600 hover:text-brand transition-colors">Diagnostics</a>
-            <a href="/dpf-egr-adblue-solutions" className="text-gray-600 hover:text-brand transition-colors">DPF/AdBlue</a>
-            <a href="/mechanical-repairs" className="text-gray-600 hover:text-brand transition-colors">Repairs</a>
-            <a href="/privacy-policy" className="text-gray-600 hover:text-brand transition-colors">Privacy</a>
+            <a href="/privacy" className="text-gray-600 hover:text-brand transition-colors hover:text-white">Privacy</a>
+            <a href="/terms" className="text-gray-600 hover:text-brand transition-colors hover:text-white">TermsConditions</a>
           </div>
         </div>
       </div>

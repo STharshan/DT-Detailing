@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiInstagram, FiMenu, FiX, FiChevronDown } from "react-icons/fi";
-import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -8,15 +8,19 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopLocationsOpen, setDesktopLocationsOpen] = useState(false);  // Add state for Locations dropdown
+  const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);  // Add state for Mobile Locations dropdown
   const servicesRef = useRef(null);
+  const locationsRef = useRef(null);  // Reference for Locations dropdown
 
   const navLinks = [
     { name: "Home", href: "/#" },
     { name: "About", href: "/#about" },
     { name: "Services", href: "/services" },
-    { name: "Testimonial", href: "/testimonial"},
+    { name: "Testimonial", href: "/#testimonial" },
     { name: "Gallery", href: "/#gallery" },
     { name: "Contact", href: "/#contact" },
+    { name: "Location", href: "#", isDropdown: true },  // Add Location as a dropdown
   ];
 
   const servicesLinks = [
@@ -24,6 +28,11 @@ const Navbar = () => {
     { name: "Deep Clean", href: "/deep-clean" },
     { name: "Paint Enhancement", href: "/paint-enhancement" },
     { name: "Ceramic Coating", href: "/ceramic-coating" },
+  ];
+
+  const locationsLinks = [
+    { name: "Sheffield", href: "/sheffield" },
+    { name: "Doncaster", href: "/doncaster" },
   ];
 
   const socialLinks = [
@@ -37,11 +46,15 @@ const Navbar = () => {
     },
   ];
 
-  // Close desktop dropdown if click outside
+  // Close dropdown if click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
+      if (
+        servicesRef.current && !servicesRef.current.contains(event.target) &&
+        locationsRef.current && !locationsRef.current.contains(event.target)
+      ) {
         setDesktopServicesOpen(false);
+        setDesktopLocationsOpen(false);  // Close Locations dropdown
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -59,12 +72,39 @@ const Navbar = () => {
           src="/logo.png"
           alt="UK Logo"
           className="w-35 h-25 object-contain"
-           loading="lazy"
+          loading="lazy"
         />
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((item) => {
+            if (item.isDropdown) {
+              return (
+                <div key={item.name} ref={locationsRef} className="relative">
+                  <button
+                    onClick={() => setDesktopLocationsOpen(!desktopLocationsOpen)}
+                    className="flex items-center gap-1 font-semibold text-white hover:text-[#e80202] transition-colors"
+                  >
+                    {item.name} <FiChevronDown />
+                  </button>
+
+                  {desktopLocationsOpen && (
+                    <div className={`absolute left-0 mt-2 w-48 z-50 p-2 ${carbonFiberStyle}`}>
+                      {locationsLinks.map((location) => (
+                        <Link
+                          key={location.name}
+                          to={location.href}
+                          className="block px-4 py-2 text-gray-200 hover:text-red-500 rounded-md"
+                        >
+                          {location.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             if (item.name === "Services") {
               return (
                 <div key={item.name} ref={servicesRef} className="relative">
@@ -76,9 +116,7 @@ const Navbar = () => {
                   </button>
 
                   {desktopServicesOpen && (
-                    <div
-                      className={`absolute left-0 mt-2 w-48 z-50 p-2 ${carbonFiberStyle}`}
-                    >
+                    <div className={`absolute left-0 mt-2 w-48 z-50 p-2 ${carbonFiberStyle}`}>
                       {servicesLinks.map((service) => (
                         <Link
                           key={service.name}
@@ -150,6 +188,30 @@ const Navbar = () => {
       {menuOpen && (
         <div className={`lg:hidden mt-2 p-4 space-y-3 ${carbonFiberStyle}`}>
           {navLinks.map((item) => {
+            if (item.isDropdown) {
+              return (
+                <div key={item.name} className="space-y-2">
+                  <button
+                    onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
+                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-red-500 font-semibold border-b border-red-500/20 last:border-0 transition-colors"
+                  >
+                    {item.name} <FiChevronDown />
+                  </button>
+                  {mobileLocationsOpen &&
+                    locationsLinks.map((location) => (
+                      <Link
+                        key={location.name}
+                        to={location.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block pl-6 py-2 text-gray-200 hover:text-red-500 transition-colors"
+                      >
+                        {location.name}
+                      </Link>
+                    ))}
+                </div>
+              );
+            }
+
             if (item.name === "Services") {
               return (
                 <div key={item.name} className="space-y-2">

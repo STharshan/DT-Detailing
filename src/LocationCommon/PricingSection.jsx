@@ -82,7 +82,7 @@ export default function PricingSection({ data }) {
 
               {/* Book Button */}
               <div className="mt-auto">
-                <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium w-full h-12 text-lg bg-[#43AA8B] hover:bg-[#318F6F] text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium w-full h-12 text-lg bg-[#43AA8B] hover:bg-[#c1c1c1] text-white transition-all duration-300 shadow-md hover:shadow-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"

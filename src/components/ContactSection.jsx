@@ -48,16 +48,16 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-[#FFFFFF] text-[#000000] px-6 md:px-12 lg:px-24 py-20 border-t border-[#B9BDC1]/40">
+    <section id="contact" className="bg-black text-white px-6 md:px-12 lg:px-24 py-20 border-t border-[#B9BDC1]/40">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* LEFT CONTENT - UNTOUCHED */}
         <div className="space-y-8">
           <div>
-            <p className="uppercase text-[#0078D6] text-sm tracking-widest mb-2">
+            <p className="uppercase text-[#D10806] text-sm tracking-widest mb-2">
               // Contact
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-[#000000]">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-white">
               Get in Touch
             </h2>
             <p className="text-[#555555] max-w-md leading-relaxed">
@@ -68,42 +68,42 @@ export default function ContactSection() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
             <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
                     <FiSend size={18} />
                   </div>
-                  <h3 className="font-semibold text-[#000000]">Chat with us</h3>
+                  <h3 className="font-semibold text-white">Chat with us</h3>
                 </div>
                 <a href="mailto:dominicturton2@gmail.com" className="text-[#555555] hover:text-gray-700 text-sm truncate">dominicturton2@gmail.com</a>
               </div>
             </div>
 
             <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="h-full bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
                     <FiPhone size={18} />
                   </div>
-                  <h3 className="font-semibold text-[#000000]">Call Us</h3>
+                  <h3 className="font-semibold text-white">Call Us</h3>
                 </div>
                 <a href="tel:+447474461322" className="text-[#555555] hover:text-gray-700 text-sm">+44 7474 461322</a>
               </div>
             </div>
 
             <div className="sm:col-span-2 border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#0078D6] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="bg-linear-to-b from-[#F9FAFC] to-[#FFFFFF] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-[#EAF4FF] rounded-lg text-[#0078D6]">
+                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
                     <FiClock size={18} />
                   </div>
-                  <h3 className="font-semibold text-[#000000]">Opening Hours</h3>
+                  <h3 className="font-semibold text-white">Opening Hours</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   {businessHours.map((item, idx) => (
                     <div key={idx} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
                       <span className="text-[#888888] text-[10px] uppercase tracking-wider font-bold">{item.day}</span>
-                      <span className={`font-medium ${item.time === "Closed" ? "text-[#B62025] dark:text-[#FF4B4B]" : "text-[#555555]"}`}>{item.time}</span>
+                      <span className={`font-medium ${item.time === "Closed" ? "text-[#B62025]" : "text-[#555555]"}`}>{item.time}</span>
                     </div>
                   ))}
                 </div>
@@ -170,7 +170,7 @@ export default function ContactSection() {
               </div>
 
               {statusMessage && (
-                <p className={`text-sm font-medium ${statusType === "success" ? "text-green-600" : "text-[#B62025] dark:text-[#FF4B4B]"} text-center`}>
+                <p className={`text-sm font-medium ${statusType === "success" ? "text-green-600" : "text-[#B62025]"} text-center`}>
                   {statusMessage}
                 </p>
               )}

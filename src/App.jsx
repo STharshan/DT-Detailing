@@ -9,11 +9,17 @@ import PaintEnhancement from "./pages/Service/PaintEnhancement";
 import CeramicCoating from "./pages/Service/CeramicCoating";
 import Sheffield from "./pages/Location/Sheffield";
 import Doncaster from "./pages/Location/Doncaster";
+import GDPRConsent from "./components/GDPRBanner";
+import ScrollToTop from "./components/ScrollTOTop";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/Term";
+import ScrollToHash from "./components/ScrollHash";
 
 function App() {
   return (
     <Router>
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
+      <ScrollToHash />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,11 +29,11 @@ function App() {
         <Route path="/ceramic-coating" element={<CeramicCoating />} />
         <Route path="/sheffield" element={<Sheffield />} />
         <Route path="/doncaster" element={<Doncaster />} />
-        {/* <Route path="/terms" element={<TermsConditions />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} /> */}
+        <Route path="/terms" element={<TermsConditions />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
-      {/* <GDPRConsent /> */}
+      <GDPRConsent />
     </Router>
   );
 }

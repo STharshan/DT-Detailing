@@ -31,7 +31,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center h-screen md:h-[80vh] lg:h-screen">
         {/* Heading */}
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 mt-20 md:mt-24 text-[#D10806]"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 mt-20 md:mt-24 text-white"
           data-aos="fade-up"
           data-aos-duration="1000"
         >

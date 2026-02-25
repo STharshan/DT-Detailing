@@ -29,7 +29,7 @@ export default function ReviewsSection() {
   }, []);
 
   return (
-    <section className="py-10 bg-[#0d1525] px-6 lg:px-16">
+    <section id="testimonial" className="py-10 bg-black px-6 lg:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-16">
