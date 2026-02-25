@@ -7,6 +7,8 @@ import MaintenanceClean from "./pages/Service/Maintenance";
 import DeepClean from "./pages/Service/DeepClean";
 import PaintEnhancement from "./pages/Service/PaintEnhancement";
 import CeramicCoating from "./pages/Service/CeramicCoating";
+import Sheffield from "./pages/Location/Sheffield";
+import Doncaster from "./pages/Location/Doncaster";
 
 function App() {
   return (
@@ -15,10 +17,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="maintenance-clean" element={<MaintenanceClean />} />
-        <Route path="deep-clean" element={<DeepClean />} />
-        <Route path="paint-enhancement" element={<PaintEnhancement />} />
-        <Route path="ceramic-coating" element={<CeramicCoating />} />
+        <Route path="/maintenance-clean" element={<MaintenanceClean />} />
+        <Route path="/deep-clean" element={<DeepClean />} />
+        <Route path="/paint-enhancement" element={<PaintEnhancement />} />
+        <Route path="/ceramic-coating" element={<CeramicCoating />} />
+        <Route path="/sheffield" element={<Sheffield />} />
+        <Route path="/doncaster" element={<Doncaster />} />
         {/* <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} /> */}
       </Routes>

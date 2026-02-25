@@ -6,36 +6,36 @@ import AppointmentSteps from "../../LocationCommon/AppointmentSteps";
 import FinalCTASection from "../../LocationCommon/FinalCTASection";
 
 import {
-  SheffieldAreas,
+  DoncasterAreas,
   Title,
   Subtitle,
   HeroData,
   footer,
   whyChooseData,
-  SheffieldServicesData,
-  SheffieldAppointmentData,
-  SheffieldCTAData
-} from "../../LocationData/Sheffield/servingAreas";
+  DoncasterServicesData,
+  DoncasterAppointmentData,
+  DoncasterCTAData
+} from "../../LocationData/Doncaster/servingAreas";
 
-function Sheffield() {
+function Doncaster() {
   return (
     <>
       <EarWaxHero {...HeroData} />
       <ServingAreasSection
-        areas={SheffieldAreas}
+        areas={DoncasterAreas}
         title={Title}
         subtitle={Subtitle}
         footer={footer}
       />
       <WhyChooseSection
-        location="Sheffield"
+        location="Doncaster"
         data={whyChooseData}
       />
-      <MicrosuctionComparison data={SheffieldServicesData} />
-      <AppointmentSteps data={SheffieldAppointmentData} />
-      <FinalCTASection data={SheffieldCTAData} />
+      <MicrosuctionComparison data={DoncasterServicesData} />
+      <AppointmentSteps data={DoncasterAppointmentData} />
+      <FinalCTASection data={DoncasterCTAData} />
     </>
   );
 }
 
-export default Sheffield;
+export default Doncaster;

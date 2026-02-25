@@ -16,7 +16,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-[linear-gradient(to_br,#F8FAFC,white,#EAF7F3)]">
+    <section className="relative h-screen flex items-center bg-[linear-gradient(to_br,#F8FAFC,white,#EAF7F3)]">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -63,27 +63,6 @@ export default function HeroSection({
                 Call Now
               </a>
             </div>
-
-            {/* Stats */}
-            {stats.length > 0 && (
-              <div className="mt-16 pt-8 border-t border-[#43AA8B]/30">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-
-                  {stats.map((item, index) => (
-                    <div key={index}>
-                      <div className="text-3xl font-bold text-[#43AA8B] mb-2">
-                        {item.value}
-                      </div>
-                      <div className="text-sm text-[#334155]">
-                        {item.label}
-                      </div>
-                    </div>
-                  ))}
-
-                </div>
-              </div>
-            )}
-
           </div>
         </div>
       </div>

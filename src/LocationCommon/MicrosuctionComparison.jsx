@@ -47,7 +47,7 @@ export default function ServicesSection({ data }) {
                 }`}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#43AA8B] flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#43AA8B] shrink-0">
                     <ServiceIcon />
                   </div>
                   <h3 className="text-xl font-semibold text-[#0D1525] ">
@@ -57,7 +57,7 @@ export default function ServicesSection({ data }) {
 
                 <ul className="space-y-3 text-[#4B5563] ">
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 flex-shrink-0">
+                    <div className="mt-1 shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"

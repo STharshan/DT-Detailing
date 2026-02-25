@@ -83,7 +83,7 @@ export default function FAQSection() {
         </div>
 
         {/* Subtle Decorative Gradient Line */}
-        <div className="mt-12 h-1 w-32 mx-auto rounded-full bg-gradient-to-r from-[#9C79B3]/40 via-[#43AA8B] to-[#9C79B3]/40"></div>
+        <div className="mt-12 h-1 w-32 mx-auto rounded-full bg-linear-to-r from-[#9C79B3]/40 via-[#43AA8B] to-[#9C79B3]/40"></div>
       </div>
     </section>
   );

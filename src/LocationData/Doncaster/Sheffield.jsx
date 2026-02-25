@@ -52,7 +52,7 @@ export default function LiverpoolMapSection() {
   const [selectedArea, setSelectedArea] = useState(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 relative z-0">
+    <section className="py-16 md:py-24 bg-linear-to-b from-white to-slate-50 relative z-0">
       <div className="container mx-auto px-4">
 
         {/* Header */}
@@ -70,7 +70,7 @@ export default function LiverpoolMapSection() {
           <div className="bg-white rounded-2xl p-4 md:p-8 shadow-2xl border border-slate-200">
 
             {/* MAP (SCROLL SAFE) */}
-            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden z-0">
+            <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden z-0">
               <MapContainer
                 center={[53.4084, -2.9916]}   // Liverpool
                 zoom={10}

@@ -70,7 +70,7 @@ export default function PricingSection({ data }) {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-5 h-5 mt-0.5 flex-shrink-0"
+                        className="w-5 h-5 mt-0.5 shrink-0"
                       >
                         <path d="M20 6 9 17l-5-5" />
                       </svg>
