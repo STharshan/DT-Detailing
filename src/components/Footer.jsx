@@ -111,8 +111,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Lower Ballacottier, Onchan IM4 5BQ,<br />
-                  Isle of Man
+                  nottignham 30 mile radius
                 </a>
               </li>
               <li className="flex flex-col">

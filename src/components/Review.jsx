@@ -63,7 +63,7 @@ export default function ReviewsSection() {
               </div>
 
               <p className="text-gray-900 mb-4">"{review.text}"</p>
-              <p className="text-[#D10806] font-semibold">- {review.author}</p>
+              <p className="text-gray-900 font-semibold">- {review.author}</p>
             </div>
           ))}
         </div>

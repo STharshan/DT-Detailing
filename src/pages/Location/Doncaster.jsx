@@ -16,6 +16,7 @@ import {
   DoncasterAppointmentData,
   DoncasterCTAData
 } from "../../LocationData/Doncaster/servingAreas";
+import FAQSection from "../../LocationCommon/FAQSection";
 
 function Doncaster() {
   return (
@@ -33,6 +34,7 @@ function Doncaster() {
       />
       <MicrosuctionComparison data={DoncasterServicesData} />
       <AppointmentSteps data={DoncasterAppointmentData} />
+      <FAQSection />
       <FinalCTASection data={DoncasterCTAData} />
     </>
   );

@@ -16,6 +16,7 @@ import {
   SheffieldAppointmentData,
   SheffieldCTAData
 } from "../../LocationData/Sheffield/servingAreas";
+import FAQSection from "../../LocationCommon/FAQSection";
 
 function Sheffield() {
   return (
@@ -33,6 +34,7 @@ function Sheffield() {
       />
       <MicrosuctionComparison data={SheffieldServicesData} />
       <AppointmentSteps data={SheffieldAppointmentData} />
+      <FAQSection />
       <FinalCTASection data={SheffieldCTAData} />
     </>
   );

@@ -80,7 +80,7 @@ const TermsConditions = () => {
                          <p><strong>DT Details</strong></p>
                         <p>Email: <a href="mailto:dominicturton2@gmail.com" className="text-red-400 hover:underline">dominicturton2@gmail.com</a></p>
                         <p>Phone: +44 7474 461322</p>
-                        <p>Address: Unit 16 Croft St, Bury BL9 7BG, United Kingdom</p>
+                        <p>Address: nottignham 30 mile radius</p>
                       </div>
                   </section>
               </div>

@@ -1,134 +1,103 @@
-import React, { useState } from "react";
+ 
 
-const categories = ["All", "Maintenance Clean", "Deep Clean", "Paint Enhancement", "Ceramic Coating"];
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const galleryItems = [
-  {
-    title: "Car Park Door Ding Repair",
-    category: "Car Park Ding Removal Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Small Door Dent Removal",
-    category: "Small Dent Removal Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Large Panel Dent Repair",
-    category: "Large Dent Removal Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Complex Quarter Panel Repair",
-    category: "Complex Large Dent Repair Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Sharp Crease Dent Removal",
-    category: "Crease Dent Repair Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Rear Bumper Dent Repair",
-    category: "Bumper Dent Removal Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-  {
-    title: "Hail Damage Restoration",
-    category: "Hail Damage Removal Service",
-    before: "/placeholder-before.jpg",
-    after: "/placeholder-after.jpg",
-  },
-];
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 
-export default function GallerySection() {
-  // Set default to "All" so the user sees everything initially
-  const [active, setActive] = useState("All");
+// Swiper styles (CDN-style)
+import "swiper/css";
+import "swiper/css/effect-coverflow";
 
-  const filtered =
-    active === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === active);
+export default function GalleryCoverflow() {
+  
+
+  const images = [
+    "1.webp",
+    "2.webp",
+    "3.webp",
+    "4.webp",
+    "5.webp",
+    "6.webp",
+    "7.webp",
+    "8.webp",
+    "9.webp",
+    "10.webp"
+  ];
 
   return (
-    <section id="gallery" className="w-full py-20 sm:py-32 bg-black transition-colors">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="gallery"
+      className="bg-black text-white py-24 "
+    >
+      {/* HEADER */}
+      <div className="text-center max-w-5xl mx-auto px-6 mb-14">
+        <h2
+          className="text-4xl md:text-5xl font-bold uppercase tracking-widest"
+          data-aos="fade-up"
+        >
+          Workshop <span className="text-[#c1c1c1]">Gallery</span>
+        </h2>
 
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-[38px] font-semibold text-white mb-4 transition-colors">
-            Before & After Gallery
-          </h2>
-          <p className="text-[18px] text-gray-300 max-w-2xl mx-auto transition-colors">
-            See the quality and precision of our paintless dent removal and enhancement work.
-          </p>
-        </div>
+        <div className="w-24 h-0.75 bg-[#D70C09] mx-auto mt-4" />
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-6 py-2 rounded-lg font-semibold text-[16px] transition
-                ${
-                  active === cat
-                    ? "bg-white text-black"
-                    : "bg-black text-white border border-gray-400"
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {filtered.map((item, index) => (
-            <div key={index} className="space-y-4">
-              {/* Title */}
-              <div className="text-center mb-2">
-                <h3 className="text-[24px] font-medium text-white transition-colors">
-                  {item.title}
-                </h3>
-              </div>
-
-              {/* Images */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* Before */}
-                <div className="relative h-60 rounded-lg overflow-hidden shadow-md group bg-gray-800 transition-colors">
-                  <img
-                    src={item.before}
-                    alt={item.title + " Before"}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 flex items-center justify-center transition">
-                    <p className="text-white font-semibold text-sm">Before</p>
-                  </div>
-                </div>
-
-                {/* After */}
-                <div className="relative h-60 rounded-lg overflow-hidden shadow-md group bg-gray-800 transition-colors">
-                  <img
-                    src={item.after}
-                    alt={item.title + " After"}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 flex items-center justify-center transition">
-                    <p className="text-white font-semibold text-sm">After</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="text-[#C0C0C0] mt-6 max-w-xl mx-auto">
+          Real work. Real results. A look inside our workshop.
+        </p>
       </div>
+
+      {/* GALLERY */}
+      <div className="max-w-6xl mx-auto px-4" data-aos="zoom-in">
+        <Swiper
+          modules={[EffectCoverflow, Autoplay]}
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView="auto"
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 120,
+            modifier: 2,
+            slideShadows: false,
+          }}
+          className="gallerySwiper"
+        >
+          {images.map((src, i) => (
+            <SwiperSlide
+              key={i}
+              className="max-w-[320px] md:max-w-105"
+            >
+              <div className="relative group rounded-md overflow-hidden border border-white/10">
+                <img
+                  src={src}
+                  alt="Workshop"
+                  loading="lazy"
+                  className="w-full h-105 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                {/* Red overlay on hover */}
+                <div className="absolute inset-0 bg-[#D70C09]/10 opacity-0 group-hover:opacity-100 transition"></div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* CUSTOM SWIPER STYLE */}
+      <style jsx global>{`
+        .gallerySwiper .swiper-slide {
+          transition: transform 0.4s ease;
+        }
+      `}</style>
     </section>
   );
 }

@@ -44,7 +44,7 @@ const ServiceHeader = ({ data }) => {
           <img
             src={data.image}
             alt={data.title}
-            className="w-full h-75 md:h-150 object-top"
+            className="w-full md:w-[80%] mx-auto h-75 md:h-100 rounded-xl object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
