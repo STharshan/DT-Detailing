@@ -111,7 +111,7 @@ const ServiceSection = () => {
           </div>
         ) : (
           /* Desktop Layout */
-          <div className="flex gap-6 h-[600px] items-stretch">
+          <div className="flex gap-6 h-150 items-stretch">
             {visibleCards.map((card, displayIndex) => {
               const isFirst = displayIndex === 0;
               return (
@@ -151,7 +151,7 @@ const ServiceSection = () => {
                         <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{card.tags}</div>
                         
                         {/* LEARN MORE BUTTON - High Z-index forced */}
-                        <div className="relative z-[999]">
+                        <div className="relative z-999">
                           <Link
                             to={card.href}
                             onClick={(e) => e.stopPropagation()}

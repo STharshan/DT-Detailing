@@ -8,15 +8,9 @@ const Gallery = {
     items: [
       {
         id: 1,
-        type: "image",
-        beforeVideo: "/lense-b.mp4",
-        afterVideo: "/lense-a.mp4",
-      },
-      {
-        id: 2,
-        type: "image",
-        before: "/Condensation1-b.jpg",
-        after: "/Condensation1-a.jpg",
+        type: "video",
+        beforeVideo: "/c.mp4",
+        afterVideo: "/d.mp4",
       },
     ]
   },
@@ -29,15 +23,9 @@ const Gallery = {
     items: [
       {
         id: 1,
-        type: "image",
-        beforeVideo: "/lense-b.mp4",
-        afterVideo: "/lense-a.mp4",
-      },
-      {
-        id: 2,
-        type: "image",
-        before: "/Condensation1-b.jpg",
-        after: "/Condensation1-a.jpg",
+        type: "video",
+        beforeVideo: "/a.mp4",
+        afterVideo: "/b.mp4",
       },
     ]
   },
@@ -48,17 +36,11 @@ const Gallery = {
       "Experience a deeper, glossier, and more refined paint finish with our professional paint enhancement service. Ideal for restoring shine and improving overall vehicle aesthetics.",
 
     items: [
-      {
+    {
         id: 1,
-        type: "image",
-        beforeVideo: "/lense-b.mp4",
-        afterVideo: "/lense-a.mp4",
-      },
-      {
-        id: 2,
-        type: "image",
-        before: "/Condensation1-b.jpg",
-        after: "/Condensation1-a.jpg",
+        type: "video",
+        beforeVideo: "/e.mp4",
+        afterVideo: "/f.mp4",
       },
     ]
   },
@@ -69,17 +51,11 @@ const Gallery = {
       "Experience unmatched paint protection and long-lasting gloss with our ceramic coating packages. Choose the right level of protection and enjoy a cleaner, shinier vehicle for years to come.",
 
     items: [
-      {
+     {
         id: 1,
-        type: "image",
-        beforeVideo: "/lense-b.mp4",
-        afterVideo: "/lense-a.mp4",
-      },
-      {
-        id: 2,
-        type: "image",
-        before: "/Condensation1-b.jpg",
-        after: "/Condensation1-a.jpg",
+        type: "video",
+        beforeVideo: "/g.mp4",
+        afterVideo: "/h.mp4",
       },
     ],
   }
