@@ -46,7 +46,7 @@ const ServiceHeader = ({ data }) => {
             alt={data.title}
             className="w-full h-75 md:h-150 object-top"
           />
-          <div className="absolute inset-0 bg-black/50" /> {/* Slightly darker overlay */}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
       </main>
     </div>
