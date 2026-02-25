@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import MaintenanceClean from "./pages/Service/Maintenance";
+import DeepClean from "./pages/Service/DeepClean";
+import PaintEnhancement from "./pages/Service/PaintEnhancement";
+import CeramicCoating from "./pages/Service/CeramicCoating";
 
 function App() {
   return (
@@ -11,9 +15,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/services/mot" element={<Mot />} />
-        <Route path="/services/brake" element={<Brake />} />
-        <Route path="/terms" element={<TermsConditions />} />
+        <Route path="maintenance-clean" element={<MaintenanceClean />} />
+        <Route path="deep-clean" element={<DeepClean />} />
+        <Route path="paint-enhancement" element={<PaintEnhancement />} />
+        <Route path="ceramic-coating" element={<CeramicCoating />} />
+        {/* <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} /> */}
       </Routes>
       <Footer />

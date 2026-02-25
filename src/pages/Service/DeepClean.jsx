@@ -6,14 +6,14 @@ import { serviceWorkflowData } from '../../ServiceData/serviceWorkflowData'
 import SingleTransformation from '../../ServiceCommon/GalleryCarousel'
 import Gallery from '../../ServiceData/Gallery'
 
-const CeramicCoating = () => {
+const DeepClean = () => {
   return (
     <div>
-      <ServiceHeader data={serviceHeaderData.CeramicCoating}/>
-      <ServiceSection data={serviceWorkflowData.ceramicCoating}/>
-      <SingleTransformation data={Gallery.ceramicCoating} />
+      <ServiceHeader data={serviceHeaderData.DeepClean}/>
+      <ServiceSection data={serviceWorkflowData.deepClean}/>
+      <SingleTransformation data={Gallery.deepClean} />
     </div>
   )
 }
 
-export default CeramicCoating;
+export default DeepClean;

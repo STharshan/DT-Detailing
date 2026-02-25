@@ -4,7 +4,7 @@ const ServiceHeader = ({ data }) => {
   return (
     <div className=" bg-white text-black">
       {/* Breadcrumbs */}
-      <header className="px-6 py-4 max-w-7xl mt-30 mx-auto">
+      <header className="px-6 py-4 max-w-7xl  pt-30 mx-auto">
         <nav className="text-xs md:text-sm text-[#404143]">
           Home / <span>Service</span> /{" "}
           <span className="text-black font-medium">
@@ -27,7 +27,7 @@ const ServiceHeader = ({ data }) => {
           </div>
 
           {/* CTA BUTTON – OLD CODE FIX */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <a
               href={data.whatsappLink}
               target="_blank"
@@ -40,11 +40,11 @@ const ServiceHeader = ({ data }) => {
         </div>
 
         {/* Hero Image */}
-        <div className="relative w-full rounded-[2rem] overflow-hidden shadow-xl">
+        <div className="relative w-full rounded-xl overflow-hidden shadow-xl">
           <img
             src={data.image}
             alt={data.title}
-            className="w-full h-[300px] md:h-[600px] object-top"
+            className="w-full h-75 md:h-150 object-top"
           />
           <div className="absolute inset-0 bg-black/5" />
         </div>

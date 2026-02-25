@@ -1,79 +1,38 @@
-import CrackRepair from "../page/CrackRepair";
-import Restoration from "../page/Restoration";
+import DeepClean from "../pages/Service/DeepClean";
 
 const serviceHeaderData = {
-  windowTinting: {
-    breadcrumbTitle: "Window Tinting",
-    title: "Window Tinting",
+  MaintenanceClean: {
+    breadcrumbTitle: "Maintenance Clean",
+    title: "Maintenance Clean",
     description:
-      "Enhance your vehicle’s comfort, privacy, and style with professional window tinting services. Our precision installations reduce heat, block harmful UV rays, and protect your interior while giving your vehicle a sleek, modern look.",
+      "Keep your vehicle fresh, clean, and protected with our professional maintenance cleaning service. Designed for regularly maintained vehicles, this service keeps your car looking immaculate inside and out with safe, high-quality cleaning methods.",
     image: "tint-a.jpeg",
-    whatsappLink: "https://wa.me/447851823807",
+    whatsappLink: "https://wa.me/447474461322",
   },
-  HeadlightServices: {
-    breadcrumbTitle: "Exterior Enhancement Services",
-    title: "Exterior Enhancement Services",
+  DeepClean: {
+    breadcrumbTitle: "Deep Clean",
+    title: "Deep Clean",
     description:
-      "Transform your vehicle’s appearance with professional exterior styling upgrades. Our body kits, spoilers, and lip kit installations enhance aerodynamics, improve road presence, and give your car a bold, performance-inspired look tailored to your style.",
+      "Restore your vehicle to a pristine condition with our professional deep cleaning service. Designed for heavily soiled or neglected vehicles, this service delivers a comprehensive interior and exterior clean to remove embedded dirt, stains, and contaminants.",
     image: "extirior-a.jpg",
-    whatsappLink: "https://wa.me/447851823807",
+    whatsappLink: "https://wa.me/447474461322",
   },
-  BuildingWindowTinting: {
-    breadcrumbTitle: "Building Window Tinting",
-    title: "Building Window Tinting",
+  PaintEnhancement: {
+    breadcrumbTitle: "Paint Enhancement",
+    title: "Paint Enhancement",
     description:
-      "Enhance privacy, reduce heat, and improve comfort with professional building window tinting. Perfect for homes, offices, terraces, and bespoke privacy requirements—installed with precision for a clean, long-lasting finish.",
+      "Restore depth, clarity, and gloss to your vehicle’s paintwork with our professional paint enhancement service. Designed to remove light scratches, swirl marks, and oxidation, this service significantly improves the appearance and finish of your car.",
     image: "building-a.jpeg",
-    whatsappLink: "https://wa.me/447851823807",
+    whatsappLink: "https://wa.me/447474461322",
   },
-  IntelligentAmbientLightInstallation: {
-    breadcrumbTitle: "Intelligent Ambient Light Installation",
-    title: "Intelligent Ambient Light Installation",
+ CeramicCoating: {
+    breadcrumbTitle: "Ceramic Coating Protection",
+    title: "Ceramic Coating Protection",
     description:
-      "Add a premium modern feel with intelligent ambient lighting. We provide clean, professional installation with safe wiring, smooth finishing, and custom lighting options that enhance style and comfort.",
+      "Protect your vehicle’s paintwork with our professional ceramic coating packages. Designed to deliver long-lasting gloss, hydrophobic protection, and resistance against environmental damage, our ceramic coatings preserve your vehicle’s finish for years.",
     image: "ambient1.jpeg",
-    whatsappLink: "https://wa.me/447851823807",
-  },
-  InteriorTrimsRestoration: {
-    breadcrumbTitle: "Interior Trims Restoration / Wrapping",
-    title: "Interior Trims Restoration / Wrapping",
-    description:
-      "Refresh your interior with professional trim restoration and wrapping. We repair worn trims and apply premium wrap finishes to upgrade your vehicle’s interior look with a clean, modern style.",
-    image: "interior.jpeg",
-    whatsappLink: "https://wa.me/447851823807",
-  },
-  Restoration: {
-    breadcrumbTitle: "Headlight Restoration",
-    title: "Headlight Restoration",
-    description:
-      "Restore clarity and improve night-time visibility with professional headlight restoration services. Our precision polishing removes oxidation and haze, protecting your headlights and giving your vehicle a clean, like-new finish.",
-    image: "Headlight Restoration-a.png",
-    whatsappLink: "https://wa.me/447851823807",
-  },
-  CrackRepair: {
-    breadcrumbTitle: "Headlight Crack Repair",
-    title: "Headlight Crack Repair",
-    description:
-      "Repair cracks and minor damage in your headlights to maintain safety and appearance. Our expert crack repair prevents moisture ingress, restores structural integrity, and keeps your lighting system performing reliably.",
-    image: "Crack-a .jpeg",
-    whatsappLink: "https://wa.me/447851823807",
-  },
-  CondensationRepair: {
-    breadcrumbTitle: "Headlight Condensation Repair",
-    title: "Headlight Condensation Repair",
-    description:
-      "Eliminate fogging and moisture buildup with professional headlight condensation repair. We identify and fix seal issues to keep your headlights clear, dry, and fully functional in all weather conditions.",
-    image: "Condensation-a.png",
-    whatsappLink: "https://wa.me/447851823807",
-  },
-  LensReplacement: {
-    breadcrumbTitle: "Headlight Lens Replacement",
-    title: "Headlight Lens Replacement",
-    description:
-      "Replace damaged or worn headlight lenses with precision-fitted, high-quality replacements. Our professional lens replacement restores visibility, safety, and your vehicle’s factory-fresh appearance.",
-    image: "Crack1-a .jpeg",
-    whatsappLink: "https://wa.me/447851823807",
-  },
+    whatsappLink: "https://wa.me/447474461322",
+  }
 
 };
 

@@ -1,58 +1,59 @@
 export const serviceWorkflowData = {
-    windowTinting: {
+    maintenanceClean: {
         // Service badge
         badge: "Service Details",
 
         // About Service Section
         aboutService: {
             title: "About this Service",
-            intro: "At Tomas Exterior, we provide premium automotive window tinting tailored to your vehicle and personal preferences. Using top-quality films and expert installation techniques, we ensure:",
+            intro: "At DT Details, we provide professional maintenance cleaning tailored to keep your vehicle in pristine condition between deeper detailing sessions. Using premium cleaning products and safe techniques, we ensure your vehicle stays spotless, protected, and refreshed.",
             features: [
-                "Heat reduction and glare control",
-                "UV ray protection for interior surfaces",
-                "Enhanced privacy for you and your passengers",
-                "A modern, stylish finish that elevates your vehicle's appearance"
+                "Exterior hand wash using the safe two-bucket wash method",
+                "Wheel and tyre cleaning with dedicated products",
+                "Interior vacuuming of seats, carpets, and boot",
+                "Dashboard, centre console, and trim wipe-down",
+                "Light exterior protection finish"
             ],
-            outro: "Our team handles every detail with precision, from measurement to installation, ensuring a smooth, bubble-free finish that lasts for years.",
+            outro: "Our maintenance clean is ideal for vehicles already in good condition that require routine upkeep to preserve their appearance and value. We focus on precision and care, ensuring every surface is cleaned safely without causing damage to paintwork, trim, or interior materials.",
 
             // What's Included
             includedTitle: "What is included?",
-            includedIntro: "Our window tinting service includes:",
+            includedIntro: "Our maintenance clean service includes:",
             includedItems: [
-                "Professional assessment of your vehicle's windows",
-                "High-quality film selection for optimal heat and UV reduction",
-                "Precise measurement and cutting of tint film",
-                "Expert installation with a flawless, long-lasting finish",
-                "Post-installation care advice and support"
+                "Exterior hand wash using safe two-bucket wash method",
+                "Wheel and tyre cleaning with dedicated products",
+                "Exterior drying and light protection finish",
+                "Interior vacuuming of seats, carpets, and boot",
+                "Dashboard, centre console, and trim wipe-down"
             ],
-            includedOutro: "We focus on precision, quality, and customer satisfaction in every project."
+            includedOutro: "We prioritise quality, efficiency, and attention to detail in every maintenance clean."
         },
 
         // How We Work Section
         howWeWork: {
             badge: "Working Process",
             title: "How We Work",
-            description: "Our streamlined process ensures a hassle-free experience while delivering high-quality results for every vehicle.",
+            description: "Our streamlined process ensures a convenient and professional service for every vehicle.",
             steps: [
                 {
                     id: "01",
                     title: "Booking & Inspection",
-                    description: "Schedule a convenient appointment. Our technicians inspect your vehicle, discuss tint options, and recommend the best solution for your needs."
+                    description: "Book your appointment at a convenient time. Our team inspects your vehicle and confirms the best maintenance approach."
                 },
                 {
                     id: "02",
                     title: "Work Planning",
-                    description: "We prepare the film and plan the installation process for a smooth, efficient workflow tailored to your vehicle."
+                    description: "We prepare the correct tools and products tailored to your vehicle’s condition and materials."
                 },
                 {
                     id: "03",
-                    title: "Fix And Install",
-                    description: "Our experts carefully install the tint, ensuring perfect alignment, no bubbles, and a professional finish."
+                    title: "Clean & Protect",
+                    description: "Our technicians perform a thorough interior and exterior maintenance clean using safe, professional methods."
                 },
                 {
                     id: "04",
                     title: "Works Completed",
-                    description: "We finalize the job with quality checks and provide post-installation advice to maintain the longevity of your tint."
+                    description: "We carry out final checks and provide care advice to help you maintain your vehicle’s cleanliness between visits."
                 }
             ]
         },
@@ -61,17 +62,17 @@ export const serviceWorkflowData = {
         benefits: {
             badge: "Benefits",
             title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for window tinting gives you:",
+            intro: "Choosing DT Details for maintenance cleaning gives you:",
             items: [
-                "Improved driving comfort with reduced heat and glare",
-                "Protection against UV damage to your interior and skin",
-                "Enhanced vehicle privacy and security",
-                "Sleek, stylish appearance that elevates your car's look",
-                "Long-lasting results from high-quality materials and professional installation"
+                "Consistently clean and fresh vehicle appearance",
+                "Protection against dirt build-up and premature wear",
+                "Improved interior hygiene and comfort",
+                "Enhanced paint and trim longevity",
+                "Professional results with minimal downtime"
             ],
-            outro: "We prioritize precision, reliability, and customer satisfaction, delivering a tint that looks great and performs even better.",
-            image: "tint-a.jpeg",
-            imageAlt: "Window tinting work"
+            outro: "We deliver reliable, high-quality maintenance cleaning to keep your vehicle looking its best all year round.",
+            image: "maintenance-clean.jpeg",
+            imageAlt: "Maintenance cleaning work"
         },
 
         // Contact Form
@@ -91,8 +92,7 @@ export const serviceWorkflowData = {
                 service: {
                     label: "Select A Service",
                     options: [
-                        "Remodelling Service",
-                        "Faucet & Leak Repairs"
+                        "Maintenance Clean"
                     ]
                 },
                 note: {
@@ -101,7 +101,7 @@ export const serviceWorkflowData = {
                     rows: 4
                 }
             },
-            submitButton: "Get Your Vehicle Tinted Today"
+            submitButton: "Get Your Vehicle Maintained Today"
         },
 
         // Theme Colors
@@ -111,175 +111,83 @@ export const serviceWorkflowData = {
         }
     },
 
-    // // You can add more services here
-    // plumbing: {
-    //     badge: "Service Details",
-    //     aboutService: {
-    //         title: "Plumbing Service",
-    //         intro: "Professional plumbing services...",
-    //         features: [
-    //             "Emergency repairs",
-    //             "Installation services",
-    //             "Maintenance and inspection"
-    //         ],
-    //         outro: "Quality plumbing solutions for your needs.",
-    //         includedTitle: "What is included?",
-    //         includedIntro: "Our plumbing service includes:",
-    //         includedItems: [
-    //             "Initial consultation",
-    //             "Professional diagnosis",
-    //             "Quality repairs",
-    //             "Follow-up support"
-    //         ],
-    //         includedOutro: "We ensure lasting solutions."
-    //     },
-    //     howWeWork: {
-    //         badge: "Working Process",
-    //         title: "How We Work",
-    //         description: "Our efficient plumbing process.",
-    //         steps: [
-    //             {
-    //                 id: "01",
-    //                 title: "Inspection",
-    //                 description: "Thorough inspection of the issue."
-    //             },
-    //             {
-    //                 id: "02",
-    //                 title: "Quote",
-    //                 description: "Transparent pricing and estimates."
-    //             },
-    //             {
-    //                 id: "03",
-    //                 title: "Repair",
-    //                 description: "Professional repair work."
-    //             },
-    //             {
-    //                 id: "04",
-    //                 title: "Quality Check",
-    //                 description: "Final inspection and testing."
-    //             }
-    //         ]
-    //     },
-    //     benefits: {
-    //         badge: "Benefits",
-    //         title: "Service Benefits",
-    //         intro: "Why choose our plumbing services:",
-    //         items: [
-    //             "Licensed professionals",
-    //             "24/7 emergency service",
-    //             "Quality parts and materials",
-    //             "Competitive pricing",
-    //             "Satisfaction guaranteed"
-    //         ],
-    //         outro: "Your trusted plumbing partner.",
-    //         image: "plumbing.jpg",
-    //         imageAlt: "Plumbing service work"
-    //     },
-    //     contactForm: {
-    //         title: "Get In Touch",
-    //         fields: {
-    //             fullName: {
-    //                 label: "Full Name",
-    //                 placeholder: "John Doe",
-    //                 type: "text"
-    //             },
-    //             phone: {
-    //                 label: "Phone",
-    //                 placeholder: "Enter your phone number",
-    //                 type: "tel"
-    //             },
-    //             service: {
-    //                 label: "Select A Service",
-    //                 options: [
-    //                     "Emergency Repair",
-    //                     "Installation",
-    //                     "Maintenance"
-    //                 ]
-    //             },
-    //             note: {
-    //                 label: "Short Note",
-    //                 placeholder: "Describe your issue",
-    //                 rows: 4
-    //             }
-    //         },
-    //         submitButton: "Request Service"
-    //     },
-    //     colors: {
-    //         primary: "#F21B23",
-    //         secondary: "#404143"
-    //     }
-    // },
-
-    HeadlightRestoration: {
+    deepClean: {
+        // Service badge
         badge: "Service Details",
 
+        // About Service Section
         aboutService: {
             title: "About this Service",
-            intro: "At Tomas Exterior, we provide professional headlight restoration to improve clarity, visibility, and the overall appearance of your vehicle. Using advanced restoration techniques and premium polishing compounds, we remove oxidation, yellowing, and surface damage to restore your headlights to like-new condition, ensuring safer night driving and a refreshed look.",
+            intro: "At DT Details, we provide an intensive deep cleaning service tailored to vehicles that require more than a routine wash. Using professional-grade products and advanced techniques, we remove stubborn dirt, grime, and interior contamination to rejuvenate your vehicle.",
             features: [
-                "Removal of oxidation, yellowing, and haze buildup",
-                "Correction of surface scratches and dullness",
-                "Advanced multi-stage sanding and polishing process",
-                "Restoration of brightness and optical clarity"
+                "Comprehensive exterior hand wash and decontamination",
+                "Deep wheel, tyre, and arch cleaning",
+                "Interior vacuuming including carpets, seats, and boot",
+                "Interior steam or chemical deep cleaning of fabrics and hard surfaces",
+                "Dashboard, trims, vents, and centre console detailed cleaning"
             ],
-            outro: "Our team carefully cleans, sands, and polishes the lenses, finishing with a protective coating to maintain clarity and durability for years to come.",
+            outro: "Our deep clean service is ideal for vehicles that have not been cleaned regularly, recently purchased used cars, or vehicles requiring a full refresh. Every detail is handled with care to ensure safe cleaning of paintwork, upholstery, leather, plastics, and delicate interior surfaces.",
 
+            // What's Included
             includedTitle: "What is included?",
-            includedIntro: "Our headlight restoration service includes:",
+            includedIntro: "Our deep clean service includes:",
             includedItems: [
-                "Thorough inspection and assessment of headlight condition",
-                "Deep cleaning and oxidation removal",
-                "Multi-stage sanding and polishing process",
-                "Application of UV-protective sealant or coating",
-                "Post-service care advice and maintenance tips"
+                "Comprehensive exterior hand wash and decontamination",
+                "Deep wheel, tyre, and arch cleaning",
+                "Interior vacuuming including carpets, seats, and boot",
+                "Interior steam or chemical deep cleaning of fabrics and hard surfaces",
+                "Dashboard, trims, vents, and centre console detailed cleaning"
             ],
-            includedOutro: "We focus on precision, quality, and customer satisfaction in every restoration project."
+            includedOutro: "We focus on thoroughness, hygiene, and restoring your vehicle’s interior and exterior condition."
         },
 
+        // How We Work Section
         howWeWork: {
             badge: "Working Process",
             title: "How We Work",
-            description: "We follow a simple, structured workflow to ensure every headlight restoration service is precise, efficient, and delivers long-lasting results.",
+            description: "Our structured process ensures a high-quality and hassle-free deep cleaning experience.",
             steps: [
                 {
                     id: "01",
                     title: "Booking & Inspection",
-                    description: "Schedule your appointment and allow our technicians to inspect your headlights and determine the restoration needs."
+                    description: "Schedule your appointment. Our technicians assess your vehicle’s condition and recommend the appropriate deep cleaning approach."
                 },
                 {
                     id: "02",
-                    title: "Surface Preparation",
-                    description: "We clean the lenses thoroughly and prepare the surface by removing oxidation and damaged layers."
+                    title: "Work Planning",
+                    description: "We prepare specialised tools and products suited to your vehicle’s materials and level of contamination."
                 },
                 {
                     id: "03",
-                    title: "Restoration & Polishing",
-                    description: "Multi-stage sanding and polishing restores clarity, smoothness, and brightness."
+                    title: "Deep Clean & Detail",
+                    description: "Our experts carry out a comprehensive interior and exterior deep clean using professional techniques and equipment."
                 },
                 {
                     id: "04",
-                    title: "Protection & Final Check",
-                    description: "We apply a UV-protective coating and perform quality checks to ensure long-lasting results."
+                    title: "Works Completed",
+                    description: "Final inspections are performed, and aftercare advice is provided to help maintain your vehicle’s cleanliness."
                 }
             ]
         },
 
+        // Service Benefits Section
         benefits: {
             badge: "Benefits",
             title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for headlight restoration gives you:",
+            intro: "Choosing DT Details for deep cleaning gives you:",
             items: [
-                "Improved night-time visibility and driving safety",
-                "Removal of yellowing, haze, and surface scratches",
-                "Enhanced vehicle appearance and resale value",
-                "Protection against future UV damage and oxidation",
-                "Cost-effective alternative to headlight replacement"
+                "Removal of stubborn stains, dirt, and odours",
+                "Improved hygiene and interior freshness",
+                "Restored appearance for neglected vehicles",
+                "Protection of interior materials and surfaces",
+                "Professional results that enhance comfort and resale value"
             ],
-            outro: "We prioritize precision, reliability, and long-lasting results for every customer.",
-            image: "Headlight Restoration-a.png",
-            imageAlt: "Headlight restoration service process"
+            outro: "We deliver meticulous deep cleaning with exceptional attention to detail and customer satisfaction.",
+            image: "deep-clean.jpeg",
+            imageAlt: "Deep cleaning work"
         },
 
+        // Contact Form
         contactForm: {
             title: "Get In Touch",
             fields: {
@@ -296,7 +204,7 @@ export const serviceWorkflowData = {
                 service: {
                     label: "Select A Service",
                     options: [
-                        "Headlight Restoration"
+                        "Deep Clean"
                     ]
                 },
                 note: {
@@ -305,84 +213,92 @@ export const serviceWorkflowData = {
                     rows: 4
                 }
             },
-            submitButton: "Book Today"
+            submitButton: "Book Your Deep Clean Today"
         },
 
+        // Theme Colors
         colors: {
             primary: "#F21B23",
             secondary: "#404143"
         }
     },
-    HeadlightCrackRepair: {
+    paintEnhancement: {
+        // Service badge
         badge: "Service Details",
 
+        // About Service Section
         aboutService: {
             title: "About this Service",
-            intro: "At Tomas Exterior, we offer expert headlight crack repair to restore structural integrity and prevent further damage. Using professional-grade repair materials and precision techniques, we repair cracks and minor splits to maintain safety, performance, and the appearance of your headlights.",
+            intro: "At DT Details, we provide professional paint enhancement services to revitalise dull or tired paintwork. Using machine polishing techniques and premium compounds, we refine the paint surface to remove imperfections and enhance gloss and clarity.",
             features: [
-                "Repair of cracks and minor splits in headlight lenses",
-                "Sealing and reinforcement to prevent moisture and dirt entry",
-                "Restoration of structural integrity and strength",
-                "Polishing and blending for a smooth, visually appealing finish"
+                "Thorough exterior wash and decontamination",
+                "Paint inspection and defect assessment",
+                "Machine polishing to reduce swirl marks and light scratches",
+                "Gloss-enhancing finishing polish for improved depth and clarity",
+                "Protective sealant or wax application for added shine and durability"
             ],
-            outro: "Our technicians carefully seal and reinforce damaged areas to ensure a durable, weather-resistant finish that protects your lighting system.",
+            outro: "Paint enhancement is ideal for vehicles with light defects, wash marks, or faded paint that do not require full paint correction but still benefit from a noticeable visual improvement. Our technicians use safe and controlled polishing methods to ensure optimal results without compromising clear coat integrity.",
 
+            // What's Included
             includedTitle: "What is included?",
-            includedIntro: "Our headlight crack repair service includes:",
+            includedIntro: "Our paint enhancement service includes:",
             includedItems: [
-                "Detailed inspection of cracks and damage severity",
-                "Cleaning and preparation of the damaged area",
-                "Professional crack sealing and structural repair",
-                "Polishing and blending for a smooth finish",
-                "Final inspection and care recommendations"
+                "Thorough exterior wash and decontamination",
+                "Paint inspection and defect assessment",
+                "Machine polishing to reduce swirl marks and light scratches",
+                "Gloss-enhancing finishing polish for improved depth and clarity",
+                "Protective sealant or wax application for added shine and durability"
             ],
-            includedOutro: "We ensure each repair meets high-quality standards and safety requirements."
+            includedOutro: "We focus on precision, quality, and achieving a high-gloss, refined finish."
         },
 
+        // How We Work Section
         howWeWork: {
             badge: "Working Process",
             title: "How We Work",
-            description: "We follow a structured process to repair headlight cracks efficiently, ensuring durability, safety, and aesthetic quality.",
+            description: "Our professional process ensures consistent, high-quality paint enhancement results.",
             steps: [
                 {
                     id: "01",
                     title: "Booking & Inspection",
-                    description: "Schedule an appointment and allow our technicians to inspect cracks and assess damage severity."
+                    description: "Book your appointment. Our team inspects the paintwork and discusses expected results and suitable treatment options."
                 },
                 {
                     id: "02",
-                    title: "Preparation",
-                    description: "Clean and prepare the damaged area to ensure a proper bond and finish."
+                    title: "Work Planning",
+                    description: "We select the appropriate polishing compounds, pads, and protection products tailored to your vehicle’s paint condition."
                 },
                 {
                     id: "03",
-                    title: "Crack Repair & Sealing",
-                    description: "Apply professional-grade repair materials and techniques to seal and reinforce the cracks."
+                    title: "Polish & Enhance",
+                    description: "Our specialists machine polish the paint to reduce defects and enhance gloss, followed by a protective finish."
                 },
                 {
                     id: "04",
-                    title: "Polishing & Final Check",
-                    description: "Blend the repaired area for a smooth finish and conduct a final inspection to guarantee quality and safety."
+                    title: "Works Completed",
+                    description: "Final inspections are carried out, and aftercare advice is provided to maintain your enhanced finish."
                 }
             ]
         },
 
+        // Service Benefits Section
         benefits: {
             badge: "Benefits",
             title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for headlight crack repair gives you:",
+            intro: "Choosing DT Details for paint enhancement gives you:",
             items: [
-                "Prevention of moisture and dirt entering the headlight unit",
-                "Improved structural strength and durability",
-                "Maintained lighting performance and road safety",
-                "Enhanced visual appearance of the headlights",
-                "Cost-effective solution compared to full replacement"
+                "Significant improvement in paint clarity and gloss",
+                "Reduction of swirl marks, light scratches, and oxidation",
+                "Enhanced vehicle appearance and visual depth",
+                "Added paint protection with sealants or wax",
+                "Increased vehicle value and showroom-style finish"
             ],
-            outro: "We deliver reliable repairs designed to last.",
-            image: "Crack-a .jpeg",
-            imageAlt: "Headlight crack repair process"
+            outro: "We deliver professional paint enhancement with meticulous attention to detail and premium finishing standards.",
+            image: "paint-enhancement.jpeg",
+            imageAlt: "Paint enhancement work"
         },
 
+        // Contact Form
         contactForm: {
             title: "Get In Touch",
             fields: {
@@ -399,7 +315,7 @@ export const serviceWorkflowData = {
                 service: {
                     label: "Select A Service",
                     options: [
-                        "Headlight Crack Repair"
+                        "Paint Enhancement"
                     ]
                 },
                 note: {
@@ -408,84 +324,129 @@ export const serviceWorkflowData = {
                     rows: 4
                 }
             },
-            submitButton: "Book Today"
+            submitButton: "Book Your Paint Enhancement Today"
         },
 
+        // Theme Colors
         colors: {
             primary: "#F21B23",
             secondary: "#404143"
         }
     },
-    HeadlightCondensationRepair: {
+    ceramicCoating: {
+        // Service badge
         badge: "Service Details",
 
+        // About Service Section
         aboutService: {
             title: "About this Service",
-            intro: "At Tomas Exterior, we provide professional headlight condensation repair to eliminate internal moisture and restore clear lighting performance. Using specialized drying, sealing, and ventilation techniques, we prevent fogging and water buildup that can reduce visibility and damage electrical components.",
+            intro: "At DT Details, we provide professional ceramic coating solutions to protect and enhance your vehicle’s paintwork. Our coatings create a durable, hydrophobic layer that shields your vehicle from UV rays, road grime, bird droppings, and chemical contaminants.",
             features: [
-                "Elimination of internal moisture and fogging",
-                "Repair or replacement of faulty seals and vents",
-                "Drying and ventilation for long-lasting clarity",
-                "Protection of bulbs, wiring, and electronic components"
+                "Available in 1 Year, 3 Year, and 7 Year protection packages",
+                "Durable hydrophobic protective layer",
+                "Protection against UV rays and environmental contaminants",
+                "Enhanced gloss and long-lasting paint clarity",
+                "Tailored solutions based on vehicle condition and usage"
             ],
-            outro: "Our process ensures your headlights remain clear, dry, and fully functional in all weather conditions.",
+            outro: "Each application is carried out following thorough paint preparation and controlled installation techniques to ensure maximum durability and performance.",
 
+            // What's Included
             includedTitle: "What is included?",
-            includedIntro: "Our headlight condensation repair service includes:",
+            includedIntro: "Our ceramic coating service includes:",
             includedItems: [
-                "Inspection to identify moisture source and seal issues",
-                "Drying and moisture removal from the headlight unit",
-                "Repair or replacement of faulty seals and vents",
-                "Reassembly and leak testing for long-term protection",
-                "Maintenance guidance to prevent future condensation"
+                "Thorough exterior wash and paint decontamination",
+                "Paint inspection and professional machine polishing (paint enhancement stage)",
+                "Surface preparation to ensure optimal coating bonding",
+                "Precision application of ceramic coating based on selected package",
+                "Curing process and aftercare guidance"
             ],
-            includedOutro: "We focus on thorough repairs and long-lasting solutions."
+            includedOutro: "We ensure every ceramic coating is applied with precision to deliver long-lasting results."
         },
 
+        // Packages Section
+        packages: {
+            title: "Ceramic Coating Packages",
+            items: [
+                {
+                    name: "1 Year Ceramic Coating",
+                    description: "Ideal for daily-driven vehicles looking for enhanced gloss and short-term protection.",
+                    features: [
+                        "Enhanced paint gloss and depth",
+                        "Hydrophobic water-repellent properties",
+                        "UV and light chemical resistance",
+                        "Easier maintenance and cleaning"
+                    ]
+                },
+                {
+                    name: "3 Year Ceramic Coating",
+                    description: "A balanced solution offering extended protection and durability.",
+                    features: [
+                        "Long-lasting gloss retention",
+                        "Strong hydrophobic and self-cleaning effect",
+                        "Increased resistance to contaminants and oxidation",
+                        "Reduced need for frequent washing"
+                    ]
+                },
+                {
+                    name: "7 Year Ceramic Coating",
+                    description: "Premium long-term protection for maximum durability and performance.",
+                    features: [
+                        "Exceptional gloss and paint clarity",
+                        "Advanced chemical and UV resistance",
+                        "Maximum protection against environmental damage",
+                        "Ideal for high-value and long-term ownership vehicles"
+                    ]
+                }
+            ]
+        },
+
+        // How We Work Section
         howWeWork: {
             badge: "Working Process",
             title: "How We Work",
-            description: "We follow a structured process to remove condensation efficiently and ensure long-lasting clear headlights.",
+            description: "Our structured process guarantees professional application and consistent results.",
             steps: [
                 {
                     id: "01",
                     title: "Booking & Inspection",
-                    description: "Schedule your appointment and allow our technicians to inspect moisture sources and check seals."
+                    description: "Book your appointment. We assess your vehicle’s paint condition and recommend the most suitable ceramic coating package."
                 },
                 {
                     id: "02",
-                    title: "Drying & Moisture Removal",
-                    description: "Use specialized equipment and techniques to remove all internal moisture from the headlight unit."
+                    title: "Work Planning",
+                    description: "We prepare the vehicle through washing, decontamination, and polishing to ensure perfect surface bonding."
                 },
                 {
                     id: "03",
-                    title: "Seal Repair or Replacement",
-                    description: "Repair or replace faulty seals and vents to prevent future condensation."
+                    title: "Coating Application",
+                    description: "Our specialists apply the ceramic coating in a controlled environment for maximum durability and performance."
                 },
                 {
                     id: "04",
-                    title: "Reassembly & Testing",
-                    description: "Reassemble the headlight, perform leak testing, and ensure proper functionality and clarity."
+                    title: "Works Completed",
+                    description: "Final inspections are carried out, and aftercare instructions are provided to maintain the coating’s longevity."
                 }
             ]
         },
 
+        // Service Benefits Section
         benefits: {
             badge: "Benefits",
             title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for headlight condensation repair gives you:",
+            intro: "Choosing DT Details for ceramic coating gives you:",
             items: [
-                "Clear headlights with no fogging or moisture buildup",
-                "Protection of bulbs, wiring, and electronic components",
-                "Improved visibility and driving safety",
-                "Extended lifespan of the headlight assembly",
-                "Reliable performance in all weather conditions"
+                "Long-lasting paint protection and durability",
+                "Hydrophobic, self-cleaning properties",
+                "Enhanced gloss and colour depth",
+                "Protection against UV rays, chemicals, and contaminants",
+                "Reduced maintenance and easier washing"
             ],
-            outro: "We prioritize durability, safety, and customer satisfaction.",
-            image: "Condensation-a.png",
-            imageAlt: "Headlight condensation repair process"
+            outro: "We deliver premium ceramic coating solutions with professional standards and attention to detail.",
+            image: "ceramic-coating.jpeg",
+            imageAlt: "Ceramic coating work"
         },
 
+        // Contact Form
         contactForm: {
             title: "Get In Touch",
             fields: {
@@ -502,7 +463,7 @@ export const serviceWorkflowData = {
                 service: {
                     label: "Select A Service",
                     options: [
-                        "Headlight Condensation Repair"
+                        "Ceramic Coating"
                     ]
                 },
                 note: {
@@ -511,522 +472,10 @@ export const serviceWorkflowData = {
                     rows: 4
                 }
             },
-            submitButton: "Book Your Repair Today"
+            submitButton: "Protect Your Vehicle Today"
         },
 
-        colors: {
-            primary: "#F21B23",
-            secondary: "#404143"
-        }
-    },
-    HeadlightLensReplacement: {
-        badge: "Service Details",
-
-        aboutService: {
-            title: "About this Service",
-            intro: "At Tomas Exterior, we offer professional headlight lens replacement to restore clarity, safety, and appearance when lenses are severely damaged or beyond repair. Using high-quality replacement lenses and precision fitting techniques, we ensure a perfect fit and factory-standard finish.",
-            features: [
-                "Replacement of severely damaged or worn headlight lenses",
-                "Precision fitting for optimal lighting performance",
-                "Restoration of clarity and vehicle aesthetics",
-                "Use of high-quality, durable lens materials"
-            ],
-            outro: "Our technicians handle the entire process with care to ensure optimal lighting performance and durability.",
-
-            includedTitle: "What is included?",
-            includedIntro: "Our headlight lens replacement service includes:",
-            includedItems: [
-                "Assessment of lens damage and replacement requirements",
-                "Removal of damaged or worn headlight lenses",
-                "Installation of high-quality replacement lenses",
-                "Sealing and alignment for optimal performance",
-                "Final testing and aftercare support"
-            ],
-            includedOutro: "We ensure every replacement meets safety and quality standards."
-        },
-
-        howWeWork: {
-            badge: "Working Process",
-            title: "How We Work",
-            description: "We follow a structured process to replace headlight lenses efficiently, ensuring perfect fit, clarity, and long-lasting performance.",
-            steps: [
-                {
-                    id: "01",
-                    title: "Booking & Inspection",
-                    description: "Schedule your appointment and allow our technicians to assess the damage and replacement needs."
-                },
-                {
-                    id: "02",
-                    title: "Lens Removal",
-                    description: "Carefully remove the damaged or worn headlight lenses without affecting other components."
-                },
-                {
-                    id: "03",
-                    title: "Replacement Installation",
-                    description: "Install high-quality replacement lenses with precision alignment and secure sealing."
-                },
-                {
-                    id: "04",
-                    title: "Testing & Final Check",
-                    description: "Perform functional tests and final inspections to ensure clarity, safety, and perfect fit."
-                }
-            ]
-        },
-
-        benefits: {
-            badge: "Benefits",
-            title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for headlight lens replacement gives you:",
-            items: [
-                "Crystal-clear headlights for maximum visibility",
-                "Restored factory look and premium appearance",
-                "Improved safety for night and low-light driving",
-                "Durable, long-lasting lens materials",
-                "Professional installation with guaranteed fit and finish"
-            ],
-            outro: "We deliver precision workmanship and reliable results every time.",
-            image: "Crack1-a .jpeg",
-            imageAlt: "Headlight lens replacement process"
-        },
-
-        contactForm: {
-            title: "Get In Touch",
-            fields: {
-                fullName: {
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text"
-                },
-                phone: {
-                    label: "Phone",
-                    placeholder: "Enter your phone number",
-                    type: "tel"
-                },
-                service: {
-                    label: "Select A Service",
-                    options: [
-                        "Headlight Lens Replacement"
-                    ]
-                },
-                note: {
-                    label: "Short Note",
-                    placeholder: "How can we help?",
-                    rows: 4
-                }
-            },
-            submitButton: "Book Your Replacement Today"
-        },
-
-        colors: {
-            primary: "#F21B23",
-            secondary: "#404143"
-        }
-    },
-    ExteriorEnhancementServices: {
-        badge: "Service Details",
-
-        aboutService: {
-            title: "About this Service",
-            intro: "At Tomas Exterior, we specialise in exterior styling enhancements designed to upgrade your vehicle’s visual impact and individuality. From aggressive body kits and aerodynamic spoilers to precision-fitted lip kits and styling components, we help turn standard vehicles into standout builds. Using premium parts and expert installation techniques, every upgrade is fitted with accuracy and attention to detail - ensuring perfect alignment, durability, and a factory-quality finish.",
-            features: [
-                "Body kit installation for enhanced styling and presence",
-                "Front splitter and lip kit fitting for sportier aesthetics",
-                "Rear spoilers and aerodynamic upgrades",
-                "Side skirt and exterior styling enhancements",
-                "Professional fitting with precision alignment and finishing"
-            ],
-            outro: "Whether you want a subtle enhancement or a full styling transformation, our team delivers exterior upgrades that elevate both appearance and road presence.",
-
-            includedTitle: "What is included?",
-            includedIntro: "Our exterior enhancement services include:",
-            includedItems: [
-                "Vehicle inspection and styling consultation to understand your vision",
-                "Professional installation of body kits, spoilers, and lip kits",
-                "Precision alignment and secure fitting of all exterior components",
-                "Finishing adjustments to ensure seamless integration with the vehicle design",
-                "Final inspection and aftercare guidance for long-lasting results"
-            ],
-            includedOutro: "We ensure every modification complements your vehicle while maintaining quality and durability."
-        },
-
-        howWeWork: {
-            badge: "Working Process",
-            title: "How We Work",
-            description: "We follow a structured installation process to ensure every exterior upgrade achieves a premium, factory-quality finish.",
-            steps: [
-                {
-                    id: "01",
-                    title: " Consultation & Assessment",
-                    description: "We assess your vehicle and discuss styling goals, parts selection, and desired finish."
-                },
-                {
-                    id: "02",
-                    title: "Preparation",
-                    description: "Vehicle surfaces are prepared and measured to ensure accurate installation."
-                },
-                {
-                    id: "03",
-                    title: " Installation & Styling",
-                    description: "Body kits, spoilers, and lip kits are professionally fitted with precision workmanship."
-                },
-                {
-                    id: "04",
-                    title: "Final Finishing",
-                    description: "Alignment checks, detailing, and quality control ensure a flawless final result."
-                }
-            ]
-        },
-
-        benefits: {
-            badge: "Benefits",
-            title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for exterior enhancement services gives you:",
-            items: [
-                "Aggressive, customised styling that stands out on the road",
-                "Improved aerodynamics and sport-inspired appearance",
-                "Enhanced vehicle individuality and visual presence",
-                "Professional installation ensuring secure, long-lasting fitment",
-                "Premium-quality finish designed to complement your vehicle perfectly"
-            ],
-            outro: "We focus on precision, craftsmanship, and high-quality styling upgrades in every project.",
-            image: "extirior-a.jpg",
-            imageAlt: "Exterior enhancement detailing service"
-        },
-
-        contactForm: {
-            title: "Get In Touch",
-            fields: {
-                fullName: {
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text"
-                },
-                phone: {
-                    label: "Phone",
-                    placeholder: "Enter your phone number",
-                    type: "tel"
-                },
-                service: {
-                    label: "Select A Service",
-                    options: [
-                        "Exterior Enhancement Services"
-                    ]
-                },
-                note: {
-                    label: "Short Note",
-                    placeholder: "How can we help?",
-                    rows: 4
-                }
-            },
-            submitButton: "Book Today"
-        },
-
-        colors: {
-            primary: "#F21B23",
-            secondary: "#404143"
-        }
-    },
-    InteriorTrimsRestoration: {
-        badge: "Service Details",
-        aboutService: {
-            title: "About this Service",
-            intro: "Interior trims can fade, scratch, or wear over time—making your vehicle look older than it is. At Tomas Exterior, we restore and wrap interior trims to bring back a clean, premium finish without the cost of replacement.",
-            features: [
-                "Scratched or faded interior trims",
-                "Upgrading interior style and colour",
-                "Modern wrap finishes (clean, premium look)",
-                "Refreshing your vehicle’s interior appearance"
-            ],
-            outro: "We combine precision, premium materials, and professional workmanship to give your interior trims a refreshed, high-quality look.",
-            includedTitle: "What’s Included?",
-            includedIntro: "Our Interior Trims Restoration / Wrapping service includes:",
-            includedItems: [
-                "Trim inspection and material check",
-                "Surface cleaning and preparation",
-                "Restoration or wrapping (based on condition)",
-                "Precision finishing and alignment",
-                "Final checks and care guidance"
-            ],
-            includedOutro: "We ensure every detail is carefully handled to maintain a flawless, long-lasting finish."
-        },
-
-        howWeWork: {
-            badge: "Working Process",
-            title: "How We Work",
-            description: "Our process is simple, structured, and designed to give your interior trims a flawless, professional finish.",
-            steps: [
-                {
-                    id: "01",
-                    title: "Booking & Trim Assessment",
-                    description: "Schedule an appointment and let our experts inspect your interior trims to recommend the best restoration or wrapping solution."
-                },
-                {
-                    id: "02",
-                    title: "Surface Prep and Planning",
-                    description: "We clean, prep, and plan the work process for smooth restoration or wrap installation."
-                },
-                {
-                    id: "03",
-                    title: "Restore or Wrap Installation",
-                    description: "Our team carefully restores worn trims or applies high-quality wraps to achieve a premium, modern finish."
-                },
-                {
-                    id: "04",
-                    title: "Final Detailing and Completion",
-                    description: "We perform final checks, alignments, and provide guidance to maintain your refreshed interior trims."
-                }
-            ]
-        },
-
-        benefits: {
-            badge: "Benefits",
-            title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for interior trims restoration and wrapping provides:",
-            items: [
-                "Fresh interior look without replacing parts",
-                "Premium modern finish",
-                "Durable and clean results",
-                "Custom style options",
-                "Professional workmanship"
-            ],
-            outro: "We prioritize quality, precision, and attention to detail to enhance your vehicle’s interior aesthetics.",
-            image: "interior.jpeg",
-            imageAlt: "Interior trims restoration and wrapping work"
-        },
-
-        contactForm: {
-            title: "Get In Touch",
-            fields: {
-                fullName: {
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text"
-                },
-                phone: {
-                    label: "Phone",
-                    placeholder: "Enter your phone number",
-                    type: "tel"
-                },
-                service: {
-                    label: "Select A Service",
-                    options: [
-                        "Interior Trim Restoration",
-                        "Interior Trim Wrapping"
-                    ]
-                },
-                note: {
-                    label: "Short Note",
-                    placeholder: "How can we help?",
-                    rows: 4
-                }
-            },
-            submitButton: "Get a Quote via WhatsApp"
-        },
-
-        colors: {
-            primary: "#F21B23",
-            secondary: "#404143"
-        }
-    },
-
-    IntelligentAmbientLightInstallation: {
-        badge: "Service Details",
-        aboutService: {
-            title: "About this Service",
-            intro: "Our intelligent ambient lighting installation service is designed for customers who want a more premium and modern look. We install lighting solutions with a clean finish, ensuring safe wiring and a professional result that enhances the overall experience.",
-            features: [
-                "Creating a premium interior feel",
-                "Improved visibility and comfort at night",
-                "Customisable lighting options",
-                "Clean, professional finishing"
-            ],
-            outro: "We provide precise, professional installation and attention to detail for a stylish and safe interior lighting upgrade.",
-            includedTitle: "What’s Included?",
-            includedIntro: "Our Intelligent Ambient Light Installation service includes:",
-            includedItems: [
-                "Consultation and lighting plan",
-                "Selection of lighting setup and placement",
-                "Professional wiring and secure fitting",
-                "Testing and final adjustments",
-                "Aftercare support and usage guidance"
-            ],
-            includedOutro: "We ensure every installation is safe, functional, and visually stunning."
-        },
-
-        howWeWork: {
-            badge: "Working Process",
-            title: "How We Work",
-            description: "Our process is designed to provide a safe, clean, and professional installation while enhancing your interior style.",
-            steps: [
-                {
-                    id: "01",
-                    title: "Booking & Inspection",
-                    description: "Schedule an appointment and let our experts assess your interior to plan the ambient lighting installation."
-                },
-                {
-                    id: "02",
-                    title: "Installation Planning",
-                    description: "We plan wiring, placement, and lighting configuration for a smooth and efficient workflow."
-                },
-                {
-                    id: "03",
-                    title: "Install & Configure",
-                    description: "Our team performs professional wiring and installs the lighting system according to the planned design."
-                },
-                {
-                    id: "04",
-                    title: "Final Testing and Completion",
-                    description: "We conduct final checks, test all lighting setups, and provide guidance for usage and maintenance."
-                }
-            ]
-        },
-
-        benefits: {
-            badge: "Benefits",
-            title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for ambient light installation provides:",
-            items: [
-                "Premium modern appearance",
-                "Safe and professional wiring",
-                "Customisable lighting setup",
-                "Better comfort and interior feel",
-                "Clean finishing with attention to detail"
-            ],
-            outro: "We prioritize safety, precision, and aesthetics to create a lighting experience that elevates your vehicle’s interior.",
-            image: "ambient1.jpeg",
-            imageAlt: "Intelligent ambient light installation"
-        },
-
-        contactForm: {
-            title: "Get In Touch",
-            fields: {
-                fullName: {
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text"
-                },
-                phone: {
-                    label: "Phone",
-                    placeholder: "Enter your phone number",
-                    type: "tel"
-                },
-                service: {
-                    label: "Select A Service",
-                    options: [
-                        "Ambient Light Installation"
-                    ]
-                },
-                note: {
-                    label: "Short Note",
-                    placeholder: "How can we help?",
-                    rows: 4
-                }
-            },
-            submitButton: "Get a Quote via WhatsApp"
-        },
-
-        colors: {
-            primary: "#F21B23",
-            secondary: "#404143"
-        }
-    },
-    BuildingWindowTinting: {
-        badge: "Service Details",
-        aboutService: {
-            title: "About this Service",
-            intro: "At Tomas Exterior, we provide high-quality building window tinting solutions designed to improve privacy and comfort while maintaining a bright, modern look. Whether you need tinting for your home, office, terrace, or a custom project, we deliver results that look great and perform even better.",
-            features: [
-                "Increased privacy without blocking natural light",
-                "Reduced glare for screens and living spaces",
-                "UV protection to prevent fading and damage",
-                "Heat reduction for improved indoor comfort",
-                "A sleek, modern appearance"
-            ],
-            outro: "Our team ensures a precise, clean, and long-lasting finish for every building window tinting project.",
-            includedTitle: "What’s Included?",
-            includedIntro: "Our building window tinting service includes:",
-            includedItems: [
-                "Site assessment & consultation",
-                "Film recommendation based on privacy and lighting needs",
-                "Professional measurement and preparation",
-                "Precision installation with clean edges and no bubbling",
-                "Aftercare guidance for long-lasting performance"
-            ],
-            includedOutro: "We make sure every detail is handled professionally for optimal results."
-        },
-
-        howWeWork: {
-            badge: "Working Process",
-            title: "How We Work",
-            description: "Our step-by-step process ensures a hassle-free experience and high-quality results for building window tinting.",
-            steps: [
-                {
-                    id: "01",
-                    title: "Booking & Inspection",
-                    description: "Schedule a consultation and let our team assess your site and requirements."
-                },
-                {
-                    id: "02",
-                    title: "Film Selection & Planning",
-                    description: "We recommend the best film type and plan the installation for your space."
-                },
-                {
-                    id: "03",
-                    title: "Installation & Finishing",
-                    description: "Our experts install the film with precision, ensuring clean edges and no bubbles."
-                },
-                {
-                    id: "04",
-                    title: "Final Quality Check & Handover",
-                    description: "We perform final inspections and provide guidance to maintain your window tinting."
-                }
-            ]
-        },
-
-        benefits: {
-            badge: "Benefits",
-            title: "Service Benefits",
-            intro: "Choosing Tomas Exterior for building window tinting provides:",
-            items: [
-                "Improved privacy and comfort",
-                "Reduced glare and heat",
-                "UV protection for interiors",
-                "Premium clean finish",
-                "Long-lasting results with quality materials"
-            ],
-            outro: "We prioritize precision, aesthetics, and customer satisfaction for every project.",
-            image: "building-a.jpeg",
-            imageAlt: "Building window tinting service"
-        },
-
-        contactForm: {
-            title: "Get In Touch",
-            fields: {
-                fullName: {
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text"
-                },
-                phone: {
-                    label: "Phone",
-                    placeholder: "Enter your phone number",
-                    type: "tel"
-                },
-                service: {
-                    label: "Select A Service",
-                    options: [
-                        "Building Window Tinting"
-                    ]
-                },
-                note: {
-                    label: "Short Note",
-                    placeholder: "How can we help?",
-                    rows: 4
-                }
-            },
-            submitButton: "Get a Quote via WhatsApp"
-        },
-
+        // Theme Colors
         colors: {
             primary: "#F21B23",
             secondary: "#404143"
