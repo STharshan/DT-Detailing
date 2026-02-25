@@ -46,7 +46,7 @@ export default function ReviewsSection() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-[#111b2d] rounded-lg p-6 shadow-sm hover:shadow-md hover:bg-[#162236] hover:z-30 transition-all duration-300 active:bg-[#162236] active:shadow-lg hover:scale-105 active:scale-100"
+              className="bg-[#c1c1c1] rounded-lg p-6 shadow-sm hover:shadow-md hover:z-30 transition-all duration-300 active:bg-[#162236] active:shadow-lg hover:scale-105 active:scale-100"
               data-aos="fade-up" // AOS animation on scroll
               data-aos-delay={index * 200} // Delay based on the index for staggered animation
             >
@@ -62,8 +62,8 @@ export default function ReviewsSection() {
                 ))}
               </div>
 
-              <p className="text-gray-300 mb-4">"{review.text}"</p>
-              <p className="text-blue-400 font-semibold">- {review.author}</p>
+              <p className="text-gray-900 mb-4">"{review.text}"</p>
+              <p className="text-[#D10806] font-semibold">- {review.author}</p>
             </div>
           ))}
         </div>
