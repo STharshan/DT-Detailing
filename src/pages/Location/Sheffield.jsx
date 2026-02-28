@@ -17,6 +17,7 @@ import {
   SheffieldCTAData
 } from "../../LocationData/Sheffield/servingAreas";
 import FAQSection from "../../LocationCommon/FAQSection";
+import SheffieldMapSection from "../../LocationData/Sheffield/SheffieldMap";
 
 function Sheffield() {
   return (
@@ -28,6 +29,7 @@ function Sheffield() {
         subtitle={Subtitle}
         footer={footer}
       />
+      <SheffieldMapSection />
       <WhyChooseSection
         location="Sheffield"
         data={whyChooseData}

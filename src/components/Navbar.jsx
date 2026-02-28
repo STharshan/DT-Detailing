@@ -69,7 +69,7 @@ const Navbar = () => {
     "bg-[repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a_4px,#111_4px,#111_8px)] border border-white/10 rounded-lg shadow-md";
 
   return (
-    <nav className={`fixed w-full z-50 ${carbonFiberStyle}`}>
+    <nav className={`fixed w-full z-9999 ${carbonFiberStyle}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between h-18 px-6 md:px-12 lg:px-20 py-3">
 
         {/* Logo */}

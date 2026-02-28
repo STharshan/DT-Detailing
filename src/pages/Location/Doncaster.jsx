@@ -17,6 +17,7 @@ import {
   DoncasterCTAData
 } from "../../LocationData/Doncaster/servingAreas";
 import FAQSection from "../../LocationCommon/FAQSection";
+import DoncasterMapSection from "../../LocationData/Doncaster/DoncasterMap";
 
 function Doncaster() {
   return (
@@ -28,6 +29,7 @@ function Doncaster() {
         subtitle={Subtitle}
         footer={footer}
       />
+      <DoncasterMapSection />
       <WhyChooseSection
         location="Doncaster"
         data={whyChooseData}
