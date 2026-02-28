@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiSend, FiPhone, FiClock } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import { HiChevronDown } from "react-icons/hi";
 
 export default function ContactSection() {
   const businessHours = [{ day: "Mon - Sun", time: "8 AM – 6 PM" }];
@@ -142,7 +143,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
                 />
               </div>
 
@@ -158,7 +159,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
                 />
               </div>
 
@@ -174,7 +175,7 @@ export default function ContactSection() {
                   value={formData.number}
                   onChange={handleChange}
                   required
-                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
                 />
               </div>
 
@@ -189,7 +190,7 @@ export default function ContactSection() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full appearance-none bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 pr-10 text-sm text-[#000000] focus:outline-none focus:border-[#c1c1c1] transition"
+                  className="w-full appearance-none bg-black border border-[#B9BDC1]/40 rounded-lg px-4 py-3 pr-10 text-sm placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
                 >
                   <option value="" disabled hidden>
                     Select a service
@@ -202,22 +203,9 @@ export default function ContactSection() {
                   ))}
                 </select>
 
-                {/* Custom Arrow */}
-                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                {/* React Icon Arrow */}
+                <div className="pointer-events-none absolute inset-y-12 right-3 flex items-center text-white">
+                  <HiChevronDown className="h-4 w-4" />
                 </div>
               </div>
 
@@ -233,17 +221,16 @@ export default function ContactSection() {
                   onChange={handleChange}
                   rows="4"
                   required
-                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-[#000000] placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
+                  className="w-full bg-transparent border border-[#B9BDC1]/40 rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#555555] focus:outline-none focus:border-[#c1c1c1] transition"
                 ></textarea>
               </div>
 
               {statusMessage && (
                 <p
-                  className={`text-sm font-medium ${
-                    statusType === "success"
+                  className={`text-sm font-medium ${statusType === "success"
                       ? "text-green-600"
                       : "text-[#B62025]"
-                  } text-center`}
+                    } text-center`}
                 >
                   {statusMessage}
                 </p>
