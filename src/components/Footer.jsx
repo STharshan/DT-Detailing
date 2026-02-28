@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Clock, ArrowRight } from 'lucide-react';
 import { BsInstagram, BsTiktok } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const PHONE = "+44 7474 461322";
 const PHONE_TEL = "+447474461322";
@@ -166,8 +167,8 @@ const Footer = () => {
             Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-[#656565]/60 text-[#656565] transition-colors">Ansely</a>
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest font-bold">
-            <a href="/privacy" className="text-gray-600 hover:text-brand transition-colors hover:text-white">Privacy</a>
-            <a href="/terms" className="text-gray-600 hover:text-brand transition-colors hover:text-white">TermsConditions</a>
+            <Link to="/privacy" className="text-gray-600 hover:text-brand transition-colors hover:text-white">Privacy</Link>
+            <Link to="/terms" className="text-gray-600 hover:text-brand transition-colors hover:text-white">TermsConditions</Link>
           </div>
         </div>
       </div>
