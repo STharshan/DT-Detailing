@@ -41,7 +41,7 @@ function App() {
         className="fixed bottom-18 right-7 md:right-6 z-50 bg-[#10B981] hover:bg-[#15e6a0] text-white p-2 md:p-3 rounded-full shadow-lg transition-transform hover:scale-110"
         aria-label="Chat on WhatsApp"
       >
-        <FaWhatsapp size={22} />
+        <FaWhatsapp size={19} />
       </a>
       <GDPRConsent />
     </Router>

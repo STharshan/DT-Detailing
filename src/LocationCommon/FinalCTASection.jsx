@@ -30,7 +30,7 @@ export default function FinalCTASection({ data }) {
             {/* Hardcoded Phone Number */}
             <a
               href="tel:+448081371961"
-              className="inline-flex items-center justify-center gap-2 rounded-md font-medium bg-[#e80202] hover:bg-[#c1c1c1] text-white hover:text-black h-12 px-8 shadow-[0_0_20px_#e8020222] hover:shadow-[0_0_25px_#e8020255] transition-all w-full sm:w-auto text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-md font-medium bg-[#656565] hover:bg-[#c1c1c1] text-white hover:text-black h-12 px-8 shadow-[0_0_20px_#65656522] hover:shadow-[0_0_25px_#65656555] transition-all w-full sm:w-auto text-base"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +50,14 @@ export default function FinalCTASection({ data }) {
             </a>
 
             <HashLink to="/#contact" scroll={scrollWithOffset}>
-              <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium border border-[#e80202]/30 bg-white text-[#0D1525] hover:bg-[#EAF7F3] hover:border-[#e80202]/60 h-12 px-8 transition-all duration-300 w-full sm:w-auto text-base">
+              <button className="inline-flex items-center justify-center gap-2 rounded-md font-medium border border-[#656565]/30 bg-white text-[#0D1525] hover:bg-[#EAF7F3] hover:border-[#656565]/60 h-12 px-8 transition-all duration-300 w-full sm:w-auto text-base">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#e80202"  // Accent color for the icon
+                  stroke="#656565"  // Accent color for the icon
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

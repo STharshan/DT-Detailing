@@ -41,8 +41,8 @@ export default function FAQSection() {
               key={index}
               className={`transition-all ${
                 openIndex === index
-                  ? "bg-[#e80202]/10"
-                  : "hover:bg-[#e80202]/20 hover:shadow-[0_0_10px_#e8020211]"
+                  ? "bg-[#656565]/10"
+                  : "hover:bg-[#656565]/20 hover:shadow-[0_0_10px_#65656511]"
               }`}
             >
               <button
@@ -58,12 +58,12 @@ export default function FAQSection() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke={openIndex === index ? "#e80202" : "#c1c1c1"}
+                  stroke={openIndex === index ? "#656565" : "#c1c1c1"}
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className={`w-5 h-5 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180 text-[#e80202]" : ""
+                    openIndex === index ? "rotate-180 text-[#656565]" : ""
                   }`}
                 >
                   <path d="m6 9 6 6 6-6" />
@@ -86,7 +86,7 @@ export default function FAQSection() {
         </div>
 
         {/* Decorative Gradient Line */}
-        <div className="mt-12 h-1 w-32 mx-auto rounded-full bg-linear-to-r from-[#e80202]/40 via-[#c1c1c1] to-[#e80202]/40"></div>
+        <div className="mt-12 h-1 w-32 mx-auto rounded-full bg-linear-to-r from-[#656565]/40 via-[#c1c1c1] to-[#656565]/40"></div>
       </div>
     </section>
   );

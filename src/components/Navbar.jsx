@@ -8,10 +8,11 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [desktopLocationsOpen, setDesktopLocationsOpen] = useState(false);  // Add state for Locations dropdown
-  const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);  // Add state for Mobile Locations dropdown
+  const [desktopLocationsOpen, setDesktopLocationsOpen] = useState(false);
+  const [mobileLocationsOpen, setMobileLocationsOpen] = useState(false);
+
   const servicesRef = useRef(null);
-  const locationsRef = useRef(null);  // Reference for Locations dropdown
+  const locationsRef = useRef(null);
 
   const navLinks = [
     { name: "Home", href: "/#" },
@@ -20,7 +21,7 @@ const Navbar = () => {
     { name: "Testimonial", href: "/#testimonial" },
     { name: "Gallery", href: "/#gallery" },
     { name: "Contact", href: "/#contact" },
-    { name: "Location", href: "#", isDropdown: true },  // Add Location as a dropdown
+    { name: "Location", href: "#", isDropdown: true },
   ];
 
   const servicesLinks = [
@@ -50,13 +51,16 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        servicesRef.current && !servicesRef.current.contains(event.target) &&
-        locationsRef.current && !locationsRef.current.contains(event.target)
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target) &&
+        locationsRef.current &&
+        !locationsRef.current.contains(event.target)
       ) {
         setDesktopServicesOpen(false);
-        setDesktopLocationsOpen(false);  // Close Locations dropdown
+        setDesktopLocationsOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -67,6 +71,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 ${carbonFiberStyle}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between h-18 px-6 md:px-12 lg:px-20 py-3">
+
         {/* Logo */}
         <img
           src="/logo.png"
@@ -78,12 +83,17 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((item) => {
+
+            // LOCATION DROPDOWN
             if (item.isDropdown) {
               return (
                 <div key={item.name} ref={locationsRef} className="relative">
                   <button
-                    onClick={() => setDesktopLocationsOpen(!desktopLocationsOpen)}
-                    className="flex items-center gap-1 font-semibold text-white hover:text-[#e80202] transition-colors"
+                    onClick={() => {
+                      setDesktopLocationsOpen(!desktopLocationsOpen);
+                      setDesktopServicesOpen(false);
+                    }}
+                    className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
                   >
                     {item.name} <FiChevronDown />
                   </button>
@@ -94,7 +104,8 @@ const Navbar = () => {
                         <Link
                           key={location.name}
                           to={location.href}
-                          className="block px-4 py-2 text-gray-200 hover:text-red-500 rounded-md"
+                          onClick={() => setDesktopLocationsOpen(false)}
+                          className="block px-4 py-2 text-gray-200 hover:text-[#656565] rounded-md"
                         >
                           {location.name}
                         </Link>
@@ -105,12 +116,16 @@ const Navbar = () => {
               );
             }
 
+            // SERVICES DROPDOWN
             if (item.name === "Services") {
               return (
                 <div key={item.name} ref={servicesRef} className="relative">
                   <button
-                    onClick={() => setDesktopServicesOpen(!desktopServicesOpen)}
-                    className="flex items-center gap-1 font-semibold text-white hover:text-red-500 transition-colors"
+                    onClick={() => {
+                      setDesktopServicesOpen(!desktopServicesOpen);
+                      setDesktopLocationsOpen(false);
+                    }}
+                    className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
                   >
                     {item.name} <FiChevronDown />
                   </button>
@@ -121,7 +136,8 @@ const Navbar = () => {
                         <Link
                           key={service.name}
                           to={service.href}
-                          className="block px-4 py-2 text-gray-200 hover:text-red-500 rounded-md"
+                          onClick={() => setDesktopServicesOpen(false)}
+                          className="block px-4 py-2 text-gray-200 hover:text-[#656565] rounded-md"
                         >
                           {service.name}
                         </Link>
@@ -130,22 +146,23 @@ const Navbar = () => {
                   )}
                 </div>
               );
-            } else {
-              return (
-                <HashLink
-                  key={item.name}
-                  smooth
-                  to={item.href}
-                  className="flex items-center gap-1 font-semibold text-white hover:text-red-500 transition-colors"
-                >
-                  {item.name}
-                </HashLink>
-              );
             }
+
+            // NORMAL LINKS
+            return (
+              <HashLink
+                key={item.name}
+                smooth
+                to={item.href}
+                className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
+              >
+                {item.name}
+              </HashLink>
+            );
           })}
         </div>
 
-        {/* Desktop Social Icons */}
+        {/* Desktop Social */}
         <div className="hidden lg:flex items-center gap-3">
           {socialLinks.map((item, index) => (
             <a
@@ -160,7 +177,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Right Side */}
+        {/* Mobile Right */}
         <div className="flex items-center gap-2 lg:hidden">
           {socialLinks.map((item, index) => (
             <a
@@ -174,10 +191,9 @@ const Navbar = () => {
             </a>
           ))}
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="bg-red-500 p-2 rounded-full text-xl"
+            className="bg-[#656565] p-2 rounded-full text-xl"
           >
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
@@ -188,22 +204,27 @@ const Navbar = () => {
       {menuOpen && (
         <div className={`lg:hidden mt-2 p-4 space-y-3 ${carbonFiberStyle}`}>
           {navLinks.map((item) => {
+
             if (item.isDropdown) {
               return (
                 <div key={item.name} className="space-y-2">
                   <button
                     onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
-                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-red-500 font-semibold border-b border-red-500/20 last:border-0 transition-colors"
+                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-[#656565] font-semibold border-b border-[#656565]/20"
                   >
                     {item.name} <FiChevronDown />
                   </button>
+
                   {mobileLocationsOpen &&
                     locationsLinks.map((location) => (
                       <Link
                         key={location.name}
                         to={location.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="block pl-6 py-2 text-gray-200 hover:text-red-500 transition-colors"
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setMobileLocationsOpen(false);
+                        }}
+                        className="block pl-6 py-2 text-gray-200 hover:text-[#656565]"
                       >
                         {location.name}
                       </Link>
@@ -217,36 +238,40 @@ const Navbar = () => {
                 <div key={item.name} className="space-y-2">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-red-500 font-semibold border-b border-red-500/20 last:border-0 transition-colors"
+                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-[#656565] font-semibold border-b border-[#656565]/20"
                   >
                     {item.name} <FiChevronDown />
                   </button>
+
                   {mobileServicesOpen &&
                     servicesLinks.map((service) => (
                       <Link
                         key={service.name}
                         to={service.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="block pl-6 py-2 text-gray-200 hover:text-red-500 transition-colors"
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setMobileServicesOpen(false);
+                        }}
+                        className="block pl-6 py-2 text-gray-200 hover:text-[#656565]"
                       >
                         {service.name}
                       </Link>
                     ))}
                 </div>
               );
-            } else {
-              return (
-                <HashLink
-                  key={item.name}
-                  smooth
-                  to={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-2 text-gray-200 hover:text-red-500 border-b border-red-500/20 last:border-0 transition-colors"
-                >
-                  {item.name}
-                </HashLink>
-              );
             }
+
+            return (
+              <HashLink
+                key={item.name}
+                smooth
+                to={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block py-2 text-gray-200 hover:text-[#656565] border-b border-[#656565]/20"
+              >
+                {item.name}
+              </HashLink>
+            );
           })}
         </div>
       )}

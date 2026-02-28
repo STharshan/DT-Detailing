@@ -12,7 +12,7 @@ const DynamicIcon = ({ type }) => {
     width: "26",
     height: "26",
     fill: "none",
-    stroke: "#D10806",
+    stroke: "#656565",
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -63,16 +63,16 @@ export default function WhyChooseSection({ location, data }) {
       {/* Inline style to override Swiper's blue theme */}
       <style dangerouslySetInnerHTML={{ __html: `
         .swiper-custom-red {
-          --swiper-theme-color: #e80202;
+          --swiper-theme-color: #656565;
           --swiper-navigation-size: 24px;
         }
         .swiper-pagination-bullet { background: #ffffff !important; opacity: 0.5; }
-        .swiper-pagination-bullet-active { background: #e80202 !important; opacity: 1; }
+        .swiper-pagination-bullet-active { background: #656565 !important; opacity: 1; }
       `}} />
 
       <div className="container mx-auto px-4 max-w-4xl text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-[#ffffff] mb-4 font-serif">
-          Why Choose <span className="text-[#e80202]">{data.brandName}</span> for{" "}
+          Why Choose <span className="text-[#656565]">{data.brandName}</span> for{" "}
           {data.serviceName} in {location}
         </h2>
 
@@ -84,11 +84,11 @@ export default function WhyChooseSection({ location, data }) {
         <div className="relative max-w-xl mx-auto">
           
           {/* Custom Navigation Buttons */}
-          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 size-15 rounded-full border border-[#e80202]/40 text-[#e80202] hover:bg-[#e80202]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
+          <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 size-15 rounded-full border border-[#656565]/40 text-[#656565] hover:bg-[#656565]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
             <FiChevronLeft size={24} />
           </button>
 
-          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 size-15 rounded-full border border-[#e80202]/40 text-[#e80202] hover:bg-[#e80202]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
+          <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 size-15 rounded-full border border-[#656565]/40 text-[#656565] hover:bg-[#656565]/20 hover:text-white transition z-10 hidden md:flex items-center justify-center">
             <FiChevronRight size={24} />
           </button>
 
@@ -106,8 +106,8 @@ export default function WhyChooseSection({ location, data }) {
           >
             {data.benefits.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-[#1a1a1a] border border-[#e80202]/20 rounded-xl p-10 flex flex-col items-center hover:shadow-[0_0_25px_#e8020222] transition min-h-75">
-                  <div className="w-16 h-16 mb-6 rounded-full bg-[#e80202]/10 flex items-center justify-center">
+                <div className="bg-[#1a1a1a] border border-[#656565]/20 rounded-xl p-10 flex flex-col items-center hover:shadow-[0_0_25px_#65656522] transition min-h-75">
+                  <div className="w-16 h-16 mb-6 rounded-full bg-[#656565]/10 flex items-center justify-center">
                     <DynamicIcon type={item.iconType} />
                   </div>
                   <h4 className="text-xl font-semibold text-[#ffffff] mb-3">

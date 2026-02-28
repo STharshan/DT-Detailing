@@ -8,7 +8,7 @@ const ServiceIcon = () => (
     height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#e80202" // updated to accent color
+    stroke="#ffffff" // updated to accent color
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -42,12 +42,12 @@ export default function ServicesSection({ data }) {
             return (
               <div
                 key={index}
-                className={`bg-[#c1c1c1] rounded-2xl p-8 border border-[#e80202]/20 shadow-sm hover:shadow-[0_0_20px_#e8020222] transition-all duration-300 ${ // updated border and hover shadow
+                className={`bg-[#c1c1c1] rounded-2xl p-8 border border-[#656565]/20 shadow-sm hover:shadow-[0_0_20px_#65656522] transition-all duration-300 ${ // updated border and hover shadow
                   isLastOdd ? "md:col-span-2 md:max-w-2xl md:mx-auto" : ""
                 }`}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#e80202]/10 shrink-0"> {/* updated icon background */}
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#656565]/10 shrink-0"> {/* updated icon background */}
                     <ServiceIcon />
                   </div>
                   <h3 className="text-xl font-semibold text-[#ffffff]"> {/* Updated to white text */}
@@ -64,7 +64,7 @@ export default function ServicesSection({ data }) {
                         height="20"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#e80202" // updated to accent color
+                        stroke="#000000" // updated to accent color
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -74,7 +74,7 @@ export default function ServicesSection({ data }) {
                         <path d="m9 12 2 2 4-4" />
                       </svg>
                     </div>
-                    <span className="text-lg leading-relaxed text-[#ffffff]">{service.description}</span> {/* Updated to white text */}
+                    <span className="text-lg leading-relaxed text-[#000000]">{service.description}</span> {/* Updated to white text */}
                   </li>
                 </ul>
               </div>

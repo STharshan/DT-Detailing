@@ -81,7 +81,7 @@ function TransformationCard({ item, index }) {
         <div className="absolute top-4 left-4 z-20">
           <span
             className={`px-4 py-2 rounded-full text-xs font-black tracking-widest uppercase shadow-xl transition-all ${
-              isAfter ? "bg-[#F21B23] text-white" : "bg-white text-black"
+              isAfter ? "bg-[#656565] text-white" : "bg-white text-black"
             }`}
           >
             {isAfter ? "After" : "Before"}
@@ -114,7 +114,7 @@ function TransformationCard({ item, index }) {
             onClick={() => setIsAfter(true)}
             className={`py-3 rounded-lg text-xs font-black transition-all ${
               isAfter
-                ? "bg-[#F21B23] text-white shadow-md"
+                ? "bg-[#656565] text-white shadow-md"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
@@ -138,7 +138,7 @@ export default function DualTransformation({ data = [] }) {
         <div className="text-center mb-16 space-y-3">
           <h2 className="text-2xl md:text-6xl font-black text-gray-900">
             THE{" "}
-            <span className="text-[#F21B23]">
+            <span className="text-[#656565]">
               TRANSFORMATION
             </span>
           </h2>

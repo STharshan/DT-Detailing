@@ -34,7 +34,7 @@ const ServiceWorkflowSection = ({ data }) => {
                             ref={el => sectionRefs.current['about-service'] = el}
                             className="space-y-6"
                         >
-                            <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest">
+                            <div className="inline-block bg-[#656565]/20 px-4 py-1 rounded-full text-[#656565] font-bold text-xs uppercase tracking-widest">
                                 {data.badge}
                             </div>
                             <h2 className="text-4xl md:text-5xl font-black">{data.aboutService.title}</h2>
@@ -55,7 +55,7 @@ const ServiceWorkflowSection = ({ data }) => {
                             <ul className="space-y-4">
                                 {data.aboutService.includedItems.map((item, i) => (
                                     <li key={i} className="flex gap-4 items-start group">
-                                        <span className="shrink-0 w-6 h-6 rounded-full bg-[#F21B23] text-white flex items-center justify-center text-xs font-bold mt-1">
+                                        <span className="shrink-0 w-6 h-6 rounded-full bg-[#656565] text-white flex items-center justify-center text-xs font-bold mt-1">
                                             {i + 1}
                                         </span>
                                         <p className="text-[#DDDDDD]">{item}</p>
@@ -72,7 +72,7 @@ const ServiceWorkflowSection = ({ data }) => {
                             className="space-y-8"
                         >
                             <div>
-                                <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest mb-4">
+                                <div className="inline-block bg-[#656565]/20 px-4 py-1 rounded-full text-[#656565] font-bold text-xs uppercase tracking-widest mb-4">
                                     {data.howWeWork.badge}
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-black mb-4">{data.howWeWork.title}</h2>
@@ -86,7 +86,7 @@ const ServiceWorkflowSection = ({ data }) => {
                                         className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
                                     >
                                         {/* NUMBER CIRCLE */}
-                                        <div className="w-14 h-14 bg-[#F21B23]/20 rounded-xl flex items-center justify-center mb-6 text-[#F21B23] font-bold text-lg">
+                                        <div className="w-14 h-14 bg-[#656565]/20 rounded-xl flex items-center justify-center mb-6 text-black font-bold text-lg">
                                             {index + 1}
                                         </div>
 
@@ -103,7 +103,7 @@ const ServiceWorkflowSection = ({ data }) => {
                             className="space-y-8"
                         >
                             <div>
-                                <div className="inline-block bg-[#F21B23]/20 px-4 py-1 rounded-full text-[#F21B23] font-bold text-xs uppercase tracking-widest mb-4">
+                                <div className="inline-block bg-[#656565]/20 px-4 py-1 rounded-full text-[#656565] font-bold text-xs uppercase tracking-widest mb-4">
                                     {data.benefits.badge}
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-black">{data.benefits.title}</h2>
@@ -114,7 +114,7 @@ const ServiceWorkflowSection = ({ data }) => {
                             <ul className="space-y-4">
                                 {data.benefits.items.map((benefit, i) => (
                                     <li key={i} className="flex gap-4 items-start">
-                                        <span className="shrink-0 w-6 h-6 rounded-full bg-[#F21B23]/20 text-[#F21B23] flex items-center justify-center text-xs font-bold mt-1">
+                                        <span className="shrink-0 w-6 h-6 rounded-full bg-[#656565]/20 text-[#656565] flex items-center justify-center text-xs font-bold mt-1">
                                             {i + 1}
                                         </span>
                                         <p className="text-[#DDDDDD]">{benefit}</p>
@@ -145,7 +145,7 @@ const ServiceWorkflowSection = ({ data }) => {
                                     <input
                                         type={data.contactForm.fields.fullName.type}
                                         placeholder={data.contactForm.fields.fullName.placeholder}
-                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all text-black"
+                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#656565] outline-none transition-all text-black"
                                     />
                                 </div>
                                 <div>
@@ -155,14 +155,14 @@ const ServiceWorkflowSection = ({ data }) => {
                                     <input
                                         type={data.contactForm.fields.phone.type}
                                         placeholder={data.contactForm.fields.phone.placeholder}
-                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all text-black"
+                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#656565] outline-none transition-all text-black"
                                     />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold mb-2 text-white">
                                         {data.contactForm.fields.service.label}
                                     </label>
-                                    <select className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all bg-white text-black">
+                                    <select className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#656565] outline-none transition-all bg-white text-black">
                                         {data.contactForm.fields.service.options.map((option, i) => (
                                             <option key={i}>{option}</option>
                                         ))}
@@ -175,10 +175,10 @@ const ServiceWorkflowSection = ({ data }) => {
                                     <textarea
                                         rows={data.contactForm.fields.note.rows}
                                         placeholder={data.contactForm.fields.note.placeholder}
-                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#F21B23] outline-none transition-all resize-none text-black"
+                                        className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#656565] outline-none transition-all resize-none text-black"
                                     ></textarea>
                                 </div>
-                                <button className="w-full bg-[#F21B23] text-white font-bold py-4 rounded-xl hover:bg-[#404143] transition-all transform active:scale-95 shadow-lg shadow-[#F21B23]/30">
+                                <button className="w-full bg-[#656565] text-white font-bold py-4 rounded-xl hover:bg-[#404143] transition-all transform active:scale-95 shadow-lg shadow-[#656565]/30">
                                     {data.contactForm.submitButton}
                                 </button>
                             </form>

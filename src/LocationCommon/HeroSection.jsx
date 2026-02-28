@@ -50,7 +50,7 @@ export default function HeroSection({
 
               {/* Main Button (Scroll) */}
               <HashLink to={buttonLink} scroll={scrollWithOffset}>
-                <button className="inline-flex items-center justify-center gap-2 hover:bg-[#c1c1c1] bg-[#e80202] text-white hover:text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md">
+                <button className="inline-flex items-center justify-center gap-2 hover:bg-[#c1c1c1] bg-[#656565] text-white hover:text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md">
                   {buttonText}
                 </button>
               </HashLink>
@@ -58,7 +58,7 @@ export default function HeroSection({
               {/* Call Button */}
               <a
                 href={`tel:${callNumber}`}
-                className="inline-flex items-center justify-center gap-2 bg-[#c1c1c1] hover:bg-[#e80202] text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-[#c1c1c1] hover:bg-[#656565] text-[black] font-medium rounded-md h-12 px-8 transition-all shadow-md"
               >
                 Call Now
               </a>

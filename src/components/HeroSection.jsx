@@ -54,7 +54,7 @@ const HeroSection = () => {
           <a
             href="#services"
             className="group inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition hover:opacity-90"
-            style={{ backgroundColor: "#D10806" }}
+            style={{ backgroundColor: "#656565" }}
             data-aos="fade-up"
             data-aos-delay="600"
             data-aos-duration="1500"
@@ -68,9 +68,9 @@ const HeroSection = () => {
           {/* Secondary CTA */}
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 bg-white text-gray-700 hover:bg-red-600 hover:border-gray-300 hover:text-white font-semibold rounded-md transition"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 bg-white text-gray-700 hover:bg-[#656565] hover:border-gray-300 hover:text-white font-semibold rounded-md transition"
             data-aos="fade-up"
-            data-aos-delay="900"
+            data-aos-delay="600"
             data-aos-duration="1500"
           >
             Contact Us

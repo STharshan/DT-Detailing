@@ -82,9 +82,9 @@ export default function ContactSection() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
             <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="h-full bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="h-full bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#656565] hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
+                  <div className="p-2 bg-[#656565]/20 rounded-lg text-white">
                     <FiSend size={18} />
                   </div>
                   <h3 className="font-semibold text-white">Chat with us</h3>
@@ -94,9 +94,9 @@ export default function ContactSection() {
             </div>
 
             <div className="border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="h-full bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="h-full bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#656565]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
+                  <div className="p-2 bg-[#656565]/20 rounded-lg text-white">
                     <FiPhone size={18} />
                   </div>
                   <h3 className="font-semibold text-white">Call Us</h3>
@@ -106,9 +106,9 @@ export default function ContactSection() {
             </div>
 
             <div className="sm:col-span-2 border border-[#B9BDC1]/40 rounded-2xl p-1 transition-all">
-              <div className="bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#D10806]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
+              <div className="bg-[#c1c1c1] border border-[#B9BDC1]/30 rounded-2xl p-5 hover:border-[#656565]/20 hover:shadow-[0_0_20px_rgba(0,120,214,0.1)] transition-all">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-[#D10806]/20 rounded-lg text-[#D10806]">
+                  <div className="p-2 bg-[#656565]/20 rounded-lg text-white">
                     <FiClock size={18} />
                   </div>
                   <h3 className="font-semibold text-white">Opening Hours</h3>

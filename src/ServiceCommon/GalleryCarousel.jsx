@@ -60,7 +60,7 @@ const SingleTransformation = ({ data }) => {
         {/* Header - Centered */}
         <div className="text-center mb-12 space-y-3">
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900">
-            THE <span className="text-[#F21B23]">TRANSFORMATION</span>
+            THE <span className="text-[#656565]">TRANSFORMATION</span>
           </h2>
         </div>
 
@@ -81,7 +81,7 @@ const SingleTransformation = ({ data }) => {
               <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20">
                 <span
                   className={`px-6 py-2 rounded-full text-xs font-black tracking-[0.2em] uppercase shadow-2xl transition-all duration-500 ${
-                    isAfter ? "bg-[#F21B23] text-white" : "bg-white text-black"
+                    isAfter ? "bg-[#656565] text-white" : "bg-white text-black"
                   }`}
                 >
                   {isAfter ? "After" : "Before"}
@@ -92,7 +92,7 @@ const SingleTransformation = ({ data }) => {
             {/* Content Section */}
             <div className="w-full lg:w-2/5 p-8 md:p-12 flex flex-col justify-center">
               <div>
-                <div className="flex items-center gap-2 text-[#F21B23] mb-4">
+                <div className="flex items-center gap-2 text-[#656565] mb-4">
                   <ShieldCheck size={20} />
                   <span className="text-xs font-black tracking-widest uppercase">
                     {data?.tag || "Premium Care"}
@@ -124,7 +124,7 @@ const SingleTransformation = ({ data }) => {
                   onClick={() => setIsAfter(true)}
                   className={`py-4 rounded-xl text-xs font-black transition-all duration-300 ${
                     isAfter
-                      ? "bg-[#F21B23] text-white shadow-lg scale-[1.02]"
+                      ? "bg-[#656565] text-white shadow-lg scale-[1.02]"
                       : "text-gray-500 hover:text-gray-700"
                   }`}
                 >

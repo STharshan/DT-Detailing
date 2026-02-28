@@ -1,4 +1,5 @@
 import React from "react";
+import { MapPin } from "lucide-react";
 
 export default function ServingAreasSection({ areas, title, subtitle, footer }) {
   return (
@@ -21,32 +22,24 @@ export default function ServingAreasSection({ areas, title, subtitle, footer }) 
           {areas.map((area, index) => (
             <div
               key={index}
-              className="bg-[#c1c1c1] border border-[#e80202]/20 rounded-lg p-4 hover:border-[#e80202] hover:shadow-[0_0_15px_#e8020233] transition-all duration-300 group"
+              className="bg-[#c1c1c1] border border-[#656565]/20 rounded-lg p-4 
+                         hover:border-[#656565] 
+                         hover:shadow-[0_0_15px_#65656533] 
+                         transition-all duration-300 group"
             >
               <div className="flex items-start gap-3">
-                <div className="mt-1 text-[#e80202] group-hover:scale-110 transition-transform">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-5 h-5"
-                  >
-                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
+                
+                {/* Lucide Icon */}
+                <div className="text-black group-hover:scale-110 transition-transform duration-300">
+                  <MapPin size={20} strokeWidth={2} />
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-sm leading-tight text-[black]">
+                  <h3 className="font-semibold text-sm leading-tight text-black">
                     {area}
                   </h3>
                 </div>
+
               </div>
             </div>
           ))}

@@ -25,7 +25,6 @@ export default function GalleryCoverflow() {
     "7.webp",
     "8.webp",
     "9.webp",
-    "10.webp"
   ];
 
   return (
@@ -42,7 +41,7 @@ export default function GalleryCoverflow() {
           Workshop <span className="text-[#c1c1c1]">Gallery</span>
         </h2>
 
-        <div className="w-24 h-0.75 bg-[#D70C09] mx-auto mt-4" />
+        <div className="w-24 h-0.75 bg-[#656565] mx-auto mt-4" />
 
         <p className="text-[#C0C0C0] mt-6 max-w-xl mx-auto">
           Real work. Real results. A look inside our workshop.
@@ -85,7 +84,7 @@ export default function GalleryCoverflow() {
                 />
 
                 {/* Red overlay on hover */}
-                <div className="absolute inset-0 bg-[#D70C09]/10 opacity-0 group-hover:opacity-100 transition"></div>
+                <div className="absolute inset-0 bg-[#656565]/10 opacity-0 group-hover:opacity-100 transition"></div>
               </div>
             </SwiperSlide>
           ))}

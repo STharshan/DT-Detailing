@@ -32,7 +32,7 @@ const ServiceHeader = ({ data }) => {
               href={data.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#F21B23] hover:bg-[#404143] text-white px-8 py-3 rounded-full font-semibold transition-all duration-200"
+              className="inline-block bg-[#656565] hover:bg-[#404143] text-white px-8 py-3 rounded-full font-semibold transition-all duration-200"
             >
               Get a Quote via WhatsApp
             </a>

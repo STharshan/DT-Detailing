@@ -75,7 +75,7 @@ export default function CarDetailingServices() {
         <div className="mt-14 text-center">
           <button
             onClick={() => setCompare(!compare)}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-white/70 hover:border-[#c1c1c1]/25 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-sm font-medium text-white/70 hover:border-[#c1c1c1]/25 transition-colors"
           >
             <span>Compare All Services</span>
             <ChevronDown open={compare} />

@@ -48,8 +48,18 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: BsTiktok, link: "https://www.tiktok.com/@dt_details_" },
-                { icon: BsInstagram, link: "https://www.instagram.com/dt_details_" },
+                {
+                  icon: BsTiktok,
+                  link: "https://www.tiktok.com/@dt_details_",
+                  hoverBg: "hover:bg-white",
+                  hoverIcon: "group-hover:text-black"
+                },
+                {
+                  icon: BsInstagram,
+                  link: "https://www.instagram.com/dt_details_",
+                  hoverBg: "hover:bg-pink-500",
+                  hoverIcon: "group-hover:text-white"
+                },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -58,11 +68,15 @@ const Footer = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:border-brand transition-all duration-300 group"
+                    className={`w-10 h-10 rounded-full border border-white/10 
+                    flex items-center justify-center 
+                    transition-all duration-300 group 
+                    ${item.hoverBg}`}
                   >
                     <Icon
                       size={18}
-                      className="text-white group-hover:scale-110 transition-transform"
+                      className={`text-white transition-all duration-300 
+                      group-hover:scale-110 ${item.hoverIcon}`}
                     />
                   </a>
                 );
@@ -149,7 +163,7 @@ const Footer = () => {
           </p>
           <span className="hidden md:block text-white/10">|</span>
           <p className="text-gray-600 text-[10px] uppercase tracking-widest font-medium">
-            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-[#D10806]/60 text-[#D10806] transition-colors">Ansely</a>
+            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-[#656565]/60 text-[#656565] transition-colors">Ansely</a>
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest font-bold">
             <a href="/privacy" className="text-gray-600 hover:text-brand transition-colors hover:text-white">Privacy</a>

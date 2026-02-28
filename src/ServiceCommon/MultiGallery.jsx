@@ -11,12 +11,12 @@ const MultiGallery = ({ data }) => {
         
         {/* Header Section */}
         <div className="text-center mb-16 space-y-3">
-          <div className="flex items-center justify-center gap-2 text-[#F21B23] mb-2">
+          <div className="flex items-center justify-center gap-2 text-[#656565] mb-2">
             <Sparkles size={20} />
             <span className="text-xs font-black tracking-[0.4em] uppercase">Transformation Showcase</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 leading-none">
-            THE <span className="text-[#F21B23]">RESULT</span>
+            THE <span className="text-[#656565]">RESULT</span>
           </h2>
         </div>
 
@@ -26,7 +26,7 @@ const MultiGallery = ({ data }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
             {/* Before Column */}
             <div className="space-y-4">
-              <div className="relative group overflow-hidden rounded-2xl h-[300px] md:h-[450px] border border-gray-200 bg-gray-200">
+              <div className="relative group overflow-hidden rounded-2xl h-75 md:h-113 border border-gray-200 bg-gray-200">
                 <img
                   src={data.beforeImage} // Path: /interior.jpeg
                   alt="Before"
@@ -38,7 +38,7 @@ const MultiGallery = ({ data }) => {
 
             {/* After Column */}
             <div className="space-y-4">
-              <div className="relative group overflow-hidden rounded-2xl h-[300px] md:h-[450px] border border-gray-200 bg-gray-200">
+              <div className="relative group overflow-hidden rounded-2xl h-75 md:h-113 border border-gray-200 bg-gray-200">
                 <img
                   src={data.afterImage} // Path: /interior1.jpeg
                   alt="After"

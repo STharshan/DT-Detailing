@@ -8,8 +8,8 @@ export default function TierCard({ tier, icon: Icon, title, desc, mainServices, 
   return (
     <div className={`relative flex flex-col rounded-2xl border p-6 lg:p-8 ${
       isFeatured
-        ? "border-[#c1c1c1]/40 bg-[#c1c1c1]/[0.03] shadow-[0_0_50px_-15px_rgba(193,193,193,0.18)]"
-        : "border-white/10 bg-white/[0.03]"
+        ? "border-[#c1c1c1]/40 bg-[#c1c1c1]/3 shadow-[0_0_50px_-15px_rgba(193,193,193,0.18)]"
+        : "border-white/10 bg-white/3"
     }`}>
 
       {isFeatured && (
@@ -52,7 +52,7 @@ export default function TierCard({ tier, icon: Icon, title, desc, mainServices, 
       )}
 
       {isFeatured && (
-        <div className="mt-5 rounded-xl border border-[#c1c1c1]/20 bg-[#c1c1c1]/[0.05] p-3 flex items-center gap-3">
+        <div className="mt-5 rounded-xl border border-[#c1c1c1]/20 bg-[#c1c1c1]/5 p-3 flex items-center gap-3">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#c1c1c1]/15 text-[#c1c1c1]">
             <CheckIcon />
           </div>

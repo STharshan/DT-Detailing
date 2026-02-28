@@ -9,8 +9,8 @@ export default function AddOnCard({ Icon, name, desc }) {
       onClick={() => setOpen(!open)}
       className={`group flex w-full items-start gap-4 rounded-xl border px-5 py-4 text-left transition-all duration-300 ${
         open
-          ? "border-[#c1c1c1]/50 bg-[#c1c1c1]/[0.08]"
-          : "border-white/10 bg-white/[0.03] hover:border-[#c1c1c1]/25 hover:bg-white/[0.05]"
+          ? "border-[#c1c1c1]/50 bg-[#c1c1c1]/8"
+          : "border-white/10 bg-white/3 hover:border-[#c1c1c1]/25 hover:bg-white/5"
       }`}
     >
       <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
