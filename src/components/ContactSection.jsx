@@ -72,8 +72,8 @@ export default function ContactSection() {
             <p className="uppercase text-white text-sm tracking-widest mb-2">
               // Contact
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-white">
-              Get in Touch
+            <h2 className="text-4xl md:text-5xl uppercase font-semibold mb-4 text-white">
+              Get <span className='text-[#c1c1c1]'>in Touch</span>
             </h2>
             <p className="text-[#555555] max-w-md leading-relaxed">
               No delays, no vague replies — we respond within 24 hours to

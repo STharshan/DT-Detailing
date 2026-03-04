@@ -1,4 +1,3 @@
-
 export default function About() {
   const images = [
     '/1.webp', '/2.webp', '/3.webp', '/4.webp',
@@ -16,11 +15,12 @@ export default function About() {
   const EASING = 'linear'
 
   return (
-    <section id="about" className="py-20 bg-black text-white">
+    <section id="about" className="py-20 bg-black text-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Text */}
-          <div>
+          
+          {/* Left: Text & Stats */}
+          <div className="z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               ABOUT{' '}
               <span className="linear-text">
@@ -29,7 +29,7 @@ export default function About() {
             </h2>
 
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-             At DT Details , we are passionate about keeping your vehicle looking its absolute best. Our team specialises in professional car detailing and paint protection services designed to enhance, protect, and maintain your vehicle’s finish.
+              At DT Details, we are passionate about keeping your vehicle looking its absolute best. Our team specialises in professional car detailing and paint protection services designed to enhance, protect, and maintain your vehicle’s finish.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
               We offer a full range of detailing solutions tailored to your car’s condition and your expectations, including maintenance cleaning, deep cleaning, paint enhancement, and long-lasting ceramic coating packages.
@@ -38,26 +38,26 @@ export default function About() {
               With our attention to detail, premium products, and customer-focused approach, you can trust DT Detailing to deliver outstanding results every time.
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mb-8">
+            {/* Stats Grid - Fixed Display */}
+            <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 mt-8 border-t border-white/10 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold linear-text">500+</div>
-                <div className="text-gray-400 text-sm">Vehicles Detailed</div>
+                <div className="text-2xl md:text-3xl font-bold linear-text">100+</div>
+                <div className="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mt-1">Vehicles Detailed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold linear-text">5+</div>
-                <div className="text-gray-400 text-sm">Years Experience</div>
+                <div className="text-2xl md:text-3xl font-bold linear-text">5+</div>
+                <div className="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mt-1">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold linear-text">99%</div>
-                <div className="text-gray-400 text-sm">Client Satisfaction</div>
+                <div className="text-2xl md:text-3xl font-bold linear-text">100%</div>
+                <div className="text-gray-400 text-[10px] md:text-xs uppercase tracking-widest mt-1">Satisfaction</div>
               </div>
             </div>
 
             <button
               type="button"
               onClick={scrollToContact}
-              className="bg-[#656565] text-white hover:opacity-90 transition px-6 py-3 rounded-md font-semibold"
+              className="bg-[#656565] text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-3 rounded-md font-bold uppercase tracking-wider text-sm"
             >
               Contact Us
             </button>
@@ -65,11 +65,11 @@ export default function About() {
 
           {/* Right: Auto-scroll gallery */}
           <div
-            className="relative overflow-hidden rounded-2xl shadow-lg group"
+            className="relative overflow-hidden rounded-2xl shadow-2xl group border border-white/5"
             style={{ '--gap': `${gapPx}px` }}
           >
             <div
-              className="relative h-80 md:h-96 lg:h-104"
+              className="relative h-80 md:h-96 lg:h-125"
               style={{ margin: '0 calc(var(--gap) * -1)' }}
             >
               <div
@@ -86,14 +86,12 @@ export default function About() {
                     className="w-full flex-[0_0_100%] h-full"
                     style={{ boxSizing: 'border-box', padding: '0 var(--gap)' }}
                   >
-                    <div className="h-full w-full overflow-hidden rounded-xl bg-black">
+                    <div className="h-full w-full overflow-hidden rounded-xl bg-zinc-900">
                       <img
                         src={src}
-                        alt={`Workshop ${i + 1}`}
-                        className="block h-full w-full object-contain"
+                        alt={`Gallery ${i + 1}`}
+                        className="block h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         loading="lazy"
-                        decoding="async"
-                        draggable={false}
                       />
                     </div>
                   </div>
@@ -101,6 +99,7 @@ export default function About() {
               </div>
             </div>
 
+            {/* Edge Fades */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-linear-to-r from-black to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-linear-to-l from-black to-transparent" />
 
@@ -117,14 +116,19 @@ export default function About() {
         </div>
       </div>
 
-      {/* FIX for iPhone linear text */}
+      {/* CSS Fixes for Linear Text & Gradients */}
       <style jsx global>{`
         .linear-text {
-          background: linear-linear(to right, #00E5FF, #ffffff, #FF2B2B);
+          background: linear-gradient(to right, #c1c1c1);
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
           -webkit-text-fill-color: transparent;
+          display: inline-block;
+          /* Fallback for very old browsers */
+          @supports not (background-clip: text) {
+            color: #ffffff;
+          }
         }
       `}</style>
     </section>

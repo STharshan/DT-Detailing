@@ -121,12 +121,20 @@ const Footer = () => {
                 </span>
 
                 <a
-                  href="https://maps.app.goo.gl/kfStkAFShe8erTGR6"
+                  href="https://maps.app.goo.gl/Bauax47BXho1K1nr7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  nottignham 30 mile radius
+                  Sheffield 
+                </a>
+                 <a
+                  href="https://maps.app.goo.gl/3johvhMMMiSnawSu7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                   Doncaster 
                 </a>
               </li>
               <li className="flex flex-col">

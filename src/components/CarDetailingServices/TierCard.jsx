@@ -6,7 +6,7 @@ export default function TierCard({ tier, icon: Icon, title, desc, mainServices, 
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className={`relative flex flex-col rounded-2xl border p-6 lg:p-8 ${
+    <div className={`relative flex flex-col rounded-2xl border p-6 lg:p-8 h-full ${
       isFeatured
         ? "border-[#c1c1c1]/40 bg-[#c1c1c1]/3 shadow-[0_0_50px_-15px_rgba(193,193,193,0.18)]"
         : "border-white/10 bg-white/3"
@@ -36,15 +36,18 @@ export default function TierCard({ tier, icon: Icon, title, desc, mainServices, 
         {mainServices.length + (extraServices?.length ?? 0)} services included
       </span>
 
-      <ul className="flex flex-1 flex-col">
-        {mainServices.map((s, i) => <ServiceItem key={i} text={s} />)}
-        {showMore && extraServices?.map((s, i) => <ServiceItem key={i} text={s} />)}
-      </ul>
+      {/* ↓ FIX 1: flex-1 + overflow-y-auto keeps list inside the fixed card height */}
+      <div className="flex-1 overflow-y-auto min-h-0">
+        <ul className="flex flex-col">
+          {mainServices.map((s, i) => <ServiceItem key={i} text={s} />)}
+          {showMore && extraServices?.map((s, i) => <ServiceItem key={i} text={s} />)}
+        </ul>
+      </div>
 
       {extraServices?.length > 0 && (
         <button
           onClick={() => setShowMore(!showMore)}
-          className="mt-2 flex items-center gap-1.5 self-start rounded-lg px-2 py-1.5 text-xs font-medium text-[#c1c1c1] hover:bg-white/5 transition-colors"
+          className="mt-2 flex items-center gap-1.5 self-start rounded-lg px-2  text-xs font-medium text-[#c1c1c1] hover:bg-white/5 transition-colors"
         >
           <span>{showMore ? "Show less" : `Show ${extraServices.length} more`}</span>
           <ChevronDown open={showMore} />

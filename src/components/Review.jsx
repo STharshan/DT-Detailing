@@ -1,72 +1,191 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS CSS
+import "aos/dist/aos.css";
 
-export default function ReviewsSection() {
-  const reviews = [
-    {
-      text: `Car needed a refresh , Dom took care of it for me! Doms service was 10/10! His service makes it easy and comfortable while still being professional.
-              His focus on detail is second to none and id highly recommend him and will be using him for the foreseeable!`,
-      author: "Che Brown",
-    },
-    {
-      text: `Had my car in with Dom for a clean inside and out , came out stunning looks better than when i bought the car honestly . Had the ceramic coating to protect the paintwork can’t recommend him enough he puts your mind at ease with his attention to detail .`,
-      author: "Conner Pearson",
-    },
-    {
-      text: `very professional and did an incredible job on the car. made it look better than new. amazing service and will 100% be booking in again.`,
-      author: "Danny Sutton",
-    },
-  ];
+const testimonials = [
+  {
+    name: "Reiss Turton",
+    role: "Client",
+    text: "I took my car to Dom, he spent hours on it and the results were absolutely fantastic! I definitely recommend him to anyone wanting to give their car a proper freshen up."
+  },
+  {
+    name: "Conner Pearson",
+    role: "Client",
+    text: "Had my car cleaned inside and out by Dom and it came out stunning — looks better than when I bought it. The ceramic coating to protect the paintwork was worth it. His attention to detail really puts your mind at ease. Highly recommended!"
+  },
+  {
+    name: "Che Brown",
+    role: "Client",
+    text: "My car needed a refresh and Dom took care of it perfectly. His service was 10/10 — professional, comfortable, and easy to deal with. His focus on detail is second to none. I highly recommend him and will definitely be using him again."
+  },
+  {
+    name: "Zak Parkinson",
+    role: "Client",
+    text: "Couldn’t recommend Dom enough. Top quality valet service, especially removing stubborn pet hair. Excellent customer service and I couldn’t be happier with the result. Would definitely use again."
+  },
+  {
+    name: "Danny Sutton",
+    role: "Client",
+    text: "Very professional and did an incredible job on the car. He made it look better than new. Amazing service and I will 100% be booking again."
+  },
+  {
+    name: "Millie Briggs",
+    role: "Client",
+    text: "I hadn’t had my car cleaned since I bought it five months ago. After Dom valeted it, it looked like a brand new car — even better than the day I bought it. Couldn’t recommend him enough!"
+  },
+  {
+    name: "Colette Watkinson",
+    role: "Client",
+    text: "I would highly recommend DT Details. He made my car look new again and the customer service was amazing."
+  },
+  {
+    name: "Trudy Duke",
+    role: "Client",
+    text: "Dom came to my house to clean my motorhome which hadn’t been cleaned for months. He arrived on time and worked non-stop all day. The results were fantastic and all previous water marks were gone. Would definitely recommend his detailing services."
+  },
+  {
+    name: "Emily Lynock",
+    role: "Client",
+    text: "Amazing work! Extremely happy with the results and would definitely recommend to friends and family."
+  },
+  {
+    name: "Ian Blackledge",
+    role: "Client",
+    text: "Excellent service from a very polite and well-mannered young man. Dom spent nearly six hours detailing my car and brought it back to showroom condition. I would highly recommend his services."
+  }
+];
 
-  // Initialize AOS when the component mounts
+export default function Testimonials() {
+  const scrollRef = useRef(null);
+
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
+      duration: 800,
       once: true,
+      offset: 100,
     });
+
+    const timeout = setTimeout(() => {
+      const container = scrollRef.current;
+      if (container && container.children.length > 0) {
+        const firstCard = container.children[0];
+        const scrollPosition =
+          firstCard.offsetLeft -
+          (container.offsetWidth / 2 - firstCard.offsetWidth / 2);
+
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 300);
+
+    return () => clearTimeout(timeout);
   }, []);
 
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    if (container) {
+      const scrollAmount = container.offsetWidth;
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section id="testimonial" className="py-10 bg-black px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            What Our Customers Say
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Don't just take our word for it — see what our satisfied customers have to say
+    <section
+      id="testimonial"
+      className="py-16 bg-black text-white relative"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="text-gray-400 font-semibold tracking-widest uppercase text-lg">
+            Our Testimonials
           </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mt-2">
+            What people say about <br /> our company
+          </h2>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
+        {/* Left Button */}
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-700 transition z-20 group"
+        >
+          <FaChevronLeft
+            className="transition-transform duration-300 group-hover:-translate-x-1 text-white"
+            size={18}
+          />
+        </button>
+
+        {/* Right Button */}
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/30 p-3 rounded-full shadow-lg hover:bg-white/40 transition z-20 group"
+        >
+          <FaChevronRight
+            className="transition-transform duration-300 group-hover:translate-x-1 text-white"
+            size={18}
+          />
+        </button>
+
+        {/* Scroll Container */}
+        <div
+          ref={scrollRef}
+          className="flex space-x-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 py-8"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-[#c1c1c1] rounded-lg p-6 shadow-sm hover:shadow-md hover:z-30 transition-all duration-300 active:bg-[#162236] active:shadow-lg hover:scale-105 active:scale-100"
-              data-aos="fade-up" // AOS animation on scroll
-              data-aos-delay={index * 200} // Delay based on the index for staggered animation
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="shrink-0 snap-center w-[85vw] sm:w-[45vw] lg:w-[30%] bg-white/30 border border-gray-800 rounded-2xl shadow-xl hover:shadow-gray-700 transition"
             >
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 text-yellow-400 fill-current"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+              <div className="pt-6 px-6 pb-6">
 
-              <p className="text-gray-900 mb-4">"{review.text}"</p>
-              <p className="text-gray-900 font-semibold">- {review.author}</p>
+                {/* Profile */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-gray-600 p-1 bg-black shrink-0">
+                    <img
+                      src="logo.png"
+                      alt={testimonial.name}
+                      className="w-full h-full rounded-full object-top"
+                    />
+                  </div>
+
+                  <div className="flex-1 bg-white/20 py-3 px-4 rounded-lg min-w-0">
+                    <h3 className="text-lg font-bold text-white truncate">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-black text-sm">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stars */}
+                <div className="flex gap-1 mb-4 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-lg">★</span>
+                  ))}
+                </div>
+
+                {/* Text */}
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  {testimonial.text}
+                </p>
+
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
