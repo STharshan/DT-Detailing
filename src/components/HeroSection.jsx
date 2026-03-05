@@ -6,19 +6,18 @@ import "aos/dist/aos.css";
 
 const HeroSection = () => {
   useEffect(() => {
-    // Standard initialization of AOS for scroll animations
     AOS.init({ duration: 1000, once: true });
   }, []);
 
   const socialLinks = [
     {
-      icon: <FaInstagram className="text-lg" />,
+      icon: <FaInstagram className="text-xl" />,
       label: "Instagram",
       href: "https://www.instagram.com/dt_details_",
       hover: "group-hover:text-pink-600",
     },
     {
-      icon: <FaTiktok className="text-lg" />,
+      icon: <FaTiktok className="text-xl" />,
       label: "TikTok",
       href: "https://www.tiktok.com/@dt_details_",
       hover: "group-hover:text-black",
@@ -26,7 +25,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden w-full h-screen">
+    <section className="relative overflow-hidden w-full h-[120vh] flex items-center justify-center">
       {/* ── Background Video ── */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
         <video
@@ -42,10 +41,10 @@ const HeroSection = () => {
       </div>
 
       {/* ── Dark Overlay ── */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/50 z-10" />
 
-      {/* ── Vertical Social Sidebar ── */}
-      <div className="absolute left-6 top-0 h-full z-20 flex flex-col items-center justify-center">
+      {/* ── Vertical Social Sidebar — hidden on mobile ── */}
+      <div className="hidden sm:flex absolute left-6 top-0 h-full z-20 flex-col items-center justify-center">
         {socialLinks.map(({ icon, label, href, hover }) => (
           <a
             key={label}
@@ -60,13 +59,9 @@ const HeroSection = () => {
             >
               {icon}
             </div>
-
             <span
-              className={`hidden sm:block text-[12px] font-semibold tracking-[0.2em] uppercase  text-white transition-colors duration-300 whitespace-nowrap ${hover}`}
-              style={{
-                writingMode: "vertical-rl",
-                transform: "rotate(180deg)",
-              }}
+              className={`text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-colors duration-300 whitespace-nowrap ${hover}`}
+              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
             >
               {label}
             </span>
@@ -74,11 +69,32 @@ const HeroSection = () => {
         ))}
       </div>
 
+      {/* ── Horizontal Social Bar — mobile only ── */}
+      <div className="sm:hidden absolute bottom-6 left-0 right-0 z-20 flex items-center justify-center gap-6">
+        {socialLinks.map(({ icon, label, href, hover }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className={`group flex items-center gap-2 text-white transition-colors duration-300 ${hover}`}
+          >
+            <div className="w-9 h-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm">
+              {icon}
+            </div>
+            <span className="text-[11px] font-semibold tracking-widest uppercase">
+              {label}
+            </span>
+          </a>
+        ))}
+      </div>
+
       {/* ── Main Content ── */}
-      <div className="container mx-auto px-4 text-center relative z-20 flex flex-col items-center justify-center h-full">
+      <div className="container mx-auto px-6 text-center relative z-20 flex flex-col items-center justify-center h-full">
         {/* Heading */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl pt-25 font-bold mb-6 text-white max-w-4xl"
+          className="text-3xl sm:text-5xl md:pt-30 md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white max-w-4xl leading-tight"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
@@ -87,7 +103,7 @@ const HeroSection = () => {
 
         {/* Subheading */}
         <p
-          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-white/85 mb-8 sm:mb-10 max-w-xl mx-auto leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="300"
           data-aos-duration="1200"
@@ -97,14 +113,16 @@ const HeroSection = () => {
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-sm sm:max-w-none"
+          data-aos="fade-up"
+          data-aos-delay="600"
+          data-aos-duration="1500"
+        >
           <a
             href="#services"
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-bold rounded-lg transition-all duration-300 hover:scale-105"
+            className="group inline-flex items-center justify-center gap-3 px-7 py-3  text-white font-bold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             style={{ backgroundColor: "#656565" }}
-            data-aos="fade-up"
-            data-aos-delay="600"
-            data-aos-duration="1500"
           >
             <span>View Our Services</span>
             <FiArrowRight className="text-xl transition-transform duration-300 group-hover:translate-x-2" />
@@ -112,10 +130,7 @@ const HeroSection = () => {
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold rounded-lg transition-all duration-300 hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="600"
-            data-aos-duration="1500"
+            className="inline-flex items-center justify-center gap-3 px-7 py-3 border-2 border-white bg-transparent text-white hover:bg-white hover:text-black font-bold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
           >
             Contact Us
           </a>
