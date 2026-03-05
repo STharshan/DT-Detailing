@@ -1,29 +1,45 @@
 import { useState } from "react";
 
 const compareRows = [
-  { f: "Hand wash & dry", t1: true,  t2: true,  t3: true  },
-  { f: "Vacuum interior",  t1: true,  t2: true,  t3: false },
-  { f: "Leather conditioning", t1: true, t2: true, t3: false },
-  { f: "Paint decontamination", t1: false, t2: true, t3: true },
-  { f: "Clay bar treatment", t1: false, t2: true, t3: true  },
-  { f: "Machine polish",   t1: false, t2: true,  t3: true  },
-  { f: "Ceramic coating",  t1: false, t2: false, t3: true  },
-  { f: "Engine bay clean", t1: false, t2: true,  t3: false },
-  { f: "Odour elimination",t1: true,  t2: true,  t3: false },
-  { f: "Tyre dressing",    t1: false, t2: true,  t3: true  },
+  // Interior Services
+  { f: "Door Panels, Dash & Console Deep Clean", t1: true, t2: true, t3: false },
+  { f: "Steam Cleaning (Cup Holders, Vents, Crevices)", t1: true, t2: true, t3: false },
+  { f: "Fabric Seat Shampoo & Extraction", t1: true, t2: true, t3: false },
+  { f: "Leather Seat Deep Clean", t1: true, t2: true, t3: false },
+  { f: "Interior Plastics Conditioned", t1: true, t2: true, t3: false },
+
+  { f: "Foam Bath & Pre-Treat", t1: false, t2: true, t3: false },
+  { f: "2 Bucket Wash", t1: false, t2: true, t3: false },
+  { f: "Iron Removal Treatment", t1: false, t2: true, t3: false },
+  { f: "Tar / Glue Removal", t1: false, t2: true, t3: false},
+  { f: "Ceramic Sealant", t1: false, t2: true, t3: false },
+  { f: "Wheels Deep Cleaned", t1: false, t2: true, t3: true },
+  { f: "Tire Dressing", t1: false, t2: true, t3: false },
+  { f: "Air Blower & Towel Dry", t1: false, t2: true, t3: false },
+  { f: "Windows Cleaned", t1: false, t2: true, t3: false },
+  { f: "Door & Trunk Jambs Deep Cleaned", t1: false, t2: true, t3: false },
+  { f: "Paint Decontamination + Clay Bar", t1: false, t2: false, t3: true },
+  { f: "Wheel Wells Cleaned", t1: false, t2: false, t3: true },
+  { f: "Tires Cleaned & Conditioned", t1: false, t2: false, t3: true },
+  { f: "Trim Conditioned & Sealed", t1: false, t2: false, t3: true },
+  { f: "Paint Enhancement (Swirl Removal)", t1: false, t2: false, t3: true },
+  { f: "IPA Wipe Down", t1: false, t2: false, t3: true },
+  { f: "1 Year Ceramic Coating", t1: false, t2: false, t3: true },
+  { f: "3 Year Ceramic Coating", t1: false, t2: false, t3: true },
+  { f: "7 Year Ceramic Coating", t1: false, t2: false, t3: true },
 ];
 
 const TIERS = [
-  { key: "t1", label: "Full Interior Reset",   highlight: false },
-  { key: "t2", label: "Showroom Full Detail",  highlight: true  },
-  { key: "t3", label: "Paint Enhancement",     highlight: false },
+  { key: "t1", label: "Full Interior Reset", highlight: false },
+  { key: "t2", label: "Showroom Full Detail", highlight: true },
+  { key: "t3", label: "Paint Enhancement", highlight: false },
 ];
 
 function Check() {
   return (
     <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#c1c1c1]/15">
       <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
-        <path d="M1 4L4 7.5L10 1" stroke="#c1c1c1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M1 4L4 7.5L10 1" stroke="#c1c1c1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );
@@ -33,7 +49,7 @@ function Dash() {
   return (
     <span className="inline-flex h-5 w-5 items-center justify-center">
       <svg width="10" height="2" viewBox="0 0 10 2" fill="none">
-        <path d="M1 1H9" stroke="rgba(255,255,255,0.15)" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M1 1H9" stroke="rgba(255,255,255,0.15)" strokeWidth="1.8" strokeLinecap="round" />
       </svg>
     </span>
   );
@@ -44,11 +60,10 @@ export default function CompareTable() {
 
   return (
     <div
-      style={{ fontFamily: "'DM Sans', sans-serif", background: "#0d0d0d", minHeight: "100vh", padding: "2rem 1rem" }}
+      style={{ background: "#0d0d0d", minHeight: "100vh", padding: "2rem 1rem" }}
     >
-      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
 
-      <div style={{ maxWidth: 860, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1000, margin: "0 auto" }}>
         {/* Heading */}
         <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
           <p style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", color: "#fff", margin: 0, letterSpacing: "-0.02em" }}>
