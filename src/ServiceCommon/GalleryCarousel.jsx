@@ -100,7 +100,7 @@ const SingleTransformation = ({ data }) => {
                 </div>
 
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                  {activeItem.title || "Maintenance Clean"}
+                  {data?.title || "Maintenance Clean"}
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed mb-10">
