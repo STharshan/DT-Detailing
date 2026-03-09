@@ -1,13 +1,11 @@
 import { useState } from "react";
 
 const compareRows = [
-  // Interior Services
   { f: "Door Panels, Dash & Console Deep Clean", t1: true, t2: true, t3: false },
   { f: "Steam Cleaning (Cup Holders, Vents, Crevices)", t1: true, t2: true, t3: false },
   { f: "Fabric Seat Shampoo & Extraction", t1: true, t2: true, t3: false },
   { f: "Leather Seat Deep Clean", t1: true, t2: true, t3: false },
   { f: "Interior Plastics Conditioned", t1: true, t2: true, t3: false },
-
   { f: "Foam Bath & Pre-Treat", t1: false, t2: true, t3: false },
   { f: "2 Bucket Wash", t1: false, t2: true, t3: false },
   { f: "Iron Removal Treatment", t1: false, t2: true, t3: false },
@@ -27,6 +25,12 @@ const compareRows = [
   { f: "1 Year Ceramic Coating", t1: false, t2: false, t3: true },
   { f: "3 Year Ceramic Coating", t1: false, t2: false, t3: true },
   { f: "7 Year Ceramic Coating", t1: false, t2: false, t3: true },
+];
+
+const sections = [
+  { label: "INTERIOR SERVICES", keys: ["Door Panels, Dash & Console Deep Clean","Steam Cleaning (Cup Holders, Vents, Crevices)","Fabric Seat Shampoo & Extraction","Leather Seat Deep Clean","Interior Plastics Conditioned"] },
+  { label: "EXTERIOR SERVICES", keys: ["Foam Bath & Pre-Treat","2 Bucket Wash","Iron Removal Treatment","Tar / Glue Removal","Ceramic Sealant","Wheels Deep Cleaned","Tire Dressing","Air Blower & Towel Dry","Windows Cleaned","Door & Trunk Jambs Deep Cleaned"] },
+  { label: "PAINT SERVICES", keys: ["Paint Decontamination + Clay Bar","Wheel Wells Cleaned","Tires Cleaned & Conditioned","Trim Conditioned & Sealed","Paint Enhancement (Swirl Removal)","IPA Wipe Down","1 Year Ceramic Coating","3 Year Ceramic Coating","7 Year Ceramic Coating"] },
 ];
 
 const TIERS = [
@@ -56,17 +60,31 @@ function Dash() {
 }
 
 export default function CompareTable() {
-  const [activeTab, setActiveTab] = useState(1); // mobile tab index
+  const [activeTab, setActiveTab] = useState(1);
+  const [expandedKey, setExpandedKey] = useState(null);
+
+  const handleToggle = (key) => {
+    setExpandedKey(prev => prev === key ? null : key);
+  };
+
+  const rowByFeature = Object.fromEntries(compareRows.map(r => [r.f, r]));
 
   return (
-    <div
-      style={{ background: "#0d0d0d", minHeight: "100vh", padding: "2rem 1rem" }}
-    >
+    <div style={{ background: "#0d0d0d", minHeight: "100vh", padding: "2rem 1rem" }}>
+      <style>{`
+        .cmp-desktop { display: none; }
+        .cmp-mobile  { display: block; }
+        @media (min-width: 680px) {
+          .cmp-desktop { display: block; }
+          .cmp-mobile  { display: none; }
+        }
+        .feature-row:hover { background: rgba(255,255,255,0.025) !important; }
+      `}</style>
 
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
         {/* Heading */}
         <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
-          <p style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", color: "#fff", margin: 0, letterSpacing: "-0.02em" }}>
+          <p style={{ fontSize: "clamp(1.5rem, 4vw, 2.2rem)", color: "#fff", margin: 0, letterSpacing: "-0.02em" }}>
             Compare Packages
           </p>
           <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.35)", marginTop: "0.4rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -74,25 +92,7 @@ export default function CompareTable() {
           </p>
         </div>
 
-        {/* ── DESKTOP TABLE ── */}
-        <div style={{ display: "none" }} className="desktop-table">
-          {/* shown via media-query workaround below */}
-        </div>
-
-        {/* Unified responsive layout using CSS grid trick */}
-        <style>{`
-          .cmp-desktop { display: none; }
-          .cmp-mobile  { display: block; }
-          @media (min-width: 680px) {
-            .cmp-desktop { display: block; }
-            .cmp-mobile  { display: none; }
-          }
-          .tier-tab { transition: color 0.2s, border-color 0.2s; }
-          .feature-row { transition: background 0.15s; }
-          .feature-row:hover { background: rgba(255,255,255,0.025) !important; }
-        `}</style>
-
-        {/* ── DESKTOP ── */}
+        {/* ── DESKTOP (unchanged) ── */}
         <div className="cmp-desktop" style={{
           borderRadius: 16,
           border: "1px solid rgba(255,255,255,0.08)",
@@ -144,32 +144,39 @@ export default function CompareTable() {
           </table>
         </div>
 
-        {/* ── MOBILE TABS ── */}
+        {/* ── MOBILE (Quoti-style) ── */}
         <div className="cmp-mobile">
-          {/* Tab pills */}
+          {/* Tier tabs */}
           <div style={{
-            display: "flex", gap: 6, marginBottom: "0.75rem",
-            background: "rgba(255,255,255,0.04)", borderRadius: 12,
-            padding: 4, border: "1px solid rgba(255,255,255,0.06)",
+            display: "flex",
+            border: "1px solid rgba(255,255,255,0.15)",
+            borderRadius: 14,
+            overflow: "hidden",
+            background: "rgba(255,255,255,0.03)",
+            marginBottom: 16,
           }}>
             {TIERS.map((t, i) => (
               <button
                 key={t.key}
-                className="tier-tab"
                 onClick={() => setActiveTab(i)}
                 style={{
-                  flex: 1, padding: "8px 4px",
-                  fontSize: "0.6rem", fontWeight: 600,
-                  letterSpacing: "0.07em", textTransform: "uppercase",
-                  borderRadius: 9, border: "none", cursor: "pointer",
-                  transition: "all 0.2s",
+                  flex: 1,
+                  padding: "13px 4px",
+                  fontWeight: 700,
+                  fontSize: "0.62rem",
+                  letterSpacing: "0.07em",
+                  textTransform: "uppercase",
+                  border: "none",
+                  borderRight: i < TIERS.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none",
+                  cursor: "pointer",
                   background: activeTab === i
-                    ? (t.highlight ? "rgba(193,193,193,0.18)" : "rgba(255,255,255,0.08)")
+                    ? (t.highlight ? "rgba(193,193,193,0.18)" : "rgba(255,255,255,0.1)")
                     : "transparent",
                   color: activeTab === i
-                    ? (t.highlight ? "#c1c1c1" : "rgba(255,255,255,0.8)")
+                    ? (t.highlight ? "#c1c1c1" : "rgba(255,255,255,0.85)")
                     : "rgba(255,255,255,0.3)",
-                  boxShadow: activeTab === i ? "0 1px 6px rgba(0,0,0,0.3)" : "none",
+                  transition: "all 0.2s",
+                  lineHeight: 1.3,
                 }}
               >
                 {t.label}
@@ -177,37 +184,90 @@ export default function CompareTable() {
             ))}
           </div>
 
-          {/* Active card */}
-          {TIERS.map((t, i) => (
-            activeTab === i && (
-              <div key={t.key} style={{
-                borderRadius: 14,
-                border: t.highlight ? "1px solid rgba(193,193,193,0.22)" : "1px solid rgba(255,255,255,0.08)",
-                background: t.highlight ? "rgba(193,193,193,0.03)" : "rgba(255,255,255,0.015)",
-                overflow: "hidden",
-              }}>
-                {compareRows.map((row, ri) => (
-                  <div key={ri} className="feature-row" style={{
-                    display: "flex", alignItems: "center", justifyContent: "space-between",
-                    padding: "12px 18px",
-                    borderBottom: ri < compareRows.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
-                    background: ri % 2 === 0 ? "rgba(255,255,255,0.008)" : "transparent",
-                  }}>
-                    <span style={{
-                      fontSize: "0.83rem",
-                      color: row[t.key] ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.25)",
-                    }}>
-                      {row.f}
-                    </span>
-                    {row[t.key] ? <Check /> : <Dash />}
+          {/* Sections with expandable rows */}
+          {sections.map((section) => (
+            <div key={section.label} style={{ marginBottom: 4 }}>
+
+              {/* Rows */}
+              {section.keys.map((key) => {
+                const row = rowByFeature[key];
+                const isOpen = expandedKey === key;
+                const activeTier = TIERS[activeTab];
+                const included = row[activeTier.key];
+
+                return (
+                  <div key={key} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                    {/* Row */}
+                    <div
+                      className="feature-row"
+                      onClick={() => handleToggle(key)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "13px 16px",
+                        cursor: "pointer",
+                        background: isOpen ? "rgba(255,255,255,0.03)" : "transparent",
+                        userSelect: "none",
+                      }}
+                    >
+                      <span style={{
+                        fontSize: "0.83rem",
+                        color: included ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.25)",
+                        flex: 1,
+                        paddingRight: 10,
+                      }}>
+                        {row.f}
+                      </span>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                        <svg
+                          width="12" height="12" viewBox="0 0 14 14" fill="none"
+                          style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s", flexShrink: 0 }}
+                        >
+                          <path d="M2 5L7 10L12 5" stroke="rgba(255,255,255,0.3)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Expanded: all 3 tiers */}
+                    {isOpen && (
+                      <div style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        padding: "10px 16px 16px",
+                        background: "rgba(255,255,255,0.02)",
+                      }}>
+                        {TIERS.map((t) => (
+                          <div key={t.key} style={{
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: 6,
+                          }}>
+                            <span style={{
+                              fontSize: "0.52rem",
+                              letterSpacing: "0.07em",
+                              textTransform: "uppercase",
+                              color: t.highlight ? "rgba(193,193,193,0.5)" : "rgba(255,255,255,0.25)",
+                              textAlign: "center",
+                              lineHeight: 1.3,
+                            }}>
+                              {t.label}
+                            </span>
+                            {row[t.key] ? <Check /> : <Dash />}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                ))}
-              </div>
-            )
+                );
+              })}
+            </div>
           ))}
 
           {/* Dot indicators */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 6, marginTop: "0.75rem" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: 6, marginTop: "1rem" }}>
             {TIERS.map((_, i) => (
               <button key={i} onClick={() => setActiveTab(i)} style={{
                 width: activeTab === i ? 18 : 6, height: 6,
