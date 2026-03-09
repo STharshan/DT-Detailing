@@ -153,9 +153,9 @@ export default function Testimonials() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-gray-600 p-1 bg-black shrink-0">
                     <img
-                      src="logo.png"
+                      src="r.png"
                       alt={testimonial.name}
-                      className="w-full h-full rounded-full object-top"
+                      className="w-14 -mt-1 h-full mx-auto object-center"
                     />
                   </div>
 
