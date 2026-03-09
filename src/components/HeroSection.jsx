@@ -15,12 +15,14 @@ const HeroSection = () => {
       label: "Instagram",
       href: "https://www.instagram.com/dt_details_",
       hover: "group-hover:text-pink-600",
+     active: "group-active:text-pink-600",
     },
     {
       icon: <FaTiktok className="text-xl" />,
       label: "TikTok",
       href: "https://www.tiktok.com/@dt_details_",
       hover: "group-hover:text-black",
+      active: "group-active:text-black",
     },
   ];
 
@@ -70,20 +72,25 @@ const HeroSection = () => {
       </div>
 
       {/* ── Horizontal Social Bar — mobile only ── */}
-      <div className="sm:hidden absolute bottom-6 left-0 right-0 z-20 flex items-center justify-center gap-6">
-        {socialLinks.map(({ icon, label, href, hover }) => (
+      <div className="absolute z-30 
+                      bottom-8 left-0 right-0 flex flex-row justify-center gap-8 
+                      sm:bottom-auto sm:left-8 sm:top-0 sm:h-full sm:flex-col sm:w-auto">
+        {socialLinks.map(({ icon, label, href, active }) => (
           <a
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={label}
-            className={`group flex items-center gap-2 text-white transition-colors duration-300 ${hover}`}
+            className="group flex flex-row sm:flex-col items-center gap-3 sm:gap-0 sm:mb-8 last:mb-0 transition-transform hover:scale-110"
           >
-            <div className="w-9 h-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm">
+            <div className={` w-9 h-9 lex items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm text-white transition-colors duration-300 ${active} flex items-center justify-center w-10 h-10`}>
               {icon}
             </div>
-            <span className="text-[11px] font-semibold tracking-widest uppercase">
+
+            <span
+              className={`text-[10px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-300 ${active}
+                         sm:[writing-mode:vertical-rl] sm:rotate-180`}
+            >
               {label}
             </span>
           </a>
