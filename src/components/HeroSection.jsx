@@ -15,7 +15,7 @@ const HeroSection = () => {
       label: "Instagram",
       href: "https://www.instagram.com/dt_details_",
       hover: "group-hover:text-pink-600",
-     active: "group-active:text-pink-600",
+      active: "group-active:text-pink-600",
     },
     {
       icon: <FaTiktok className="text-xl" />,
@@ -36,6 +36,8 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          poster="/fall.png"
+          onError={(e) => (e.currentTarget.style.display = "none")}
         >
           <source src="hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
