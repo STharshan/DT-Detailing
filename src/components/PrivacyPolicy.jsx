@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
                     <ul className="list-disc ml-6 text-white">
                         <li>Contract – to provide a quote, arrange services, or fulfill an agreement with you</li>
                         <li>Consent – when you give us permission to contact you for specific purposes</li>
-                        <li>Legitimate interests – to respond to inquiries and manage our business effectively</li>
+                        <li>Legitimate interests – to respond to Enquiries and manage our business effectively</li>
                         <li>Legal obligation – where we must comply with the law</li>
                     </ul>
                 </section>
@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
                         We use your personal data to:
                     </p>
                     <ul className="list-disc ml-6 text-white">
-                        <li>Respond to inquiries and provide quotes</li>
+                        <li>Respond to Enquiries and provide quotes</li>
                         <li>Communicate with you about your project</li>
                         <li>Maintain business records and comply with legal requirements</li>
                     </ul>

@@ -442,7 +442,7 @@ export const serviceWorkflowData = {
                 "Reduced maintenance and easier washing"
             ],
             outro: "We deliver premium ceramic coating solutions with professional standards and attention to detail.",
-            image: "8.webp",
+            image: "ceramic coating service.mp4",
             imageAlt: "Ceramic coating work"
         },
 

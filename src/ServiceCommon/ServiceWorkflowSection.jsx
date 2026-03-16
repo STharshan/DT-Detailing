@@ -124,11 +124,23 @@ const ServiceWorkflowSection = ({ data }) => {
                             <p className="text-[#DDDDDD] text-lg leading-relaxed">{data.benefits.outro}</p>
 
                             <div className="rounded-3xl overflow-hidden shadow-2xl mt-10">
-                                <img
-                                    src={data.benefits.image}
-                                    alt={data.benefits.imageAlt}
-                                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-                                />
+                                {/* Logic: If the URL ends in .mp4, .webm, or .ogg, show video. Otherwise, show image. */}
+                                {data.benefits.image.match(/\.(mp4|webm|ogg)$/i) ? (
+                                    <video
+                                        src={data.benefits.image}
+                                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                ) : (
+                                    <img
+                                        src={data.benefits.image}
+                                        alt={data.benefits.imageAlt}
+                                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                                    />
+                                )}
                             </div>
                         </section>
                     </div>

@@ -5,25 +5,21 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "How quickly can you arrive?",
-      answer: "Most emergency calls are handled within the hour.",
+      question: "How quickly do I reply to enquiries?",
+      answer: "I typically respond to all enquiries within 24 hours.",
     },
     {
-      question: "Do you come to homes and workplaces?",
-      answer: "Yes — I come to any safe location, including roadside.",
-    },
-    {
-      question: "Do you charge extra for call-outs?",
-      answer: "No hidden fees. Call-out is included in my pricing.",
+      question: "Do you need access to water and electricity?",
+      answer: "Yes, access to both water and electricity",
     },
     {
       question: "What areas do you cover?",
-      answer: "Liverpool, Merseyside, Wirral, St Helen’s, Warrington, and more.",
+      answer: "I cover Sheffield, Rotherham, Barnsley, Chesterfield, and Doncaster.",
     },
     {
       question: "Can you fix issues on the spot?",
       answer: "Yes — most services are completed during the visit.",
-    },
+    }
   ];
 
   return (
@@ -39,11 +35,10 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`transition-all ${
-                openIndex === index
+              className={`transition-all ${openIndex === index
                   ? "bg-[#656565]/10"
                   : "hover:bg-[#656565]/20 hover:shadow-[0_0_10px_#65656511]"
-              }`}
+                }`}
             >
               <button
                 onClick={() =>
@@ -62,20 +57,18 @@ export default function FAQSection() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className={`w-5 h-5 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180 text-[#656565]" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? "rotate-180 text-[#656565]" : ""
+                    }`}
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index
                     ? "max-h-40 opacity-100 px-6 pb-5"
                     : "max-h-0 opacity-0 px-6"
-                }`}
+                  }`}
               >
                 <p className="text-[#c1c1c1] text-base leading-relaxed">
                   {faq.answer}

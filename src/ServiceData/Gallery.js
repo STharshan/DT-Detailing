@@ -42,8 +42,8 @@ const Gallery = {
       {
         id: 1,
         type: "video",
-        beforeVideo: "/e.mp4",
-        afterVideo: "/f.mp4",
+        beforeVideo: "/Paint_before.mp4",
+        afterVideo: "/Paint_After.mp4",
       },
     ]
   },
@@ -58,8 +58,8 @@ const Gallery = {
       {
         id: 1,
         type: "video",
-        beforeVideo: "/g.mp4",
-        afterVideo: "/h.mp4",
+        beforeVideo: "/Ceramic_before.mp4",
+        afterVideo: "/Ceramic_after.mp4",
       },
     ],
   }

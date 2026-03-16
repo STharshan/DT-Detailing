@@ -71,32 +71,6 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* ── Horizontal Social Bar — mobile only ── */}
-      <div className="absolute z-30 
-                      bottom-8 left-0 right-0 flex flex-row justify-center gap-8 
-                      sm:bottom-auto sm:left-8 sm:top-0 sm:h-full sm:flex-col sm:w-auto">
-        {socialLinks.map(({ icon, label, href, active }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-row sm:flex-col items-center gap-3 sm:gap-0 sm:mb-8 last:mb-0 transition-transform hover:scale-110"
-          >
-            <div className={` w-9 h-9 lex items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-sm text-white transition-colors duration-300 ${active} flex items-center justify-center w-10 h-10`}>
-              {icon}
-            </div>
-
-            <span
-              className={`text-[10px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-300 ${active}
-                         sm:[writing-mode:vertical-rl] sm:rotate-180`}
-            >
-              {label}
-            </span>
-          </a>
-        ))}
-      </div>
-
       {/* ── Main Content ── */}
       <div className="container mx-auto px-6 text-center relative z-20 flex flex-col items-center justify-center h-full">
         {/* Heading */}
