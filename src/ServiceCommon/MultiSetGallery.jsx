@@ -22,10 +22,10 @@ function TransformationCard({ item, index }) {
   }, [isAfter, item]);
 
   return (
-    <div className="bg-gray-50 rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 flex flex-col h-full">
+    <div className="bg-gray-50 rounded-4xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col h-full">
 
       {/* MEDIA SECTION */}
-      <div className="relative w-full h-[300px] md:h-[350px] overflow-hidden bg-black">
+      <div className="relative w-full h-75 md:h-88 overflow-hidden bg-black">
 
         {/* BEFORE */}
         <div
