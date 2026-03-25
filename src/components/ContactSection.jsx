@@ -70,7 +70,7 @@ export default function ContactSection() {
         <div className="space-y-8">
           <div>
             <p className="uppercase text-white text-sm tracking-widest mb-2">
-              // Contact
+              Contact
             </p>
             <h2 className="text-4xl md:text-5xl uppercase font-semibold mb-4 text-white">
               Get <span className='text-[#c1c1c1]'>in Touch</span>
