@@ -64,7 +64,7 @@ export default function GalleryCoverflow() {
         </Swiper>
 
         {/* NAVIGATION BUTTONS */}
-        <div className=" flex justify-center gap-10 -mt-10 md:absolute md:top-1/2 md:-translate-y-1/2 md:justify-between md:w-full md:px-2 md:mt-0 z-50 pointer-events-none">
+        <div className="lg:hidden flex justify-center gap-10 md:absolute md:top-1/2 md:-translate-y-1/2 md:justify-between md:w-full md:px-2 md:mt-0 z-50 pointer-events-none">
           
           <button
             ref={(node) => setPrevEl(node)} // Set the state when the element renders
