@@ -103,34 +103,12 @@ export default function About() {
             <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-linear-to-r from-black to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-linear-to-l from-black to-transparent" />
 
-            <style jsx>{`
-              .group:hover div[style*='aboutscroll'] {
-                animation-play-state: paused;
-              }
-              @keyframes aboutscroll {
-                from { transform: translateX(0); }
-                to { transform: translateX(calc(-100% * var(--n))); }
-              }
-            `}</style>
           </div>
         </div>
       </div>
 
       {/* CSS Fixes for Linear Text & Gradients */}
-      <style jsx global>{`
-        .linear-text {
-          background: linear-gradient(to right, #c1c1c1);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
-          /* Fallback for very old browsers */
-          @supports not (background-clip: text) {
-            color: #ffffff;
-          }
-        }
-      `}</style>
+     
     </section>
   )
 }

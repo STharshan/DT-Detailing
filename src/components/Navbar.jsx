@@ -4,6 +4,22 @@ import { FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+const SocialLinks = ({ links, className = "" }) => (
+  <div className={`flex items-center gap-3 ${className}`}>
+    {links.map((item) => (
+      <a
+        key={item.id}
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#2c2c2c] p-2 rounded-full"
+      >
+        {item.icon}
+      </a>
+    ))}
+  </div>
+);
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
@@ -14,14 +30,15 @@ const Navbar = () => {
   const servicesRef = useRef(null);
   const locationsRef = useRef(null);
 
+  // FIX: Removed dead 'href' from dropdown items and standardized 'isDropdown'
   const navLinks = [
     { name: "Home", href: "/#" },
     { name: "About", href: "/#about" },
-    { name: "Services", href: "/services" },
+    { name: "Services", isDropdown: true, type: 'services' }, 
     { name: "Testimonial", href: "/#testimonial" },
     { name: "Gallery", href: "/#gallery" },
     { name: "Contact", href: "/#contact" },
-    { name: "Location", href: "#", isDropdown: true },
+    { name: "Location", isDropdown: true, type: 'location' },
   ];
 
   const servicesLinks = [
@@ -38,29 +55,27 @@ const Navbar = () => {
 
   const socialLinks = [
     {
+      id: "insta",
       icon: <FiInstagram className="text-gray-400 hover:text-pink-500 transition duration-300" />,
       href: "https://www.instagram.com/dt_details_",
     },
     {
+      id: "tiktok",
       icon: <FaTiktok className="text-gray-400 hover:text-white transition duration-300" />,
       href: "https://www.tiktok.com/@dt_details_",
     },
   ];
 
-  // Close dropdown if click outside
+  // FIX: Separate conditions to prevent short-circuiting
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(event.target) &&
-        locationsRef.current &&
-        !locationsRef.current.contains(event.target)
-      ) {
+      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
         setDesktopServicesOpen(false);
+      }
+      if (locationsRef.current && !locationsRef.current.contains(event.target)) {
         setDesktopLocationsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -69,45 +84,40 @@ const Navbar = () => {
     "bg-[repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a_4px,#111_4px,#111_8px)] border border-white/10 rounded-lg shadow-md";
 
   return (
-    <nav className={`fixed w-full z-9999 ${carbonFiberStyle}`}>
+    <nav className={`fixed w-full z-50 ${carbonFiberStyle}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between h-18 px-6 md:px-12 lg:px-20 py-3">
 
-        {/* Logo */}
-        <img
-          src="/logo.png"
-          alt="UK Logo"
-          className="w-35 h-25 object-contain"
-          loading="lazy"
-        />
+        <img src="/logo.png" alt="DT Details logo" className="w-35 h-25 object-contain" loading="lazy" />
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((item) => {
-
-            // LOCATION DROPDOWN
             if (item.isDropdown) {
+              const isServices = item.type === 'services';
+              const isOpen = isServices ? desktopServicesOpen : desktopLocationsOpen;
+              const setOpen = isServices ? setDesktopServicesOpen : setDesktopLocationsOpen;
+              const setOtherClose = isServices ? setDesktopLocationsOpen : setDesktopServicesOpen;
+              const ref = isServices ? servicesRef : locationsRef;
+              const links = isServices ? servicesLinks : locationsLinks;
+
               return (
-                <div key={item.name} ref={locationsRef} className="relative">
+                <div key={item.name} ref={ref} className="relative">
                   <button
-                    onClick={() => {
-                      setDesktopLocationsOpen(!desktopLocationsOpen);
-                      setDesktopServicesOpen(false);
-                    }}
+                    onClick={() => { setOpen(!isOpen); setOtherClose(false); }}
                     className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
                   >
-                    {item.name} <FiChevronDown />
+                    {item.name} <FiChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
-
-                  {desktopLocationsOpen && (
+                  {isOpen && (
                     <div className={`absolute left-0 mt-2 w-48 z-50 p-2 ${carbonFiberStyle}`}>
-                      {locationsLinks.map((location) => (
-                        <Link
-                          key={location.name}
-                          to={location.href}
-                          onClick={() => setDesktopLocationsOpen(false)}
-                          className="block px-4 py-2 text-gray-200 hover:text-[#656565] rounded-md"
+                      {links.map((link) => (
+                        <Link 
+                          key={link.href} 
+                          to={link.href} 
+                          onClick={() => setOpen(false)} 
+                          className="block px-4 py-2 text-gray-200 hover:text-[#656565] rounded-md transition-colors"
                         >
-                          {location.name}
+                          {link.name}
                         </Link>
                       ))}
                     </div>
@@ -115,158 +125,61 @@ const Navbar = () => {
                 </div>
               );
             }
-
-            // SERVICES DROPDOWN
-            if (item.name === "Services") {
-              return (
-                <div key={item.name} ref={servicesRef} className="relative">
-                  <button
-                    onClick={() => {
-                      setDesktopServicesOpen(!desktopServicesOpen);
-                      setDesktopLocationsOpen(false);
-                    }}
-                    className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
-                  >
-                    {item.name} <FiChevronDown />
-                  </button>
-
-                  {desktopServicesOpen && (
-                    <div className={`absolute left-0 mt-2 w-48 z-50 p-2 ${carbonFiberStyle}`}>
-                      {servicesLinks.map((service) => (
-                        <Link
-                          key={service.name}
-                          to={service.href}
-                          onClick={() => setDesktopServicesOpen(false)}
-                          className="block px-4 py-2 text-gray-200 hover:text-[#656565] rounded-md"
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            }
-
-            // NORMAL LINKS
             return (
-              <HashLink
-                key={item.name}
-                smooth
-                to={item.href}
-                className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors"
-              >
+              <HashLink key={item.name} smooth to={item.href} className="flex items-center gap-1 font-semibold text-white hover:text-[#656565] transition-colors">
                 {item.name}
               </HashLink>
             );
           })}
         </div>
 
-        {/* Desktop Social */}
-        <div className="hidden lg:flex items-center gap-3">
-          {socialLinks.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#2c2c2c] p-2 rounded-full"
-            >
-              {item.icon}
-            </a>
-          ))}
-        </div>
+        <SocialLinks links={socialLinks} className="hidden lg:flex" />
 
-        {/* Mobile Right */}
         <div className="flex items-center gap-2 lg:hidden">
-          {socialLinks.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#2c2c2c] p-2 rounded-full"
-            >
-              {item.icon}
-            </a>
-          ))}
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="bg-[#656565] p-2 rounded-full text-xl"
-          >
+          <SocialLinks links={socialLinks} />
+          <button onClick={() => setMenuOpen(!menuOpen)} className="bg-[#656565] p-2 rounded-full text-xl text-white">
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Content */}
       {menuOpen && (
         <div className={`lg:hidden mt-2 p-4 space-y-3 ${carbonFiberStyle}`}>
           {navLinks.map((item) => {
-
             if (item.isDropdown) {
+              const isServices = item.type === 'services';
+              const isOpen = isServices ? mobileServicesOpen : mobileLocationsOpen;
+              const setOpen = isServices ? setMobileServicesOpen : setMobileLocationsOpen;
+              const links = isServices ? servicesLinks : locationsLinks;
+
               return (
                 <div key={item.name} className="space-y-2">
-                  <button
-                    onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)}
+                  <button 
+                    onClick={() => setOpen(!isOpen)} 
                     className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-[#656565] font-semibold border-b border-[#656565]/20"
                   >
-                    {item.name} <FiChevronDown />
+                    {item.name} <FiChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
-
-                  {mobileLocationsOpen &&
-                    locationsLinks.map((location) => (
-                      <Link
-                        key={location.name}
-                        to={location.href}
-                        onClick={() => {
-                          setMenuOpen(false);
-                          setMobileLocationsOpen(false);
-                        }}
-                        className="block pl-6 py-2 text-gray-200 hover:text-[#656565]"
-                      >
-                        {location.name}
-                      </Link>
-                    ))}
+                  {isOpen && links.map((link) => (
+                    <Link 
+                      key={link.href} 
+                      to={link.href} 
+                      onClick={() => { setMenuOpen(false); setOpen(false); }} 
+                      className="block pl-6 py-2 text-gray-200 hover:text-[#656565]"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
                 </div>
               );
             }
-
-            if (item.name === "Services") {
-              return (
-                <div key={item.name} className="space-y-2">
-                  <button
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="w-full flex justify-between items-center py-2 text-gray-200 hover:text-[#656565] font-semibold border-b border-[#656565]/20"
-                  >
-                    {item.name} <FiChevronDown />
-                  </button>
-
-                  {mobileServicesOpen &&
-                    servicesLinks.map((service) => (
-                      <Link
-                        key={service.name}
-                        to={service.href}
-                        onClick={() => {
-                          setMenuOpen(false);
-                          setMobileServicesOpen(false);
-                        }}
-                        className="block pl-6 py-2 text-gray-200 hover:text-[#656565]"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                </div>
-              );
-            }
-
             return (
-              <HashLink
-                key={item.name}
-                smooth
-                to={item.href}
-                onClick={() => setMenuOpen(false)}
+              <HashLink 
+                key={item.name} 
+                smooth 
+                to={item.href} 
+                onClick={() => setMenuOpen(false)} 
                 className="block py-2 text-gray-200 hover:text-[#656565] border-b border-[#656565]/20"
               >
                 {item.name}

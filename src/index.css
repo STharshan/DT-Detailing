@@ -12,3 +12,27 @@ html, body {
   width: 100%;
   scroll-behavior: smooth;
 }
+
+
+@keyframes aboutscroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% * var(--n))); }
+}
+
+.animate-about-scroll {
+  animation: aboutscroll var(--dur) linear infinite;
+}
+
+.animate-about-scroll:hover {
+  animation-play-state: paused;
+}
+
+
+.linear-text {
+  background: linear-gradient(to right, #c1c1c1, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}

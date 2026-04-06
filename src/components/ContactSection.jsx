@@ -116,7 +116,7 @@ export default function ContactSection() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   {businessHours.map((item, idx) => (
-                    <div key={idx} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
+                    <div key={item.day} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
                       <span className="text-black text-[10px] uppercase tracking-wider font-bold">{item.day}</span>
                       <span className={`font-medium ${item.time === "Closed" ? "text-[#B62025]" : "text-black"}`}>{item.time}</span>
                     </div>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                   NUMBER
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   name="number"
                   placeholder="Enter your phone number"
                   value={formData.number}
@@ -197,7 +197,7 @@ export default function ContactSection() {
                   </option>
 
                   {services.map((service, index) => (
-                    <option key={index} value={service}>
+                    <option key={service} value={service}>
                       {service}
                     </option>
                   ))}
