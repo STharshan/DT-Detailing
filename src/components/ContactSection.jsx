@@ -32,16 +32,19 @@ export default function ContactSection() {
     e.preventDefault();
 
     const phoneNumber = "447474461322";
-
     const text = `*Website Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.number}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(text);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
-    try {
-      window.open(whatsappURL, "_blank");
+   
+    const newWindow = window.open(whatsappURL, "_blank");
+
+   
+    if (newWindow) {
       setStatusMessage("Opening WhatsApp...");
       setStatusType("success");
+      
       setFormData({
         name: "",
         email: "",
@@ -49,8 +52,9 @@ export default function ContactSection() {
         service: "",
         message: "",
       });
-    } catch (error) {
-      setStatusMessage("Failed to open WhatsApp. Please try again.");
+    } else {
+     
+      setStatusMessage("Popup blocked! Please allow popups to open WhatsApp.");
       setStatusType("error");
     }
 
@@ -228,8 +232,8 @@ export default function ContactSection() {
               {statusMessage && (
                 <p
                   className={`text-sm font-medium ${statusType === "success"
-                      ? "text-green-600"
-                      : "text-[#B62025]"
+                      ? "text-green-500"
+                      : "text-[#FF4B4B]"
                     } text-center`}
                 >
                   {statusMessage}
