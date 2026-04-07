@@ -84,7 +84,19 @@ const Navbar = () => {
     "bg-[repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a_4px,#111_4px,#111_8px)] border border-white/10 rounded-lg shadow-md";
 
   return (
+    
     <nav className={`fixed w-full z-50 ${carbonFiberStyle}`}>
+      {/* Add this right before the closing </nav> tag */}
+<div style={{ display: 'none' }} aria-hidden="true">
+  <a href="/maintenance-clean">Maintenance Clean</a>
+  <a href="/deep-clean">Deep Clean</a>
+  <a href="/paint-enhancement">Paint Enhancement</a>
+  <a href="/ceramic-coating">Ceramic Coating</a>
+  <a href="/sheffield">Sheffield</a>
+  <a href="/doncaster">Doncaster</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+</div>
       <div className="max-w-7xl mx-auto flex items-center justify-between h-18 px-6 md:px-12 lg:px-20 py-3">
 
         <img src="/logo.png" alt="DT Details logo" className="w-35 h-25 object-contain" loading="lazy" />
