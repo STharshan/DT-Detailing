@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const testimonials = [
   {
@@ -60,11 +59,7 @@ export default function Testimonials() {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
+ 
 
     const timeout = setTimeout(() => {
       const container = scrollRef.current;
@@ -142,7 +137,7 @@ export default function Testimonials() {
         >
           {testimonials.map((testimonial, index) => (
             <div
-              key={index}
+             key={testimonial.name}
               data-aos="fade-up"
               data-aos-delay={index * 100}
               className="shrink-0 snap-center w-[85vw] sm:w-[45vw] lg:w-[30%] bg-white/30 border border-gray-800 rounded-2xl shadow-xl hover:shadow-gray-700 transition"
@@ -154,7 +149,7 @@ export default function Testimonials() {
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-gray-600 p-1 bg-black shrink-0">
                     <img
                       src="r.png"
-                      alt={testimonial.name}
+                      alt="dt logo"
                       className="w-14 -mt-1 h-full mx-auto object-center"
                     />
                   </div>

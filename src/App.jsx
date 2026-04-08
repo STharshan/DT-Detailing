@@ -15,7 +15,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsConditions from "./components/Term";
 import ScrollToHash from "./components/ScrollHash";
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
-
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
@@ -32,6 +32,7 @@ function App() {
         <Route path="/doncaster" element={<Doncaster />} />
         <Route path="/terms" element={<TermsConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <a

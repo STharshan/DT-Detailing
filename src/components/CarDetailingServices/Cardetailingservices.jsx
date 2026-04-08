@@ -38,14 +38,12 @@ function getCardProps(offset, total, W) {
   const isMobile = W < 640;
   const isTablet = W < 1024;
 
-  // 1. Active Card Width
   const activeW = isMobile 
     ? W * 0.92 
     : isTablet 
       ? Math.min(W * 0.55, 420) 
       : Math.min(W * 0.40, 440);
 
-  // 2. Side Card Width (Smaller than active)
   const sideW = isMobile 
     ? W * 0.75 
     : isTablet 
@@ -55,12 +53,10 @@ function getCardProps(offset, total, W) {
   const gap = isMobile ? 12 : 24;
   const sideX = activeW / 2 + gap + sideW / 2;
 
-  // Active Center Card
   if (offset === 0) {
     return { width: activeW, x: 0, opacity: 1, scale: 1, zIndex: 30, isActive: true };
   }
 
-  // Side Cards (Next and Previous)
   const isNext = offset === 1;
   const isPrev = offset === total - 1;
 
@@ -68,7 +64,6 @@ function getCardProps(offset, total, W) {
     return {
       width: sideW,
       x: isNext ? sideX : -sideX,
-      // Hide side cards on mobile to prevent layout break/horizontal scroll
       opacity: isMobile ? 0 : 0.45, 
       scale: 0.9,
       zIndex: 20,
@@ -76,7 +71,6 @@ function getCardProps(offset, total, W) {
     };
   }
 
-  // Hidden cards
   return { width: sideW, x: 0, opacity: 0, scale: 0.8, zIndex: 0, isActive: false };
 }
 
@@ -90,7 +84,6 @@ export default function CarDetailingServices() {
   const trackRef = useRef(null);
   const activeCardRef = useRef(null);
 
-  // Measure Container Width
   useEffect(() => {
     if (!trackRef.current) return;
     const measure = () => setContainerW(trackRef.current.offsetWidth);
@@ -99,11 +92,10 @@ export default function CarDetailingServices() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // Measure Active Card Height dynamically
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        setCarouselH(entry.contentRect.height + 40); // 40px buffer for shadows/padding
+        setCarouselH(entry.contentRect.height + 40);
       }
     });
 
@@ -114,15 +106,14 @@ export default function CarDetailingServices() {
     return () => observer.disconnect();
   }, [activeIndex]);
 
-  // Touch Handlers for Mobile Swiping
   const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
   const handleTouchEnd = (e) => {
     if (!touchStart) return;
     const touchEnd = e.changedTouches[0].clientX;
     const diff = touchStart - touchEnd;
 
-    if (diff > 50) setActiveIndex((p) => (p + 1) % TIERS.length); // Swipe Left -> Next
-    if (diff < -50) setActiveIndex((p) => (p - 1 + TIERS.length) % TIERS.length); // Swipe Right -> Prev
+    if (diff > 50) setActiveIndex((p) => (p + 1) % TIERS.length);
+    if (diff < -50) setActiveIndex((p) => (p - 1 + TIERS.length) % TIERS.length);
     setTouchStart(null);
   };
 
@@ -160,7 +151,24 @@ export default function CarDetailingServices() {
                 <div
                   key={i}
                   ref={p.isActive ? activeCardRef : null}
+                  
+                  /* --- ACCESSIBILITY FIX START --- */
+                  role="button"              // 1. Mark as button for screen readers
+                  tabIndex={p.isActive ? -1 : 0} // 2. Allow keyboard 'Tab' focus on side cards
+                  aria-label={`View ${t.title} details`} // 3. Describe the action
+                  aria-current={p.isActive ? "true" : "false"} // 4. Indicate current selection
+                  
                   onClick={() => !p.isActive && setActiveIndex(i)}
+                  
+                  // 5. Allow keyboard 'Enter' or 'Space' to trigger the click
+                  onKeyDown={(e) => {
+                    if (!p.isActive && (e.key === "Enter" || e.key === " ")) {
+                      e.preventDefault();
+                      setActiveIndex(i);
+                    }
+                  }}
+                  /* --- ACCESSIBILITY FIX END --- */
+
                   style={{
                     position: "absolute",
                     top: 0,
@@ -173,7 +181,8 @@ export default function CarDetailingServices() {
                     pointerEvents: p.opacity === 0 ? "none" : "auto",
                     filter: p.isActive ? "none" : "brightness(0.4) grayscale(0.5)",
                   }}
-                  className="will-change-transform"
+                  // Added focus-visible ring for keyboard users navigation
+                  className="will-change-transform outline-none focus-visible:ring-2 focus-visible:ring-[#c1c1c1] rounded-3xl"
                 >
                   <TierCard
                     tier={t.tier}
@@ -188,29 +197,34 @@ export default function CarDetailingServices() {
             })}
           </div>
 
-          {/* Navigation Arrows - Hidden on small mobile */}
+          {/* ARROW NAVIGATION FIX: Added aria-labels and hidden text for screen readers */}
           <button
             onClick={() => setActiveIndex((p) => (p - 1 + TIERS.length) % TIERS.length)}
+            aria-label="Previous service"
             className="absolute left-0 top-1/2 z-50 -translate-y-1/2 hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 sm:flex"
           >
-            <span className="text-2xl">‹</span>
+            <span className="text-2xl" aria-hidden="true">‹</span>
           </button>
 
           <button
             onClick={() => setActiveIndex((p) => (p + 1) % TIERS.length)}
+            aria-label="Next service"
             className="absolute right-0 top-1/2 z-50 -translate-y-1/2 hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md transition-all hover:bg-white/10 sm:flex"
           >
-            <span className="text-2xl">›</span>
+            <span className="text-2xl" aria-hidden="true">›</span>
           </button>
         </div>
 
-        {/* PAGINATION DOTS */}
-        <div className="mt-8 flex justify-center gap-3">
-          {TIERS.map((_, i) => (
+        {/* PAGINATION DOTS FIX: Added proper tablist roles and labels */}
+        <div className="mt-8 flex justify-center gap-3" role="tablist">
+          {TIERS.map((t, i) => (
             <button
               key={i}
+              role="tab"
+              aria-selected={i === activeIndex}
+              aria-label={`Go to ${t.title}`}
               onClick={() => setActiveIndex(i)}
-              className="h-1 rounded-full transition-all duration-500"
+              className="h-1 rounded-full transition-all duration-500 outline-none focus-visible:ring-1 focus-visible:ring-[#c1c1c1]"
               style={{
                 width: i === activeIndex ? 32 : 8,
                 background: i === activeIndex ? "#c1c1c1" : "rgba(193,193,193,0.15)",
@@ -219,11 +233,12 @@ export default function CarDetailingServices() {
           ))}
         </div>
 
-        {/* COMPARISON TOGGLE */}
+        {/* COMPARISON TOGGLE FIX: Added aria-expanded state */}
         <div className="mt-16 flex flex-col items-center">
           <button
             onClick={() => setCompare(!compare)}
-            className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/3 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white/60 transition-all hover:border-[#c1c1c1]/40 hover:text-white"
+            aria-expanded={compare}
+            className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/3 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white/60 transition-all hover:border-[#c1c1c1]/40 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#c1c1c1]"
           >
             Compare All Services
             <div className={`transition-transform duration-300 ${compare ? "rotate-180" : ""}`}>

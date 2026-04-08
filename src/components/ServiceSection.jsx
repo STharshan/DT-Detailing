@@ -1,6 +1,41 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
+const cards = [
+  {
+    number: '01',
+    title: 'Ceramic Coating Protection',
+    description: 'Protect your vehicle’s paintwork with our professional ceramic coating packages. Designed to deliver long-lasting gloss, hydrophobic protection, and resistance against environmental damage.',
+    image: 'ceramic.jpeg',
+    tags: 'Ceramic Coating • Gloss Protection',
+    href: '/ceramic-coating',
+  },
+  {
+    number: '02',
+    title: 'Paint Enhancement',
+    description: 'Restore depth, clarity, and gloss to your vehicle’s paintwork with our professional paint enhancement service. Designed to remove light scratches and swirl marks.',
+    image: 'Paint.jpeg',
+    tags: 'Paint Correction • Swirl Removal',
+    href: '/paint-enhancement',
+  },
+  {
+    number: '03',
+    title: 'Deep Clean',
+    description: 'Restore your vehicle to a pristine condition with our professional deep cleaning service. Comprehensive interior and exterior clean to remove embedded dirt.',
+    image: 'Deep.jpeg',
+    tags: 'Interior & Exterior • Detailing',
+    href: '/deep-clean',
+  },
+  {
+    number: '04',
+    title: 'Maintenance Clean',
+    description: 'Keep your vehicle fresh, clean, and protected with our professional maintenance cleaning service. Designed for regularly maintained vehicles.',
+    image: 'clean.jpeg',
+    tags: 'Regular Cleaning • Surface Protection',
+    href: '/maintenance-clean',
+  },
+];
+
 const ServiceSection = () => {
   const [activeCard, setActiveCard] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -9,46 +44,26 @@ const ServiceSection = () => {
   const TIMER_DURATION = 5000;
   const VISIBLE_COUNT = 3;
 
-  const cards = [
-    {
-      number: '01',
-      title: 'Ceramic Coating Protection',
-      description: 'Protect your vehicle’s paintwork with our professional ceramic coating packages. Designed to deliver long-lasting gloss, hydrophobic protection, and resistance against environmental damage.',
-      image: 'ceramic.jpeg',
-      tags: 'Ceramic Coating • Gloss Protection',
-      href: '/ceramic-coating',
-    },
-    {
-      number: '02',
-      title: 'Paint Enhancement',
-      description: 'Restore depth, clarity, and gloss to your vehicle’s paintwork with our professional paint enhancement service. Designed to remove light scratches and swirl marks.',
-      image: 'Paint.jpeg',
-      tags: 'Paint Correction • Swirl Removal',
-      href: '/paint-enhancement',
-    },
-    {
-      number: '03',
-      title: 'Deep Clean',
-      description: 'Restore your vehicle to a pristine condition with our professional deep cleaning service. Comprehensive interior and exterior clean to remove embedded dirt.',
-      image: 'Deep.jpeg',
-      tags: 'Interior & Exterior • Detailing',
-      href: '/deep-clean',
-    },
-    {
-      number: '04',
-      title: 'Maintenance Clean',
-      description: 'Keep your vehicle fresh, clean, and protected with our professional maintenance cleaning service. Designed for regularly maintained vehicles.',
-      image: 'clean.jpeg',
-      tags: 'Regular Cleaning • Surface Protection',
-      href: '/maintenance-clean',
-    },
-  ];
-
+  // FIX: Debounced Resize Event Listener
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
+    let timeoutId = null;
+
+    const checkMobile = () => {
+      
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobile(window.innerWidth < 768);
+      }, 250); 
+    };
+
+    // Initial check
+    setIsMobile(window.innerWidth < 768);
+
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timeoutId); // 
+    };
   }, []);
 
   useEffect(() => {
@@ -94,9 +109,8 @@ const ServiceSection = () => {
         {isMobile ? (
           /* Mobile View */
           <div className="rounded-3xl overflow-hidden relative shadow-2xl" style={{ backgroundColor: '#7E7E7E' }}>
-            {/* Progress Top Bar */}
             <div className="absolute top-0 left-0 w-full h-1.5 bg-black/20 z-20">
-              <div className="h-full bg-white transition-all duration-100 linear" style={{ width: `${progress}%` }} />
+              <div className="h-full bg-white transition-all duration-100 ease-linear" style={{ width: `${progress}%` }} />
             </div>
             <div className="p-8">
               <span className="text-5xl font-black text-white/20">{cards[activeCard].number}</span>
@@ -116,17 +130,16 @@ const ServiceSection = () => {
               const isFirst = displayIndex === 0;
               return (
                 <div
-                  key={card.originalIndex}
+                  key={card.href}
                   onClick={() => !isFirst && setActiveCard(card.originalIndex)}
                   className={`relative overflow-hidden rounded-[2.5rem] transition-all duration-700 ease-in-out border border-white/10 ${
                     isFirst ? 'flex-[2.5] cursor-default' : 'flex-1 cursor-pointer hover:brightness-110'
                   }`}
                   style={{ backgroundColor: '#7E7E7E' }}
                 >
-                  {/* SIDE PROGRESS BAR */}
                   {isFirst && (
                     <div className="absolute left-0 top-0 w-1.5 h-full bg-black/20 z-20">
-                      <div className="w-full bg-white transition-all duration-100 linear" style={{ height: `${progress}%` }} />
+                      <div className="w-full bg-white transition-all duration-100 ease-linear" style={{ height: `${progress}%` }} />
                     </div>
                   )}
 
@@ -140,7 +153,6 @@ const ServiceSection = () => {
                       </h3>
                     </div>
 
-                    {/* Active Card Content */}
                     <div className={`flex flex-col flex-1 justify-between mt-6 transition-all duration-500 ${isFirst ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                       <p className="text-white/80 leading-relaxed max-w-md">{card.description}</p>
                       
@@ -169,8 +181,6 @@ const ServiceSection = () => {
                       </div>
                     )}
                   </div>
-                  
-                  {/* Overlay for inactive cards to make them slightly darker */}
                   {!isFirst && <div className="absolute inset-0 bg-black/10 pointer-events-none" />}
                 </div>
               );
@@ -181,9 +191,9 @@ const ServiceSection = () => {
 
       {/* BOTTOM PAGINATION DOTS */}
       <div className="flex gap-3 mt-12">
-        {cards.map((_, i) => (
+        {cards.map((card, i) => (
           <button
-            key={i}
+            key={card.title}
             onClick={() => { setActiveCard(i); setProgress(0); }}
             className={`h-2 rounded-full transition-all duration-500 ${
               activeCard === i ? 'w-12 bg-white' : 'w-2 bg-zinc-700 hover:bg-zinc-500'

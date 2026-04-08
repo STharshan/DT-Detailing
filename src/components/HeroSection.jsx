@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const HeroSection = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
+ 
 
   const socialLinks = [
     {
@@ -39,7 +36,7 @@ const HeroSection = () => {
           poster="/fall.png"
           onError={(e) => (e.currentTarget.style.display = "none")}
         >
-          <source src="hero.mp4" type="video/mp4" />
+          <source src="/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

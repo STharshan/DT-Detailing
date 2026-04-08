@@ -32,16 +32,19 @@ export default function ContactSection() {
     e.preventDefault();
 
     const phoneNumber = "447474461322";
-
     const text = `*Website Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.number}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(text);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
-    try {
-      window.open(whatsappURL, "_blank");
+   
+    const newWindow = window.open(whatsappURL, "_blank");
+
+   
+    if (newWindow) {
       setStatusMessage("Opening WhatsApp...");
       setStatusType("success");
+      
       setFormData({
         name: "",
         email: "",
@@ -49,8 +52,9 @@ export default function ContactSection() {
         service: "",
         message: "",
       });
-    } catch (error) {
-      setStatusMessage("Failed to open WhatsApp. Please try again.");
+    } else {
+     
+      setStatusMessage("Popup blocked! Please allow popups to open WhatsApp.");
       setStatusType("error");
     }
 
@@ -116,7 +120,7 @@ export default function ContactSection() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   {businessHours.map((item, idx) => (
-                    <div key={idx} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
+                    <div key={item.day} className="flex flex-col border-l border-[#B9BDC1]/30 pl-3">
                       <span className="text-black text-[10px] uppercase tracking-wider font-bold">{item.day}</span>
                       <span className={`font-medium ${item.time === "Closed" ? "text-[#B62025]" : "text-black"}`}>{item.time}</span>
                     </div>
@@ -169,7 +173,7 @@ export default function ContactSection() {
                   NUMBER
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   name="number"
                   placeholder="Enter your phone number"
                   value={formData.number}
@@ -197,7 +201,7 @@ export default function ContactSection() {
                   </option>
 
                   {services.map((service, index) => (
-                    <option key={index} value={service}>
+                    <option key={service} value={service}>
                       {service}
                     </option>
                   ))}
@@ -228,8 +232,8 @@ export default function ContactSection() {
               {statusMessage && (
                 <p
                   className={`text-sm font-medium ${statusType === "success"
-                      ? "text-green-600"
-                      : "text-[#B62025]"
+                      ? "text-green-500"
+                      : "text-[#FF4B4B]"
                     } text-center`}
                 >
                   {statusMessage}
